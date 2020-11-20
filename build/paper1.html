@@ -138,6 +138,20 @@
             .MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
             .MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
         </style>
+        <style>
+            * {box-sizing: border-box;}
+            .column {
+              float: left;
+              width: 50%;
+              padding: 0px;
+            }
+            /* Clearfix (clear floats) */
+            .row::after {
+              content: "";
+              clear: both;
+              display: table;
+            }
+        </style>
     </head>
 
     <body data-new-gr-c-s-check-loaded="14.984.0" data-gr-ext-installed="">
@@ -200,12 +214,13 @@
                         <h2>Results</h2>
                         <div class="row">
                             <div class="column">
-                              <img src="https://foroughshirinabkenar.github.io/mysite/images/paper11.png" alt="Energy" style="width:100%">
+                              <img src="https://foroughshirinabkenar.github.io/mysite/images/paper11.png" alt="Energy" width="340" height="340">
                             </div>
                             <div class="column">
-                                <img src="https://foroughshirinabkenar.github.io/mysite/images/paper12.png" alt="Delay" style="width:100%">
+                                <img src="https://foroughshirinabkenar.github.io/mysite/images/paper12.png" alt="Delay" width="800" height="800">
                             </div>
                         </div>
+                        <p align="justify">Energy and delay comparison with respect to number of terminal nodes</p>
                         <h2>Conclusion</h2>
                         <p align="justify">In this paper, we aimed at minimizing both delay and energy consumption in cache-enabled Fog-IoT networks. To this end, we first proposed a distributed caching protocol to find the best destination FN for processing the incoming requests under the service delay constraint. In this way, a smart clustering mechanism was introduced based on network communication characteristics, such that the network QoS requirements are provided. The MNB algorithm was then proposed to maximize the network benefit through the caching mechanism to address the trade-off between the network energy consumption and delay. Numerical results reveal that the proposed MNB could outperform the existing methods in terms of the delay. This is because since the MNB sacrifices the network energy consumption to achieve the minimum network delay, it could not yield the minimum energy consumption.</p>
                         <footer class="page__meta"></footer>
