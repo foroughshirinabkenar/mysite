@@ -2,5 +2,6 @@ git init
 git add .
 git commit -m ‘Initial commit’
 git remote add origin https://github.com/foroughshirinabkenar/mysite.git
+git push origin master --force (if somthing is wrong wiht the command below)
 git push -u origin master
 npm run deploy
