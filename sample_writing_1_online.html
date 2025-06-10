@@ -206,23 +206,68 @@
                 <meta itemprop="description" content="About me">
                 <div class="page__inner-wrap">
                     <header>
-                        <h1 class="page__title" itemprop="headline">Smart Cluster-based Distributed Caching for Fog-IoT Networks</h1>
+                        <h1 class="page__title" itemprop="headline">Online Domain Adaptive Classification for Mobile-to-Edge Computing</h1>
                     </header>
                     <section class="page__content" itemprop="text">
                         <h2>Abstract</h2>
-                        <p align="justify">The idea of co-operative caching in a cache-enabled wireless network has gained much interest due to its services in terms of short service delay and improved transmission rate at the user end. In this paper, we consider a co-operative caching mechanism for a fog-enabled Internet of Things (IoT) Network. We propose a delay-minimizing policy for fog nodes (FNs), where the goal is to reduce the service delay for the IoT nodes, also known as terminal nodes (TNs). To this end, a novel smart clustering mechanism is proposed, aiming to efficiently assign FNs to the TNs while improving the network benefit by finding a trade-off between the delay and the network's energy consumption. We perform mathematical analysis and extensive simulations to highlight the potential gain and the proposed policy.</p>
-                        <h2>Contributions</h2>
-                        <ul>
-                            <li><p align="justify">A distributed caching protocol is proposed to provide the QoS in the cache-enabled Fog-IoT networks by choosing the best destination node to process the incoming request under the service delay constraint.</p></li>
-                            <li><p align="justify">A smart clustering mechanism is introduced to form clusters based on the channel conditions between TNs and FNs. Unlike the traditional caching methods, where caching data are sent to the CN, FNs cache the contents themselves in the proposed smart clustering mechanism.</p></li>
-                            <li><p align="justify">A new optimization model is proposed to find a trade-off between the delay and energy consumption of the network while maximizing the network benefit.</p></li>
+                        <p align="justify">A key challenge of today’s systems is the mismatch between the high computational demands of modern neural network models 
+                            for data analysis and the severely limited resources of mobile devices. Existing solutions focus on model simplification and task offloading 
+                            to compute-capable edge servers. The former often leads to performance degradation, whereas the latter requires the transfer of information-rich 
+                            signals and is subject to the impairments of wireless channels. To address these issues, a framework that establishes a novel form of collaboration 
+                            between mobile devices and edge servers is proposed herein. The core idea is to deploy lightweight models on mobile devices that are intelligently 
+                            updated to match the current, and local, distribution of the samples being observed. The framework develops the temporal patterns of the samples to 
+                            determine the optimal model update policy, as well as channel resources allocated to the mobile users. The performance of the proposed framework is 
+                            evaluated via extensive experiments with both synthetic and real-world datasets.</p>
+
+                        <h2>Motivations</h2>
+                        <ul style="margin: 0; padding-left: 20px;">
+                            <li style="margin: 0; padding: 0;">
+                                <p align="justify" style="margin: 0; padding: 0;">Offloading data to the edge server (ES) is inconvenient as it may clog a constrained communication 
+                                    channel and  misuse a powerful computational resource, whereas a simpler classifier (albeit tailored to the specific domain) would suffice for 
+                                    most of the samples.</p></li>
+                            <li style="margin: 0; padding: 0;">
+                                <p align="justify" style="margin: 0; padding: 0;">The limitations of a local classifier available at an mobile device (MD) prevent it from reaching 
+                                    high accuracy as well as performing a proper domain adaptation in the first place.</p></li>
                         </ul>
-                        <h2>Results</h2>
-                        <center><img src="https://foroughshirinabkenar.github.io/mysite/images/paper11.png" alt="Energy" class="width=100%"></center>
-                        <center><img src="https://foroughshirinabkenar.github.io/mysite/images/paper12.png" alt="Delay" class="width=100%"></center>
-                        <p align="justify">Energy and delay comparison with respect to number of terminal nodes</p>
+                        
+                        <h2>Contributions</h2>
+                        <ul style="margin: 0; padding-left: 20px;">
+                            <li style="margin: 0; padding: 0;">
+                                <p align="justify" style="margin: 0; padding: 0;">A two-tier architecture is proposed that enables adaptive online retraining by leveraging the ES and 
+                                    MDs collaboratively. ES assists MDs by training lightweight classifiers using periodically estimated distribution parameters, turning the domain 
+                                    adaptation and online learning challenges into mutually supportive tasks.</p></li>
+                            <li style="margin: 0; padding: 0;">
+                                <p align="justify" style="margin: 0; padding: 0;">Instead of relying on full data offloading, the framework minimizes raw data transmission by offloading 
+                                    only critical samples. This reduces network congestion and optimizes the use of limited communication bandwidth between MDs and the ES.</p></li>
+                            <li style="margin: 0; padding: 0;">
+                                <p align="justify" style="margin: 0; padding: 0;">The framework delivers domain-specific, low-complexity classifiers tailored to each MD’s local data 
+                                    distribution, enabling real-time adaptation in resource-constrained settings. Its effectiveness is quantified through a detailed analysis of the tradeoff 
+                                    between classification accuracy and data offloading, along with a dynamic performance assessment under domain drift conditions.</p></li>
+                        </ul>
+                        
+                        <h2>Results for Synthetic Dataset</h2>
+                        <center><img src="https://foroughshirinabkenar.github.io/mysite/images/sample_writing_1_online_synth_acc_of.png" alt="accuracy" class="width=100%"></center>
+                        <p align="justify">Accuracy: The results imply that by widening the range of the randomness for &gamma_1, the local classification domain (LCD) is more likely 
+                            to move back and forth and with a faster shift speed. This increases the inefficiency of the current model for the classification of the samples. Thus, 
+                            the model might need to be updated. However, the delay in updating the model decreases the probability of choosing the most adaptive model. 
+                            As such, more samples must be offloaded to the ES for classification.</p>
+
+                        <h2>Results for Real-world Dataset (UNITE)</h2>
+                        <center><img src="https://foroughshirinabkenar.github.io/mysite/images/sample_writing_1_online_unite_recall.png" alt="recall" class="width=100%"></center>
+                        <p align="justify">Recall: the figure shows the recall value for different scenarios without offloading samples to the ES. As seen in the figure, persistent 
+                            updating of the model leads to high recall, which decreases if less frequent updating is used. This also leads to an increase in resource usage for the system. 
+                            Furthermore, the results indicate that by increasing the shift speed, the recall decreases as well. Indeed, when the shift speed is low, the distribution of 
+                            data does not change significantly, and thus, the current model provides good accuracy to the samples. On the other hand, increasing the shift speed leads to 
+                            a momentous change in the distribution of the samples. As a result, the current model is not able to classify the samples accurately and a higher share is 
+                            required to be offloaded to the ES. Hence, as seen in Fig. 13, the offloading ratio increases.</p>
+
                         <h2>Conclusion</h2>
-                        <p align="justify">In this paper, we aimed at minimizing both delay and energy consumption in cache-enabled Fog-IoT networks. To this end, we first proposed a distributed caching protocol to find the best destination FN for processing the incoming requests under the service delay constraint. In this way, a smart clustering mechanism was introduced based on network communication characteristics, such that the network QoS requirements are provided. The MNB algorithm was then proposed to maximize the network benefit through the caching mechanism to address the trade-off between the network energy consumption and delay. Numerical results reveal that the proposed MNB could outperform the existing methods in terms of the delay. This is because since the MNB sacrifices the network energy consumption to achieve the minimum network delay, it could not yield the minimum energy consumption.</p>
+                        <p align="justify">In this paper, we proposed an online domain adaptive classification framework to perform a classification task leveraging the collaboration 
+                            between an MD and the ES in a setting in which the distribution of the observed samples drifts over time. The proposed framework determines model updates and 
+                            fine-grained offloading decisions. Simulation results implemented on both synthetic and real datasets reveal that the proposed framework can improve the accuracy 
+                            of simple classifiers deployed at MDs while reducing resource usage. According to the results obtained from experiments, it is important to frequently update the 
+                            model, possibly at every epoch, to get a satisfactory performance. However, this comes at a system cost, especially in terms of latency to receive the updated 
+                            model.</p>
                         <footer class="page__meta"></footer>
                     </section>
                 </div>
