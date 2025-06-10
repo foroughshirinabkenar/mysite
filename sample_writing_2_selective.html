@@ -9,7 +9,7 @@
         <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <!-- begin SEO -->
-        <title>Reliability Paper - Forough Shirin Abkenar</title>
+        <title>Selective Offloading Paper - Forough Shirin Abkenar</title>
         <meta property="og:locale" content="en-US">
         <meta property="og:site_name" content="Forough Shirin Abkenar">
         <meta property="og:title" content="Paper2">
@@ -210,19 +210,80 @@
                     </header>
                     <section class="page__content" itemprop="text">
                         <h2>Abstract</h2>
-                        <p align="justify">In this paper, a reliable algorithm is proposed, which aims at providing the desired reliability, avoiding the data loss due to probable failures, and guaranteeing energy consumption balancing among all fog nodes (FNs) in the fog-enabled Internet of Things (IoT) networks. To this end, first, a new optimization model is defined to find the best transmission power and the best transmission rate of each terminal node (TN) based on the channel conditions and the desired reliability of the network. Then, the best FN is assigned to each TN according to the topology potential between FNs and TNs, such that there exists an energy consumption balancing among all FNs. Simulation results reveal that the proposed algorithm improves the network performance in terms of reliability and loss ratio, while maintaining the energy consumption balancing among all FNs.</p>
-                        <h2>Contributions</h2>
-                        <ul>
-                            <li><p align="justify">Providing desired network reliability</p></li>
-                            <li><p align="justify">Avoiding data loss due to probable failures</p></li>
-                            <li><p align="justify">Guarantee an energy consumption balancing among all fog nodes in the network</p></li>
+                        <p align="justify">
+                            This paper considers a two-tier approach for the classification of user-generated data, where low-complexity decision 
+                            algorithms are available on mobile devices, and a better assessment can be performed on a shared edge server to which 
+                            the samples can be offloaded. While an overall accurate classification can be achieved by either massive offloading to 
+                            the edge server alone or performing a computationally intense domain partitioning for local evaluation, both these 
+                            solutions taken individually are excessively demanding. Importantly, the former strategy achieves higher accuracy, 
+                            yet is very bandwidth-consuming, while the latter results in lower accuracy while reducing bandwidth usage. To cope with 
+                            these challenges, the paper takes a quantitative stance to investigate the benefit of combining these two strategies, 
+                            i.e., performing most of the evaluations with a local decision over constrained domains, while at the same time 
+                            offloading to the edge server a small fraction of the samples for which the classification is expected to be less 
+                            accurate. If properly harmonized, such an approach is shown to lead to a sharp increase in classification accuracy, 
+                            with overall limited resource usage, which makes it suitable for practical implementations.
+                        </p>
+
+                        <h2>Motivations</h2>
+                        <ul style="margin: 0; padding-left: 20px;">
+                            <li style="margin: 0; padding: 0;">
+                                <p align="justify" style="margin: 0; padding: 0;">Simplification or compression of the ML models to account 
+                                    for the constraints of the mobile devices (MDs).</p></li>
+                            <li style="margin: 0; padding: 0;">
+                                <p align="justify" style="margin: 0; padding: 0;">Offloading the computing tasks to more powerful devices 
+                                    located at the network edge.</p></li>
                         </ul>
+                        
+                        <h2>Contributions</h2>
+                        <ul style="margin: 0; padding-left: 20px;">
+                            <li style="margin: 0; padding: 0;">
+                                <p align="justify" style="margin: 0; padding: 0;">A combined technique is developed for domain-constrained 
+                                    classification with proper exploitation of the edge computing architecture.</p></li>
+                            <li style="margin: 0; padding: 0;">
+                                <p align="justify" style="margin: 0; padding: 0;">The performance of using local classifiers with properly 
+                                    trained domains versus offloading to the ESs is investigated from a quantitative standpoint, and the total 
+                                    benefit that can be achieved by combining the two techniques is evaluated.</p></li>
+                            <li style="margin: 0; padding: 0;">
+                                <p align="justify" style="margin: 0; padding: 0;">The role of a proper selection of the samples to offload is 
+                                    discussed, where maximal accuracy of the classification is sought and compared with a simple random selection.
+                                </p></li>
+                            <li style="margin: 0; padding: 0;">
+                                <p align="justify" style="margin: 0; padding: 0;">The option to minimize false negative rates is investigated 
+                                    as opposed to improving the accuracy of the entire classification, which can be useful for certain specific 
+                                    applications.</p></li>
+                            <li style="margin: 0; padding: 0;">
+                                <p align="justify" style="margin: 0; padding: 0;">Importantly, the proposed domain-constrained method is different 
+                                    from existing methods in the literature, which mostly rely on a general domain of the dataset with model 
+                                    simplification. Instead, our technique focuses on local domains to build lightweight classifiers.</p></li>
+                        </ul>
+                        
                         <h2>Results</h2>
-                        <center><img src="https://foroughshirinabkenar.github.io/mysite/images/paper21.png" alt="Energy" width="500" height="500"></center>
-                        <center><img src="https://foroughshirinabkenar.github.io/mysite/images/paper22.png" alt="Delay" width="500" height="500"></center>
-                        <p align="justify">Comparison results of BEAR, EBA, and FEMTO: Loss ratio; and Energy balancing index, with respect to the number of TNs.</p>
+                        <h3>Accuracy</h3>
+                        <h4>Accuracy vs Offloading Ratio</h4>
+                        <center><img src="https://foroughshirinabkenar.github.io/mysite/images/sample_writing_2_selective_beta_nc4_accuracy.png" alt="acc_vs_beta_nc4" width="500" height="500"></center>
+                        <center><img src="https://foroughshirinabkenar.github.io/mysite/images/sample_writing_2_selective_beta_nc6_accuracy.png" alt="acc_vs_beta_nc6" width="500" height="500"></center>
+                        <center><img src="https://foroughshirinabkenar.github.io/mysite/images/sample_writing_2_selective_beta_nc8_accuracy.png" alt="acc_vs_beta_nc8" width="500" height="500"></center>
+
+                        <h4>Accuracy vs Number of Local Classification Domains (LCDs)</h4>
+                        <center><img src="https://foroughshirinabkenar.github.io/mysite/images/sample_writing_2_selective_nc_beta2_accuracy.png" alt="acc_vs_nc_beta2" width="500" height="500"></center>
+                        <center><img src="https://foroughshirinabkenar.github.io/mysite/images/sample_writing_2_selective_nc_beta5_accuracy.png" alt="acc_vs_nc_beta5" width="500" height="500"></center>
+                        
+                        <h3>Loss</h3>
+                        <center><img src="https://foroughshirinabkenar.github.io/mysite/images/sample_writing_2_selective_beta_nc4_loss.png" alt="loss_vs_beta_nc4" width="500" height="500"></center>
+                        <center><img src="https://foroughshirinabkenar.github.io/mysite/images/sample_writing_2_selective_nc_beta2_loss.png" alt="loss_vs_nc_beta2" width="500" height="500"></center>
+                        
+                        <h3>False Negative Ratio (FNR)</h3>
+                        <center><img src="https://foroughshirinabkenar.github.io/mysite/images/sample_writing_2_selective_beta_nc4_fn.png" alt="fnr_vs_beta_nc4" width="500" height="500"></center>
+                        <center><img src="https://foroughshirinabkenar.github.io/mysite/images/sample_writing_2_selective_nc_beta2_fn.png" alt="fnr_vs_nc_beta2" width="500" height="500"></center>
+                        
                         <h2>Conclusion</h2>
-                        <p align="justify">The BEAR was introduced in this paper to choose the best transmission power and the best transmission rate of each TN according to the channel conditions and the reliability of the network. Moreover, the BEAR assigned FNs to TNs, such that the energy consumption balancing among all FNs is provided. Simulation results reveal that the BEAR could provide the desired reliability and avoid data loss due to probable failures and processing limitation in the Fog-IoT network. However, providing these level of quality of service (QoS) increased both delay and energy consumption of the BEAR compared to the corresponding methods.</p>
+                        <p align="justify">A two-tier architecture was investigated for data classification in IoT scenarios, where both individual 
+                            devices and the reference ES have decision capabilities, but with different levels of accuracy. A harmonized approach 
+                            was proposed that combines offloading to the ES of the most critical data, while at the same time adopting a domain 
+                            classification on the majority of the data for local processing at the MDs. The resulting performance was analyzed and 
+                            quantitatively showed that the two proposed policies are able to complement each other, therefore leading to a near-100% 
+                            accuracy with limited offloading and a reasonable choice of the local classification domains. This validates the option 
+                            of such an architecture for efficient decision-making in data-intensive contexts.</p>
                         <footer class="page__meta"></footer>
                     </section>
                 </div>
