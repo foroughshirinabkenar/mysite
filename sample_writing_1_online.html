@@ -247,7 +247,10 @@
                         
                         <h2>Results for Synthetic Dataset</h2>
                         <center><img src="https://foroughshirinabkenar.github.io/mysite/images/sample_writing_1_online_synth_acc_of.png" alt="accuracy" class="width=100%"></center>
-                        <p align="justify">Accuracy: The results imply that by widening the range of the randomness for &gamma;<sub>1</sub>, the local classification domain (LCD) is more likely 
+                        <p align="justify"><b>Accuracy:</b> Due to variations in data domains, prediction accuracy is influenced by both the fraction of data offloaded to the edge 
+                            server (ES) and the number of local adaptation domains (LADs) used in the local online domain-constrained classification. To capture this relationship, 
+                            we define an objective function that depends on both the offloading fraction and the number of LADs.
+                            The results imply that by widening the range of the randomness for &gamma;<sub>1</sub>, the local classification domain (LCD) is more likely 
                             to move back and forth and with a faster shift speed. This increases the inefficiency of the current model for the classification of the samples. Thus, 
                             the model might need to be updated. However, the delay in updating the model decreases the probability of choosing the most adaptive model. 
                             As such, more samples must be offloaded to the ES for classification.</p>
