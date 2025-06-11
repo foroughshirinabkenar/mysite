@@ -206,28 +206,61 @@
                 <meta itemprop="description" content="About me">
                 <div class="page__inner-wrap">
                     <header>
-                        <h1 class="page__title" itemprop="headline">Transaction Throughput Maximization under Delay and Energy Constraints in Fog-IoT Networks</h1>
+                        <h1 class="page__title" itemprop="headline">WiFi Pathologies Detection using LLMs</h1>
                     </header>
                     <section class="page__content" itemprop="text">
                         <h2>Abstract</h2>
-                        <p align="justify">In this paper, we consider a Fog-IoT network, comprising multiple terminal nodes (TNs) as well as fog nodes (FNs), in which each TN first determines the proper FN to be associated with different quality of service (QoS) and quality of transmission (QoT) constraints, such as energy efficiency, processing delay, and bandwidth requirements; then, it sends its tasks to the associated FN. The main objective of this paper is to maximize the transaction throughput of FNs, i.e., the number of tasks that FNs can process, while there exists a throughput fairness as well as an energy consumption fairness among all FNs in the network. To this end, two algorithms, namely TFTRADE and QL-TRADE, are proposed. The TF-TRADE aims to ensure throughput fairness and at the same time optimize the total transaction throughput of the network. The QL-TRADE not only follows the same objective, but also tries to balance the energy consumption among all FNs. Analysis and simulation results reveal that the proposed algorithms could alleviate the network performance in terms of the transaction throughput as well as the energy consumption balance among all FNs.</p>
-                        <h2>Contributions</h2>
-                        <ul>
-                            <li><p align="justify">Proposing two algorithms, named as throughput fairness-based TRansaction throughput mAximization under Delay and Energy constraints (TF-TRADE) and Q-learning based TRADE (QL-TRADE), to:</p></li>
-                            <ul>
-                                <li><p align="justify">maximize the transaction throughput of FNs, i.e., the numner of processed tasks by FNs, under delay and bandwidth constraints</p></li>
-                                <li><p align="justify">Guarantee a throughput balancing among all FNs, which can almost provide the energy consumption fairness among FNs as well.</p></li>
-                                <li><p align="justify">QL-TRADE also applies the Q-learning mechanism to ensure the higher level of energy consumption balancing is satisfied among FNs (This fairness is remarkable when FNs are energy-constrained nodes)
-                                </p></li>
-                            </ul>
+                        <p align="justify">The encoder-only and decoder-only large language models (LLMs) are fine-tuned to detect pathologies 
+                            in IEEE 802.11 networks, commonly known as WiFi. The approach involves manually crafting prompts followed by 
+                            fine-tuning. Evaluations show that the sequential model achieves high detection accuracy using labeled data, while 
+                            the causal model performs equally well for unlabeled data.</p>
+                        
+                        <h2>Motivations</h2>
+                        <ul style="margin: 0; padding-left: 20px;">
+                            <li style="margin: 0; padding: 0;">
+                                <p align="justify" style="margin: 0; padding: 0;">The methods in the literature tailored to individual users, 
+                                    necessitating adjustments based on each user’s specific needs. However, the pathologies are common for all 
+                                    users, suggesting the potential for developing generalized approaches or models that can effectively address 
+                                    these shared issues without the need for extensive customization.</p></li>
+                            <li style="margin: 0; padding: 0;">
+                                <p align="justify" style="margin: 0; padding: 0;">The above-mentioned methods need to access comprehensive 
+                                    information of the users’ devices that rises privacy concerns. Indeed, the critical information, such as 
+                                    detailed device data and network configurations, can be divulged, especially if such information is not 
+                                    essential for resolving WiFi issues. Thus, the existing research work are vulnerable to privacy violation of 
+                                    users information.</p></li>
                         </ul>
+                        
+                        <h2>Contributions</h2>
+                        <ul style="margin: 0; padding-left: 20px;">
+                            <li style="margin: 0; padding: 0;">
+                                <p align="justify" style="margin: 0; padding: 0;">The objective is to leverage LLMs for detecting pathologies in 
+                                    WiFi connections.</p></li>
+                            <li style="margin: 0; padding: 0;">
+                                <p align="justify" style="margin: 0; padding: 0;">Given network parameters, we first apply prompt engineering to 
+                                    craft effec- tive prompts for pathology detection.</p></li>
+                            <li style="margin: 0; padding: 0;">
+                                <p align="justify" style="margin: 0; padding: 0;">To demonstrate LLMs’ efficacy in network applications, an 
+                                    encoder-only model is fine-tuned for supervised classification of pathologies.</p></li>
+                            <li style="margin: 0; padding: 0;">
+                                <p align="justify" style="margin: 0; padding: 0;">To minimize computational complexityemploy, parameter-efficient 
+                                    fine-tuning (PEFT) is employed whereby the low-rank adaptation (LoRA) is applied.</p></li>
+                            <li style="margin: 0; padding: 0;">
+                                <p align="justify" style="margin: 0; padding: 0;">The approach is extended by fine-tuning a decoder model 
+                                    for unsupervised data, ensuring robust detection across different data scenarios.</p></li>
+                        </ul>
+                        
                         <h2>Results</h2>
-                        <center><img src="https://foroughshirinabkenar.github.io/mysite/images/paper41.png" alt="Energy" class="width=100%"></center>
-                        <center><img src="https://foroughshirinabkenar.github.io/mysite/images/paper42.png" alt="Delay" class="width=100%"></center>
-                        <center><img src="https://foroughshirinabkenar.github.io/mysite/images/paper43.png" alt="Delay" class="width=100%"></center>
-                        <p align="justify">Comparison of MTT, TF-TRADE, QL-TRADE, and Random Assignment algorithms in terms of: Network throughput rate; Throughput’s fairness index of FNs; and Energy’s fairness index of FNs.</p>
+                        <center><img src="https://foroughshirinabkenar.github.io/mysite/images/sample_writin_4_distilbert.png" alt="Energy" class="width=100%"></center>
+                        <center><img src="https://foroughshirinabkenar.github.io/mysite/images/sample_writin_4_lora.png" alt="Delay" class="width=100%"></center>
+                        <center><img src="https://foroughshirinabkenar.github.io/mysite/images/sample_writin_4_gpt2.png" alt="Delay" class="width=100%"></center>
+                        <p align="justify">Performance of fine-tuned DistilBert model, LoRA-based model, and fine-tuned GPT2 model.</p>
+                        
                         <h2>Conclusion</h2>
-                        <p align="justify">Two algorithms, namely TF-TRADE and QL-TRADE, are proposed in this paper to maximize the network throughput under different QoS and QoT constraints such as network delay and bandwidth requirement. TF-TRADE provides the throughput fairness among FNs, while maximizing the total network throughput. The QL-TRADE, on the other hand, applies the Q-learning mechanism on the TNs to maximize the total network throughput while guaranteeing the throughput balancing as well as the energy consumption balancing among all FNs. Analysis show that both proposed TF-TRADE and QL-TRADE could outperform other corresponding algorithms in the literature in terms of energy consumption balance as well as throughput balance among FNs in the network. However, due to learning nature of the QL-TRADE, it shows better performance than the TF-TRADE.</p>
+                        <p align="justify">The effectiveness of LLMs was demonstrated in wireless communications for detecting WiFi pathologies. 
+                            The encoder-only and decoder-only LLMs fine-tuned for supervised and unsupervised data, respectively, using manually 
+                            crafted prompts tailored for pathology detection. Due to limited available data, the study focused on noise-driven 
+                            pathologies, though existing research highlights additional causes, i.e., signal strength, hidden terminals, and 
+                            capture effects.</p>
                         <footer class="page__meta"></footer>
                     </section>
                 </div>
