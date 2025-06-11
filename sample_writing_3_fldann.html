@@ -206,22 +206,61 @@
                 <meta itemprop="description" content="About me">
                 <div class="page__inner-wrap">
                     <header>
-                        <h1 class="page__title" itemprop="headline">EBA: Energy Balancing Algorithm for Fog-IoT Networks</h1>
+                        <h1 class="page__title" itemprop="headline">Federated Privacy-Preserving Strategy for Generalizing Soft-Failure 
+                            Localization in Multi-Carrier Optical Networks</h1>
                     </header>
                     <section class="page__content" itemprop="text">
                         <h2>Abstract</h2>
-                        <p align="justify">In this paper, we propose a new energy-aware algorithm, called energy balancing algorithm (EBA), for a threetier fog-Internet of Things (IoT) network. The EBA comprises of two optimization models to reduce the energy consumption and delay of the network, while guaranteeing the energy balancing among all fog nodes (FNs). The first optimization model, called best transmission power and transmission rate (BTPR), finds the optimal transmission power and transmission rate of terminal nodes (TNs), such that the request loss is prevented. Then, the topology potential between each TN and FN is defined in the best FN (BFN) model to find the BFN for serving the TN, while the energy balancing among all FNs is guaranteed. Simulation results reveal that the proposed EBA can reduce total energy consumption and delay of the network and yield efficient energy balancing among all FNs.</p>
-                        <h2>Contributions</h2>
-                        <ul>
-                            <li><p align="justify">Reducing network energy consumption as well as delay</p></li>
-                            <li><p align="justify">Guaranteeing energy consumption balancing among all FNs in the network</p></li>
+                        <p align="justify">In multi-carrier systems, differences in the topological characteristics of carriers lead to 
+                            variation in data distribution. Hence, each carrier operates within a unique domain represented by unlabeled 
+                            datasets with diverse distributions. Consequently, incorporating contributions from multiple carriers with distinct 
+                            domains is essential to enhance model generalization and improve localization accuracy. To cope with this challenge, a 
+                            privacy-preserving strategy (PPS) is proposed based on federated learning to localize soft failures in multi-carrier 
+                            optical networks using a self-supervised approach on unlabeled data. Evaluations conducted on data from a testbed 
+                            demonstrate the effectiveness of the proposed strategy.</p>
+
+                        <h2>Motivations</h2>
+                        <ul style="margin: 0; padding-left: 20px;">
+                            <li style="margin: 0; padding: 0;">
+                                <p align="justify" style="margin: 0; padding: 0;">Existing methods in the literature are heavily based on 
+                                    supervised failure data, which is expensive and time consuming to collect.</p></li>
+                            <li style="margin: 0; padding: 0;">
+                                <p align="justify" style="margin: 0; padding: 0;">The methods in the literature lack a generalized approach 
+                                    for localizing soft failures in varying magnitudes of the same failure type. Thus, for datasets with domains 
+                                    different from the training data, new models often require retraining to achieve high localization accuracy. 
+                                    However, this retraining process is resource intensive and time consuming.</p></li>
                         </ul>
+                        
+                        <h2>Contributions</h2>
+                        <ul style="margin: 0; padding-left: 20px;">
+                            <li style="margin: 0; padding: 0;">
+                                <p align="justify" style="margin: 0; padding: 0;">Generalize a model that can effectively localize failures of 
+                                    varying magnitudes.</p></li>
+                            <li style="margin: 0; padding: 0;">
+                                <p align="justify" style="margin: 0; padding: 0;">Deploy a self-supervised learning phase for making 
+                                    localization.</p></li>
+                            <li style="margin: 0; padding: 0;">
+                                <p align="justify" style="margin: 0; padding: 0;">Preserve privacy of carriers’ data during training phase.</p></li>
+                            <li style="margin: 0; padding: 0;">
+                                <p align="justify" style="margin: 0; padding: 0;">Privacy-Preserving Strategy (PPS) is proposed that integrates 
+                                    domain adaptation and knowledge distillation techniques to generalize the model in a federated manner, 
+                                    preserving data privacy. It also exploits high-performance unsupervised clustering models to support the 
+                                    self-supervised learning phase.</p></li>
+                        </ul>
+                        
                         <h2>Results</h2>
-                        <center><img src="https://foroughshirinabkenar.github.io/mysite/images/paper31.png" alt="Energy" width="500" height="500"></center>
-                        <center><img src="https://foroughshirinabkenar.github.io/mysite/images/paper32.png" alt="Delay" width="500" height="500"></center>
-                        <p align="justify">Comparison of energy balancing index and loss ratio for different values of <em>m</em> (amximum nuber of covered TNs by each FN)</p>
+                        <center><img src="https://foroughshirinabkenar.github.io/mysite/images/sample_writing_3_accuracy.png" alt="accuracy" width="500" height="500"></center>
+                        <p align="justify">Performance comparison of proposed PPS and baseline methods w.r.t. regulart training set, i.e., the dataset comprising all data corresponding to 5dB, 7dB, and 11dB.</p>
+                        
+                        <center><img src="https://foroughshirinabkenar.github.io/mysite/images/sample_writing_3_ats.png" alt="ats" width="500" height="500"></center>
+                        <p align="justify">Performance comparison of proposed PPS and baseline methods w.r.t. adaptive training set, i.e., the dataset where data corresponding to 5 dB was excluded and only data for 7 and 11 dB were utilized.</p>
+                        
                         <h2>Conclusion</h2>
-                        <p align="justify">The EBA was introduced in this paper to minimize total energy consumption and delay of network by choosing the BTPR for each TN according to the channel conditions between that TN and the corresponding FN. Then, the topology potential of each FN was defined in terms of the energy consumption of that FN and the processing delay of each request. Finally, the fairness of FN utility was modeled as an optimization model to find the BFN for each TN. Simulation results reveal that the EBA could avoid request loss and outperform the existing method, FTO, in terms of all energy balancing index, energy consumption, and delay.</p>
+                        <p align="justify">PPS, a distributed strategy designed to generalize soft-failure localization across varying magnitudes 
+                            of the same failure in multi-carrier systems, was proposed. PPS utilizes federated learning to ensure data privacy 
+                            while employing domain adaptation and knowledge distillation techniques to enhance generalization of the model. 
+                            Evaluation results demonstrate that PPS achieves high precision in failure localization requiring fewer carriers to 
+                            participate in the training phase which reduces the overall training burden across the network.</p>
                         <footer class="page__meta"></footer>
                     </section>
                 </div>
