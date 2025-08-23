@@ -1,1 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <!-- begin SEO -->
+        <title>Encoder-only Models - Forough Shirin Abkenar</title>
+        <meta property="og:locale" content="en-US">
+        <meta property="og:site_name" content="Encoder-only Models">
+        <meta property="og:title" content="Encoder-only Models">
+        <link rel="canonical" href="https://foroughshirinabkenar.github.io/mysite/llm.html">
+        <meta property="og:url" content="https://foroughshirinabkenar.github.io/mysite/llm.html">
+        <meta property="og:description" content="Encoder-only Models">
+        <script async="" src="//www.google-analytics.com/analytics.js"></script>
+        <script type="application/ld+json"> { "@context" : "http://schema.org", "@type" : "Person", "name" : "Aritra Ghosh", "url" : "https://foroughshirinabkenar.github.io", "sameAs" : null } </script>
+        <!-- end SEO -->
+        <!-- http://t.co/dKP3o1e -->
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script> document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js '; </script>
+        <!-- For all browsers -->
+        <link rel="stylesheet" href="https://foroughshirinabkenar.github.io/mysite/assets/css/main.css">
+        <meta http-equiv="cleartype" content="on">
+        <!-- start custom head snippets -->
+        <meta name="theme-color" content="#ffffff">
+        <link rel="stylesheet" href="https://foroughshirinabkenar.github.io/mysite/assets/css/academicons.css">
+        <script type="text/x-mathjax-config;executed=true"> MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "all" } } }); </script>
+        <script type="text/x-mathjax-config;executed=true"> MathJax.Hub.Config({ tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ], processEscapes: true } }); </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML" async=""></script>
+        <!-- end custom head snippets -->
+        <style id="fit-vids-style">.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}</style>
+        <script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+            .MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+            .MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+            .MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+            .MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+        </style>
+        <style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+                #MathJax_About.MathJax_MousePost {outline: none}
+                .MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+                .MathJax_MenuItem {padding: 2px 2em; background: transparent}
+                .MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+                .MathJax_MenuActive .MathJax_MenuArrow {color: white}
+                .MathJax_MenuArrow.RTL {left: .5em; right: auto}
+                .MathJax_MenuCheck {position: absolute; left: .7em}
+                .MathJax_MenuCheck.RTL {right: .7em; left: auto}
+                .MathJax_MenuRadioCheck {position: absolute; left: 1em}
+                .MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+                .MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+                .MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+                .MathJax_MenuDisabled {color: GrayText}
+                .MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+                .MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+                .MathJax_ContextMenu:focus {outline: none}
+                .MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+                #MathJax_AboutClose {top: .2em; right: .2em}
+                .MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+                .MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+                .MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+                .MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+                .MathJax_MenuClose:hover span {background-color: #CCC!important}
+                .MathJax_MenuClose:hover:focus {outline: none}
+        </style>
+        <style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+        </style>
+        <style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+            .MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+        </style>
+        <style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+            #MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+            #MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+            #MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+        </style>
+        <style type="text/css">.MathJax_Preview {color: #888}
+            #MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+            #MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+            .MathJax_Error {color: #CC0000; font-style: italic}
+        </style>
+        <style type="text/css">.MJXp-script {font-size: .8em}
+            .MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+            .MJXp-bold {font-weight: bold}
+            .MJXp-italic {font-style: italic}
+            .MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+            .MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+            .MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+            .MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+            .MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+            .MJXp-largeop {font-size: 150%}
+            .MJXp-largeop.MJXp-int {vertical-align: -.2em}
+            .MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+            .MJXp-display {display: block; text-align: center; margin: 1em 0}
+            .MJXp-math span {display: inline-block}
+            .MJXp-box {display: block!important; text-align: center}
+            .MJXp-box:after {content: " "}
+            .MJXp-rule {display: block!important; margin-top: .1em}
+            .MJXp-char {display: block!important}
+            .MJXp-mo {margin: 0 .15em}
+            .MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+            .MJXp-denom {display: inline-table!important; width: 100%}
+            .MJXp-denom > * {display: table-row!important}
+            .MJXp-surd {vertical-align: top}
+            .MJXp-surd > * {display: block!important}
+            .MJXp-script-box > *  {display: table!important; height: 50%}
+            .MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+            .MJXp-script-box > *:last-child > * {vertical-align: bottom}
+            .MJXp-script-box > * > * > * {display: block!important}
+            .MJXp-mphantom {visibility: hidden}
+            .MJXp-munderover {display: inline-table!important}
+            .MJXp-over {display: inline-block!important; text-align: center}
+            .MJXp-over > * {display: block!important}
+            .MJXp-munderover > * {display: table-row!important}
+            .MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+            .MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+            .MJXp-mtr {display: table-row!important}
+            .MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+            .MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+            .MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+            .MJXp-mlabeledtr {display: table-row!important}
+            .MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+            .MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+            .MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+            .MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+            .MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+            .MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+            .MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+            .MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+            .MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+            .MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+            .MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+            .MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+            .MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+            .MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+        </style>
+    </head>
 
+    <body data-new-gr-c-s-check-loaded="14.984.0" data-gr-ext-installed="">
+        <div id="MathJax_Message" style="display: none;"></div>
+        <!--[if lt IE 9]>
+            <div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+        <![endif]-->
+        <div class="masthead">
+            <div class="masthead__inner-wrap">
+                <div class="masthead__menu">
+                    <nav id="site-nav" class="greedy-nav"> 
+                        <button class="hidden" count="0"><div class="navicon"></div></button>
+                        <ul class="visible-links">
+                            <li class="masthead__menu-item masthead__menu-item--lg"><a href="https://foroughshirinabkenar.github.io/mysite/index.html">Forough Shirin Abkenar</a></li>
+                            <li class="masthead__menu-item"><a href="https://foroughshirinabkenar.github.io/mysite/publications.html">Publications</a></li>
+                            <li class="masthead__menu-item"><a href="https://foroughshirinabkenar.github.io/mysite/bio.html">Bio</a></li>
+                            <li class="masthead__menu-item"><a href="https://foroughshirinabkenar.github.io/mysite/llm.html">LLM Projects</a></li>
+                        </ul>
+                        <ul class="hidden-links hidden"></ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div id="main" role="main">
+            <div class="sidebar sticky">
+                <div itemscope="" itemtype="http://schema.org/Person">
+                    <div class="author__avatar"> <img src="https://foroughshirinabkenar.github.io/mysite/images/profile.jpeg" class="author__avatar" alt="Forough Shirin Abkenar"></div>
+                    <div class="author__content">
+                        <h3 class="author__name">Forough Shirin Abkenar</h3>
+                        <p class="author__bio">Ph.D., Electrical Engineering and Computer Science</p>
+                    </div>
+                    <div class="author__urls-wrapper">
+                        <button class="btn btn--inverse">Follow</button>
+                        <ul class="author__urls social-icons">
+                            <li><i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> California, USA</li>
+                            <li><a href="mailto:fshirina@uci.edu" target="_blank"><i class="fas fa-envelope" aria-hidden="true"></i> Email</a></li>
+                            <!--<li><a href="https://foroughshirinabkenar.wixsite.com/mysite" target="_blank"><i class="fab fa-wix" aria-hidden="true"></i> Wix</a></li>
+                            <li><a href="https://iasl.ics.uci.edu/people/forough-shirin-abkenar/" target="_blank">UCI</a></li>
+                            <li><a href="https://www.researchgate.net/profile/Forough_Shirin_Abkenar2" target="_blank"><i class="fab fa-researchgate" style='color:green' aria-hidden="true"></i> ResearchGate</a></li>
+                            -->
+                            <li><a href="https://www.linkedin.com/in/forough-s-1460b2198" target="_blank"><i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn</a></li>
+                            <li><a href="https://github.com/foroughshirinabkenar" target="_blank"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a></li>
+                            <li><a href="https://scholar.google.com/citations?user=TQ0vI44AAAAJ&hl=en" target="_blank"><i class="fas fa-graduation-cap"></i> Google Scholar</a></li>
+                            <li><a href="https://ieeexplore.ieee.org/author/37086113585" target="_blank"><img src="https://foroughshirinabkenar.github.io/mysite/images/logos/IEEE.jpg" style="width: 3em;"> IEEE</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <article class="page" itemscope="" itemtype="http://schema.org/CreativeWork">
+                <meta itemprop="headline" content="Encoder-only Models">
+                <meta itemprop="description" content="Encoder-only Models">
+                <div class="page__inner-wrap">
+                    <header>
+                        <h1 class="page__title" itemprop="headline">Encoder-only Models</h1>
+                        <p align="justify">
+                          The encoder-only models in LLMs owns the LLM architecture with only 
+                          the encoder transformer (see the following Fig. 1 [1]). The encoder 
+                          in the LLM architecture is responsible for receiving the input data 
+                          (prompts) and embedding (encoding) them into meaningful output. Encoder-only 
+                          models exploit bidirectional processing of data whereby the input tokens are 
+                          processed using information from both left and right to understand the token's 
+                          context.
+                          <figure>
+                            <img src="https://foroughshirinabkenar.github.io/mysite/images/llm_tutorial/encoder/encoder.jpeg"
+                                 alt="Encoder-only model architecture"
+                              />
+                            <figcaption>Fig. 1: Encoder-only model architecture [1].</figcaption>
+                          </figure>
+                        </p>
+                      
+                        <p>
+                          Bidirectional encoder representations from transformers (BERT) [2] and robustly 
+                          optimized BERT pretraining approach (RoBERTa) [3] models are types of encoder-only 
+                          models that are applicable for text classification, sentiment analysis, named entity 
+                          recognition (NER), and etc.
+                        </p>
+
+                      <h2>Input Embedding</h2>
+                      <p align="justify">
+                        In encoder-only models, the inputs are textual data, represented as sequences of text units 
+                        such as words, subwords, or characters. However, the encoder block processes numerical 
+                        representations rather than raw text. To bridge this gap, an <em>input embedding</em> layer 
+                        converts textual inputs into numerical IDs. This process relies on a predefined <em>vocabulary</em> 
+                        in which each text unit, commonly referred to as a <em>token</em>, is mapped to a unique identifier, 
+                        namely token ID. Notably, each token ID is a vector of numbers with a shape of prdefined embedding 
+                        dimensiion. Consequently, the input text undergoes <em>tokenization</em>, where it is divided into 
+                        tokens, and then each token is mapped to the corresponding token ID.
+                      </p>
+                      
+                      <h2>Positional Encoding</h2>
+                      <p align="justify">
+                        Positional encoding is a mechanism whereby the information about the position of a token is injected 
+                        to the input data. Hence, the model can learn the meaning and importance of the corresponding token 
+                        w.r.t. its position in the input (subject, object, verb, adjective, etc.). The traditional positional 
+                        encoding is calculated using the <em>sin</em> and <em>cos</em> equations in [1].
+                      </p>
+                      
+                      <h2>Encoder Layer</h2>
+                      <p align="justify">
+                        The encoder layer (shown Nx in Fig. 1) comprises two sub-layers. The first 
+                        sub-layer implements the multi-head self-attention mechanism, and the second sub-layer is a 
+                        fully-connected feed forward neural network. Each sub-layer has a residual connection around 
+                        itself, and also is succeeded by a normalization layer [1].
+                      </p>
+                      
+                      
+                      <h3>Multi-Head Self-Attention Mechanism</h3>
+                      <p align="justify">
+                        The self-attention mechanism is a core component of transformers, enabling the model to learn 
+                        and capture the relationships between tokens within a sequence. This mechanism is implemented 
+                        within the attention heads of the transformer architecture [1].
+
+                        <figure>
+                            <img src="https://foroughshirinabkenar.github.io/mysite/images/llm_tutorial/encoder/encoder_head.jpeg"
+                                 alt="Architecture of an attention head"
+                              />
+                            <figcaption>Fig. 2: Architecture of an attention head [1].</figcaption>
+                          </figure>
+
+                        To model the relationships between tokens, the input is first projected into three distinct 
+                        representations: the <em>query</em> (Q), <em>key</em> (K), and <em>value</em> (V) vectors. 
+                        Figure 2 illustrates the architecture of an attention head within the model. When an embedded 
+                        and positionally encoded input passes through the attention head, it undergoes the following 
+                        five processing steps [1]:
+
+                        <ul>
+                          <li>
+                            <b>Step 1:</b> query (Q), key (K), and value (V) components are passed through linear layers 
+                            in the attention head model so that these components are learned.
+                          </li>
+                          <li>
+                            <b>Step 2:</b> the alignment scores are calculated through multiplication of matrices query 
+                            and key.
+                          </li>
+                          <li>
+                            <b>Step 3:</b> the alignment scores are scaled by 1/<em>d<sub>k</sub></em>, where 
+                            <em>d<sub>k</sub></em> is the dimension of the query (or the key) matrix.
+                          </li>
+                          <li>
+                            <b>Step 4:</b> <em>softmax</em> operation is applied to the scaled scores to obtain the 
+                            attention weights.
+                          </li>
+                          <li>
+                            <b>Step 5:</b> the attention weights are multiplied with the value matrix.
+                          </li>
+                        </ul>
+
+                      The multi-head self-attention mechanism consists of multiple parallel attention heads, each 
+                      learning distinct representation subspaces. The outputs from all attention heads are concatenated 
+                      and then projected through a linear layer to produce the final combined representation [1].
+                      </p>
+                      
+                      <h3>Add & Norm</h3>
+                      <p align="justify">
+                        <b>Residual Connections (Add):</b> Preserving information from earlier layers helps mitigate the 
+                        vanishing gradient problem. In transformer encoders, this is achieved through 
+                        <em>residual connections</em>, where the original input of a layer is added to its output. This 
+                        mechanism enables the network to retain essential information across layers and facilitates more 
+                        effective gradient flow during training [1].
+                      </p>
+                      
+                      <p align="justify">
+                        <b>Layer Normalization (Norm):</b> During training, the model may experience 
+                        <em>internal covariate shift</em>, where the distribution of activations changes across layers, 
+                        potentially leading to vanishing or exploding gradients. To address this challenge, 
+                        <em>layer normalization</em> is applied to the outputs of deeper layers that in result, stabilizes 
+                        training by reducing distributional shifts and ensures more consistent gradient flow [1].
+                      </p>
+                      
+                      <h3>Feed Forward Network</h3>
+                      <p align="justify">
+                        The feed-forward sub-layer introduces non-linearities into the encoder, thereby enhancing the model's 
+                        capacity to capture complex patterns and non-linear relationships within sequential data. The feed 
+                        forward network consists of two linear transformations separated by an activation function, typically 
+                        the Rectified Linear Unit (ReLU) or the Gaussian Error Linear Unit (GELU) [1].
+                      </p>
+                      
+                      <h2>Implementation</h2>
+                      <p align="justify">
+                        In this section, we use a small input text to develop a minimal encoder-only model, called <b>tinyBert</b>. 
+                        The goal is to gain familiarity with the operation of encoder-only models. The overall network architecture 
+                        is shown below, and the complete implementation script is available on <a href="">Encoder-only Git</a>.
+
+                        <center>
+                          <img src="https://foroughshirinabkenar.github.io/mysite/images/llm_tutorial/encoder/tinyBERT.png"/>
+                        </center>
+                      </p>
+                      <p align="justify">
+                        As defined in the <em>__init__</em> function, the model network includes the following layers:
+                        <ul>
+                          <li>
+                            self.token\_embed: it creates an embedding layer that converts token indices (integers) into dense 
+                            vector representations (embeddings).
+                          </li>
+                          <li>
+                            self.pos\_embed: this layer create the positional encoding of the input tokens.
+                          </li>
+                          <li>
+                            self.blocks: it includes encoder blocks (layers), each with a multi-head self-attention head, a feed 
+                            forward network, and the corresponding add & norm components.
+                          </li>
+                          <li>
+                            self.ln\_f: this layer defines the final layer normalization applied to the transformer's output 
+                            before passing it into the language modeling head.
+                          </li>
+                          <li>
+                            self.lm\_head: it defines the language modeling head, i.e., the final layer that maps the hidden 
+                            representations produced by the transformer into predicted token probabilities.
+                          </li>
+                        </ul>
+                      </p>
+                      <p align="justify">
+                        When an input passes through the \textit{forward} function, it is first converted into token embeddings. 
+                        Positional embeddings are then added to incorporate information about token order. The resulting 
+                        representations are sequentially passed through all the transformer blocks defined in the model. The 
+                        output of the final block is normalized using the last layer normalization and then fed into the 
+                        language modeling head. At this stage, each token is represented by a hidden vector of size equal to 
+                        the embedding dimension, and the final layer predicts the probability distribution over the vocabulary 
+                        for the next token.
+
+                        During training, the model compares these predicted logits with the true token IDs using cross-entropy loss, 
+                        and updates its weights through backpropagation to minimize this loss.
+                      </p>
+                      
+                      <h3>Evaluation</h3>
+                      <p align="justify">
+                        For evaluation, we select a portion of the text, mask certain words, and assess the model's performance 
+                        in predicting these masked tokens. Accordingly, we compute the cross-entropy loss, perplexity, and accuracy 
+                        on the masked words. Notably, perplexity measures the model's uncertainty; lower perplexity implies that 
+                        the model assigns higher probability to the actual next word in the sequence, resulting a more confident 
+                        and accurate model. Table [1] indicates the performance of tinyBERT w.r.t. the aforementioned evaluation 
+                        metrics.
+                      </p>
+                        <table>
+                          <caption>Table I. Performance evaluation of tinyBERT</caption>
+                          <thead>
+                            <tr>
+                              <th>Cross Entropy Loss</th>
+                              <th>Perplexity</th>
+                              <th>Accuracy (\%)</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>0.2245</td>
+                              <td>1.25</td>
+                              <td>100</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      
+                      <h2>References</h2>
+                      <p align="justify">
+                        [1] A. Vaswani, N. Shazeer, N. Parmar, J. Uszkoreit, L. Jones, A. N. Gomez, L. Kaiser, 
+                        and I. Polosukhin, “Attention is all you need,” Advances in Neural Information Processing 
+                        Systems, vol. 30, 2017. https://arxiv.org/abs/1706.03762.
+                      </p>
+                      <p align="justify">
+                        [2] J. Devlin, M.-W. Chang, K. Lee, and K. Toutanova, “Bert: Pre-training of deep bidirectional 
+                        transformers for language understanding,” in North American Chapter of the Association for 
+                        Computational Linguistics, 2019. https://api.semanticscholar.org/CorpusID:52967399.
+                      </p>
+                      <p align="justify">
+                        [3] Y. Liu, M. Ott, N. Goyal, J. Du, M. Joshi, D. Chen, O. Levy, M. Lewis, L. Zettlemoyer, and 
+                        V. Stoyanov, “Roberta: A robustly optimized bert pretraining approach,” ArXiv, vol. abs/1907.11692, 
+                        2019. https://api.semanticscholar.org/CorpusID:198953378.
+                      </p>
+                    </header>
+                    <section class="page__content" itemprop="text">
+                        <footer class="page__meta"></footer>
+                    </section>
+                </div>
+            </article>
+        </div>
+        <div class="page__footer">
+            <footer> 
+                <!-- start custom footer snippets --> 
+                <!-- <a href="/sitemap/">Sitemap</a> end custom footer snippets -->
+                <!-- <div class="page__footer-follow">
+                    <ul class="social-icons">
+                        <li><strong>Follow:</strong></li> -->
+                        <!-- <li><a href="http://github.com/arghosh"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a></li> -->
+                        <!-- <li><a href="https://arghosh.github.io/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li> -->
+                    <!-- </ul> -->
+                <!-- </div> -->
+                <!-- <div class="page__footer-copyright">© 2020 Forough Shirin Abkenar. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/academicpages/academicpages.github.io">AcademicPages</a>, a fork of <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>. -->
+                <!-- </div> -->
+            </footer>
+        </div>
+        <script src="https://foroughshirinabkenar.github.io/mysite/assets/js/main.min.js"></script> 
+        <script> (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','//www.google-analytics.com/analytics.js','ga'); ga('create', 'UA-113060154-1', 'auto'); ga('send', 'pageview'); </script>
+    </body>
+
+</html>
