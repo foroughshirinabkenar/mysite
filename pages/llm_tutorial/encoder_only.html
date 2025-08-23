@@ -196,7 +196,7 @@
                           The encoder-only models in LLMs owns the LLM architecture with only 
                           the encoder transformer (see the following Fig. 1 [1]). The encoder 
                           in the LLM architecture is responsible for receiving the input data 
-                          (prompts) and embedding (encoding) them into meaningful output. Encoder-only 
+                          (prompts) and embedding (encoding) them into meaningful output (vector representation). Encoder-only 
                           models exploit bidirectional processing of data whereby the input tokens are 
                           processed using information from both left and right to understand the token's 
                           context.
@@ -337,7 +337,7 @@
                         The feed-forward sub-layer introduces non-linearities into the encoder, thereby enhancing the model's 
                         capacity to capture complex patterns and non-linear relationships within sequential data. The feed 
                         forward network consists of two linear transformations separated by an activation function, typically 
-                        the Rectified Linear Unit (ReLU) or the Gaussian Error Linear Unit (GELU) [1].
+                        the rectified linear unit (ReLU) or the Gaussian error linear unit (GELU) [1].
                       </p>
                       
                       <h2>Implementation</h2>
