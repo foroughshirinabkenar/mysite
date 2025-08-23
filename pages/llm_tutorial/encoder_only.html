@@ -415,12 +415,14 @@
                       
                       <h3>Evaluation</h3>
                       <p align="justify">
-                        For evaluation, we select a portion of the text, mask certain words, and assess the model's performance 
-                        in predicting these masked tokens. Accordingly, we compute the cross-entropy loss, perplexity, and accuracy 
-                        on the masked words. Notably, perplexity measures the model's uncertainty; lower perplexity implies that 
-                        the model assigns higher probability to the actual next word in the sequence, resulting a more confident 
-                        and accurate model. Table I indicates the performance of TinyBert w.r.t. the aforementioned evaluation 
-                        metrics.
+                        For evaluation, we select a portion of the text, mask certain words, and assess the model's performance in 
+                          predicting these masked tokens. Accordingly, we compute the cross-entropy loss, perplexity, and accuracy 
+                          on the masked words: (1) cross-entropy loss measures the difference between the predicted probability 
+                          distribution of a model and the true distribution of the target data; lower values indicates better 
+                          predictions and less uncertainty. (2) perplexity measures the model's uncertainty; lower perplexity implies 
+                          that the model assigns higher probability to the actual next word in the sequence, resulting a more 
+                          confident and accurate model. (3) accuracy measures how the model could accurately the masked tokens. 
+                          Table I indicates the performance of TinyBert w.r.t. the aforementioned evaluation metrics.
                       </p>
                         <table>
                           <caption>Table I. Performance evaluation of TinyBert</caption>
