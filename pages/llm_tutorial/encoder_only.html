@@ -203,16 +203,25 @@
                           <figure>
                             <img src="https://foroughshirinabkenar.github.io/mysite/images/llm_tutorial/encoder/encoder.jpeg"
                                  alt="Encoder-only model architecture"
+                                width="200"
                               />
-                            <figcaption>Fig. 1: Encoder-only model architecture [1].</figcaption>
+<!--                             <figcaption>Fig. 1: Encoder-only model architecture [1].</figcaption> -->
+                              <div class="caption">Fig. 1: Encoder-only model architecture [1].</div>
                           </figure>
                         </p>
                       
-                        <p>
+                        <p align="justify">
                           Bidirectional encoder representations from transformers (BERT) [2] and robustly 
                           optimized BERT pretraining approach (RoBERTa) [3] models are types of encoder-only 
                           models that are applicable for text classification, sentiment analysis, named entity 
                           recognition (NER), and etc.
+                        </p>
+                        
+                        <p align="justify">
+                            As seen in Fig. 1, the inputs in the encoder-only model are 
+                            passed through sequential components, i.e., input embedding, positional encoding, 
+                            and encoder layer (shown as Nx in the figure). In the rest of the current chapter, 
+                            we review each layer and the corresponding mechanisms.
                         </p>
 
                       <h2>Input Embedding</h2>
@@ -251,12 +260,15 @@
                         within the attention heads of the transformer architecture [1].
 
                         <figure>
-                            <img src="https://foroughshirinabkenar.github.io/mysite/images/llm_tutorial/encoder/encoder_head.jpeg"
+                            <img src="https://foroughshirinabkenar.github.io/mysite/images/llm_tutorial/encoder/encoder_head.png"
                                  alt="Architecture of an attention head"
                               />
-                            <figcaption>Fig. 2: Architecture of an attention head [1].</figcaption>
+<!--                             <figcaption>Fig. 2: Architecture of an attention head [1].</figcaption> -->
+                            <div class="caption">Fig. 2: Architecture of an attention head [1].</div>
                           </figure>
-
+                       </p>
+                        
+                        <p align="justify">
                         To model the relationships between tokens, the input is first projected into three distinct 
                         representations: the <em>query</em> (Q), <em>key</em> (K), and <em>value</em> (V) vectors. 
                         Figure 2 illustrates the architecture of an attention head within the model. When an embedded 
@@ -265,26 +277,38 @@
 
                         <ul>
                           <li>
-                            <b>Step 1:</b> query (Q), key (K), and value (V) components are passed through linear layers 
+                            <p align="justify">
+                                <b>Step 1:</b> query (Q), key (K), and value (V) components are passed through linear layers 
                             in the attention head model so that these components are learned.
+                            </p>
                           </li>
                           <li>
-                            <b>Step 2:</b> the alignment scores are calculated through multiplication of matrices query 
+                            <p align="justify">
+                                <b>Step 2:</b> the alignment scores are calculated through multiplication of matrices query 
                             and key.
+                            </p>
                           </li>
                           <li>
-                            <b>Step 3:</b> the alignment scores are scaled by 1/<em>d<sub>k</sub></em>, where 
+                            <p align="justify">
+                                <b>Step 3:</b> the alignment scores are scaled by 1/<em>d<sub>k</sub></em>, where 
                             <em>d<sub>k</sub></em> is the dimension of the query (or the key) matrix.
+                            </p>
                           </li>
                           <li>
-                            <b>Step 4:</b> <em>softmax</em> operation is applied to the scaled scores to obtain the 
+                            <p align="justify">
+                                <b>Step 4:</b> <em>softmax</em> operation is applied to the scaled scores to obtain the 
                             attention weights.
+                            </p>
                           </li>
                           <li>
-                            <b>Step 5:</b> the attention weights are multiplied with the value matrix.
+                            <p align="justify">
+                                <b>Step 5:</b> the attention weights are multiplied with the value matrix.
+                            </p>
                           </li>
                         </ul>
+                      </p>
 
+                      <p align="justify">
                       The multi-head self-attention mechanism consists of multiple parallel attention heads, each 
                       learning distinct representation subspaces. The outputs from all attention heads are concatenated 
                       and then projected through a linear layer to produce the final combined representation [1].
@@ -329,23 +353,33 @@
                         As defined in the <em>__init__</em> function, the model network includes the following layers:
                         <ul>
                           <li>
-                            self.token\_embed: it creates an embedding layer that converts token indices (integers) into dense 
+                            <p align="justify">
+                                self.token_embed: it creates an embedding layer that converts token indices (integers) into dense 
                             vector representations (embeddings).
+                            </p>
                           </li>
                           <li>
-                            self.pos\_embed: this layer create the positional encoding of the input tokens.
+                            <p align="justify">
+                                self.pos_embed: this layer create the positional encoding of the input tokens.
+                            </p>
                           </li>
                           <li>
-                            self.blocks: it includes encoder blocks (layers), each with a multi-head self-attention head, a feed 
+                            <p align="justify">
+                                self.blocks: it includes encoder blocks (layers), each with a multi-head self-attention head, a feed 
                             forward network, and the corresponding add & norm components.
+                            </p>
                           </li>
                           <li>
-                            self.ln\_f: this layer defines the final layer normalization applied to the transformer's output 
+                            <p align="justify">
+                                self.ln_f: this layer defines the final layer normalization applied to the transformer's output 
                             before passing it into the language modeling head.
+                            </p>
                           </li>
                           <li>
-                            self.lm\_head: it defines the language modeling head, i.e., the final layer that maps the hidden 
+                            <p align="justify">
+                                self.lm_head: it defines the language modeling head, i.e., the final layer that maps the hidden 
                             representations produced by the transformer into predicted token probabilities.
+                            </p>
                           </li>
                         </ul>
                       </p>
@@ -357,7 +391,9 @@
                         language modeling head. At this stage, each token is represented by a hidden vector of size equal to 
                         the embedding dimension, and the final layer predicts the probability distribution over the vocabulary 
                         for the next token.
-
+                      </p>
+                        
+                      <p align="justify">
                         During training, the model compares these predicted logits with the true token IDs using cross-entropy loss, 
                         and updates its weights through backpropagation to minimize this loss.
                       </p>
@@ -368,7 +404,7 @@
                         in predicting these masked tokens. Accordingly, we compute the cross-entropy loss, perplexity, and accuracy 
                         on the masked words. Notably, perplexity measures the model's uncertainty; lower perplexity implies that 
                         the model assigns higher probability to the actual next word in the sequence, resulting a more confident 
-                        and accurate model. Table [1] indicates the performance of tinyBERT w.r.t. the aforementioned evaluation 
+                        and accurate model. Table I indicates the performance of tinyBERT w.r.t. the aforementioned evaluation 
                         metrics.
                       </p>
                         <table>
