@@ -398,7 +398,20 @@
                       <p align="justify">
                         During training, the model compares these predicted logits with the true token IDs using cross-entropy loss, 
                         and updates its weights through backpropagation to minimize this loss.
+                        <center>
+                          <img src="https://foroughshirinabkenar.github.io/mysite/images/llm_tutorial/encoder/tinyBERT_train.png"/>
+                        </center>
                       </p>
+                      <p align="justify">
+                        Since the primary objective of the designed tinyBERT model is to predict masked tokens in the input text, 
+                        the <em>get_batch</em> function used during training incorporates a <em>mask_token</em> function based 
+                        on the MLM strategy. This function applies an 80/10/10 masking rule: 80% of tokens are replaced with a 
+                        predefined mask token (e.g., “[MASK]”), 10% are substituted with random tokens from the vocabulary, 
+                        and the remaining 10% are left unchanged.
+                        <center>
+                          <img src="https://foroughshirinabkenar.github.io/mysite/images/llm_tutorial/encoder/tinyBERT_getbatch.png"/>
+                        </center>
+                       </p>
                       
                       <h3>Evaluation</h3>
                       <p align="justify">
