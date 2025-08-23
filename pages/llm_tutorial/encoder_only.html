@@ -342,7 +342,7 @@
                       
                       <h2>Implementation</h2>
                       <p align="justify">
-                        In this section, we use a small input text to develop a minimal encoder-only model, called <b>tinyBert</b>. 
+                        In this section, we use a small input text to develop a minimal encoder-only model, called <b>TinyBert</b>. 
                         The goal is to gain familiarity with the operation of encoder-only models. The overall network architecture 
                         is shown below, and the complete implementation script is available on 
                         <a href="https://github.com/foroughshirinabkenar/llm_tutorial/blob/main/01_llm_basics_encoder.ipynb" target="_blank">Encoder-only</a>.
@@ -403,7 +403,7 @@
                         </center>
                       </p>
                       <p align="justify">
-                        Since the primary objective of the designed tinyBERT model is to predict masked tokens in the input text, 
+                        Since the primary objective of the designed TinyBert model is to predict masked tokens in the input text, 
                         the <em>get_batch</em> function used during training incorporates a <em>mask_token</em> function based 
                         on the MLM strategy. This function applies an 80/10/10 masking rule: 80% of tokens are replaced with a 
                         predefined mask token (e.g., “[MASK]”), 10% are substituted with random tokens from the vocabulary, 
@@ -419,11 +419,11 @@
                         in predicting these masked tokens. Accordingly, we compute the cross-entropy loss, perplexity, and accuracy 
                         on the masked words. Notably, perplexity measures the model's uncertainty; lower perplexity implies that 
                         the model assigns higher probability to the actual next word in the sequence, resulting a more confident 
-                        and accurate model. Table I indicates the performance of tinyBERT w.r.t. the aforementioned evaluation 
+                        and accurate model. Table I indicates the performance of TinyBert w.r.t. the aforementioned evaluation 
                         metrics.
                       </p>
                         <table>
-                          <caption>Table I. Performance evaluation of tinyBERT</caption>
+                          <caption>Table I. Performance evaluation of TinyBert</caption>
                           <thead>
                             <tr>
                               <th>Cross Entropy Loss</th>
