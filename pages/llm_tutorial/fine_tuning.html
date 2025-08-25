@@ -226,7 +226,7 @@
                       
                       <h2>Implementation</h2>
                       <p align="justify">
-                        In this section, we fine-tune a small and GPU-friendly LLM, namely <b>Qwen2.5 0.5B-Instruct</b>. 
+                        In this section, we fine-tune the <b>GPT-2</b> model. 
                         The complete implementation script is available on
                         <a href="https://github.com/foroughshirinabkenar/llm_tutorial/blob/main/03_llm_basics_finetuning.ipynb" target="_blank">Fine-tuning</a>.
                       </p>
@@ -247,7 +247,7 @@
                         the corresponding token IDs. Each foundation model has its own tokenizer, developed 
                         based on the pre-defined vocabulary (or dictionary) for the model. For loading both 
                         tokenizer and model, we define a checkpoint w.r.t. the foundation model we are going 
-                        to exploit for fine-tuning. Here, we have <em>checkpoint = "Qwen/Qwen2.5-0.5B-Instruct"</em>.
+                        to exploit for fine-tuning. Here, we have <em>model_name = "gpt2"</em>.
                         <center>
                           <img src="https://foroughshirinabkenar.github.io/mysite/images/llm_tutorial/fine_tuning/tokenizer.png"/>
                         </center>
@@ -284,7 +284,12 @@
                             </li>
                             <li>
                               <p align="justify">
-                                <b>per_device_train_batch_size:</b> keeps virtual random access memory (VRAM) usage low.
+                                <b>eval_strategy:</b> the evaluation strategy.
+                              </p>
+                            </li>
+                            <li>
+                              <p align="justify">
+                                <b>per_device_train/eval_batch_size:</b> keeps virtual random access memory (VRAM) usage low.
                               </p>
                             </li>
                             <li>
@@ -331,7 +336,7 @@
                       </p>
 
                       <p align="justify">
-                        Finally, we define the <em>trainer</em> and perform the fine-tuning.
+                        Finally, we define the <em>trainer</em> and perform the fine-tuning. We also record the training time.
                         
                         <center>
                           <img src="https://foroughshirinabkenar.github.io/mysite/images/llm_tutorial/fine_tuning/trainer.png"/>
