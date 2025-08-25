@@ -138,6 +138,18 @@
             .MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
             .MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
         </style>
+        <style>
+          .table-wrap {overflow-x: auto;}
+          #tab-eval-finetune {border-collapse: collapse; width: 100%; min-width: 720px; text-align: center;}
+          #tab-eval-finetune caption {caption-side: top; font-weight: 600; margin-bottom: 0.5rem;}
+          #tab-eval-finetune th,
+          #tab-eval-finetune td {border: 1px solid #444; padding: 0.5rem 0.6rem; vertical-align: middle;}
+          #tab-eval-finetune thead th {background: #f5f5f5;}
+          /* Add cline effect under BLEU + ROUGE headers only */
+          #tab-eval-finetune thead .cline-row th {border-top: none;}
+          /* Draw a thick line under the second header row except the first column (PPL) */
+          #tab-eval-finetune thead .cline-row th:not(:first-child) {border-bottom: 2px solid #000;}
+        </style>
     </head>
 
     <body data-new-gr-c-s-check-loaded="14.984.0" data-gr-ext-installed="">
