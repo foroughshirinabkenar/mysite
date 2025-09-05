@@ -212,7 +212,13 @@
                           to address this limitation. However, RLHF is complex because it requires 
                           first training a reward model to capture human preferences and then 
                           fine-tuning the unsupervised LM using reinforcement learning to maximize the 
-                          estimated reward (see <a href="https://foroughshirinabkenar.github.io/mysite/pages/llm_tutorial/rlhf.html" target="_blank">RLHF</a>) [1].
+                          estimated reward (see Fig. 1) [1].
+                            <figure style="display: flex; flex-direction: column; align-items: center;">
+                            <img src="https://foroughshirinabkenar.github.io/mysite/images/llm_tutorial/rlhf/rlhf.png"
+                                style="max-width: 50%; height: auto;"
+                              />
+                            <figcaption>Fig. 1: Overall workflow of RLHF [1].</figcaption>
+                          </figure>
                         </p>
                       
                         <p align="justify">
@@ -220,13 +226,13 @@
                           by bypassing the need for a separate reward model. Instead, it directly 
                           optimizes the LM using a loss function that encourages the generation of 
                           preferred responses over dispreferred ones, based on a dataset of human 
-                          preferences. Figure 1 illustrates the overall DPO workflow [2].
+                          preferences. Figure 2 illustrates the overall DPO workflow [2].
                           
                           <figure style="display: flex; flex-direction: column; align-items: center;">
                             <img src="https://foroughshirinabkenar.github.io/mysite/images/llm_tutorial/dpo/dpo.png"
                                 style="max-width: 50%; height: auto;"
                               />
-                            <figcaption>Fig. 1: Overall workflow of DPO [2].</figcaption>
+                            <figcaption>Fig. 2: Overall workflow of DPO [2].</figcaption>
                           </figure>
                         </p>
                       
