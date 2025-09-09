@@ -203,12 +203,13 @@
                 <meta itemprop="description" content="DPO">
                 <div class="page__inner-wrap">
                     <header>
-                        <h1 class="page__title" itemprop="headline">Parameter-efficinet Fine-tuning</h1>
+                        <h1 class="page__title" itemprop="headline">Direct Preference Optimization</h1>
                         <p align="justify">
                           Language models (LMs) capable of learning a broad spectrum of knowledge are 
                           typically trained unsupervised. However, the unsupervised nature of their 
                           training data makes precise control over their behavior challenging. Reinforcement 
-                          Learning from Human Feedback (RLHF) has emerged as a promising approach 
+                          Learning from Human Feedback (RLHF), which is a proximal policy optimization 
+                          (PPO)-based technique, has emerged as a promising approach 
                           to address this limitation. However, RLHF is complex because it requires 
                           first training a reward model to capture human preferences and then 
                           fine-tuning the unsupervised LM using reinforcement learning to maximize the 
@@ -222,7 +223,7 @@
                         </p>
                       
                         <p align="justify">
-                          In contrast, Direct Preference Optimization (DPO) simplifies this process 
+                          In contrast, direct preference optimization (DPO) simplifies this process 
                           by bypassing the need for a separate reward model. Instead, it directly 
                           optimizes the LM using a loss function that encourages the generation of 
                           preferred responses over dispreferred ones, based on a dataset of human 
