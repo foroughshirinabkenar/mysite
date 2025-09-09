@@ -217,8 +217,8 @@
                         <p align="justify">
                           Figure 1 illustrates the graph architecture of a ReAct agent, which consists of 
                           a start state, two nodes (namely agent and tool), and an end state. The agent 
-                          node invokes the LLM to perform reasoning and determines when to leverage the 
-                          tool node to execute the required actions [2].
+                          node invokes the large language model (LLM) to perform reasoning and determines 
+                          when to leverage the tool node to execute the required actions [2].
                           <figure style="display: flex; flex-direction: column; align-items: center;">
                             <img src="https://foroughshirinabkenar.github.io/mysite/images/llm_tutorial/agentic/react.png"
                                 style="max-width: 30%; height: auto;"
@@ -245,7 +245,7 @@
                           allows us to attach metadata (in this case, the <em>add_messages</em> method) which instructs 
                           LangGraph to append new messages to the existing state rather than replacing them. This 
                           design ensures that the agent can maintain a complete conversation history while updating 
-                          its state dynamically [1].
+                          its state dynamically [2].
                           <center>
                             <img src="https://foroughshirinabkenar.github.io/mysite/images/llm_tutorial/agentic/react_agentstate.png"/>
                           </center>
@@ -254,7 +254,7 @@
                         <p align="justify">
                           Next, the tool is defined as a function that takes two numbers as input and returns their sum. 
                           To integrate this tool with the LLM, a list of tools is created and passed to the model that 
-                          enables the LLM to invoke the appropriate tool when required [1].
+                          enables the LLM to invoke the appropriate tool when required [2].
                           <center>
                             <img src="https://foroughshirinabkenar.github.io/mysite/images/llm_tutorial/agentic/react_tool.png"/>
                           </center>
@@ -301,7 +301,7 @@
                         <p align="justify">
                           Lastly, we invoke the compiled graph by providing a conversation as input. The results 
                           demonstrate that the ReAct agent successfully reasons over the query and utilizes the 
-                          designated tool to respond to the user’s request [1]. The complete implementation 
+                          designated tool to respond to the user’s request [2]. The complete implementation 
                           script is available on
                           <a href="https://github.com/foroughshirinabkenar/llm_tutorial/blob/main/langgraph_tutorial/08_langgraph_agent_react_single_tool.ipynb" target="_blank">ReAct - Single Tool</a>.
                           <center>
@@ -328,7 +328,7 @@
                           distinct tasks: summing two numbers, multiplying the result by 6, and subtracting 10 from 
                           the result. The detailed execution steps demonstrate that the ReAct agent successfully 
                           decomposes the query into individual sub-tasks, selects the most appropriate tool for each 
-                          step, and produces both the intermediate results and the final outcome. The complete 
+                          step, and produces both the intermediate results and the final outcome [2]. The complete 
                           implementation script is available on
                           <a href="https://github.com/foroughshirinabkenar/llm_tutorial/blob/main/langgraph_tutorial/09_langgraph_agent_react_multiple_tools.ipynb" target="_blank">ReAct - Multiple Tools</a>.
                           <center>
