@@ -240,12 +240,12 @@
                           low-rank decomposition to reduce the number of trainable parameters. 
                           Figure 1 shows the overall workflow of LoRA wherein LoRA freezes the 
                           high-dimensional pre-trained weight matrix and decomposes that into two 
-                          lower-rank matrices, $A$ and $B$. As a result, rather than the high-dimensional 
-                          pre-trained weight matrix, the two low-rank matrices are updated during 
-                          fine-tuning to capture task-specific adaptations. After training, these 
-                          matrices are merged with the original weights to form an updated parameter 
-                          matrix. This results in efficient training without modifying most of the 
-                          pre-trained parameters [3].
+                          lower-rank matrices, <emph>A</emph> and <emph>B</emph>. As a result, 
+                          rather than the high-dimensional pre-trained weight matrix, the two 
+                          low-rank matrices are updated during fine-tuning to capture task-specific 
+                          adaptations. After training, these matrices are merged with the original 
+                          weights to form an updated parameter matrix. This results in efficient 
+                          training without modifying most of the pre-trained parameters [3].
                           
                           <figure style="display: flex; flex-direction: column; align-items: center;">
                             <img src="https://foroughshirinabkenar.github.io/mysite/images/llm_tutorial/peft/lora.png"
