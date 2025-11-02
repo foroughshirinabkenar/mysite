@@ -233,12 +233,225 @@
                     <header>
                         <h1 class="page__title" itemprop="headline">Decision Tree</h1>
                         <p align="justify">
-                          
+                          A decision tree is an algorithm that recursively splits a dataset 
+                            into subsets based on its features. The splitting criterion is 
+                            typically determined using one of two metrics, i.e., 
+                            <em>Information Gain (IG)</em> or <em>Gini Index</em>.
+
+                            <ul>
+                                <li>
+                                    <p align="justify">
+                                        <b>Information Gain:</b> IG is based on 
+                                        <em>entropy</em>, which quantifies the 
+                                        level of uncertainty or randomness in 
+                                        the information being processed. IG 
+                                        measures the reduction in entropy that 
+                                        results from partitioning the dataset 
+                                        according to a given feature. 
+                                        To calculate the IG, we have
+                                    </p>
+
+                                    <p>
+                                        \[
+                                            \text{IG(D, A)} = \text{H(D)} - \text{H(D|A)},
+                                        \]
+                                    </p>
+
+                                    <p align="justify">
+                                        where D and A are the dataset and the feature, 
+                                        respectively; H(D) represents the entropy of the 
+                                        dataset; and H(D|A) shows the entropy of the dataset 
+                                        w.r.t. the feature A (conditional entropy). The entropy 
+                                        of a set S, where \(\{\text{A, D}\in\text{S}\}\) is given by
+                                    </p>
+
+                                    <p>
+                                        \[
+                                            \text{H(S)} = -\sum_{x\in S}p_{i}(x)\log(p_{i}(x)),
+                                        \]
+                                    </p>
+
+                                    <p align="justify">
+                                        where \(p_{i}\) is proportion of the \(i\)-th class in the set.
+                                    </p>
+                                </li>
+                                <li>
+                                    <p align="justify">
+                                        <b>Gini Index:</b> Gini Index measures the probability that a 
+                                        randomly chosen instance would be misclassified if it were 
+                                        labeled according to the class distribution in the dataset. 
+                                        Therefore, we have
+                                    </p>
+
+                                    <p>
+                                        \[
+                                            \text{H(S)} = 1 -\sum_{x\in S}p^{2}_{i}(x),
+                                        \]
+                                    </p>
+
+                                    <p align="justify">
+                                        where \(p_{i}\) is the probability of an instance belonging to class
+                                        \(i\).
+                                    </p>
+                                </li>
+                            </ul>
+                        </p>
+
+                        <p align="justify">
+                            Overall, an IG–based model aims to maximize IG, while a Gini Index–based 
+                            model aims to minimize the Gini value. IG is generally more suitable for 
+                            imbalanced datasets, whereas the Gini Index is computationally simpler 
+                            to implement.
+                        </p>
+
+                        <h2>Numerical Example</h2>
+                        <p align="justify">
+                            Given the data in Table 1, we perform the decision tree algorithm based on IG.
+                        </p>
+
+                        <table border="Example Data for Decision Tree [2].">
+                          <tr>
+                            <th>Neighborhood</th>
+                            <th>No. of Rooms</th>
+                            <th>Affordable</th>
+                          </tr>
+                          <tr>
+                            <td>West</td>
+                            <td>3</td>
+                            <td>Yes</td>
+                          </tr>
+                          <tr>
+                            <td>West</td>
+                            <td>5</td>
+                            <td>Yes</td>
+                          </tr>
+                          <tr>
+                            <td>West</td>
+                            <td>2</td>
+                            <td>Yes</td>
+                          </tr>
+                          <tr>
+                            <td>East</td>
+                            <td>3</td>
+                            <td>Yes</td>
+                          </tr>
+                          <tr>
+                            <td>East</td>
+                            <td>4</td>
+                            <td>Yes</td>
+                          </tr>
+                          <tr>
+                            <td>East</td>
+                            <td>6</td>
+                            <td>No</td>
+                          </tr>
+                          <tr>
+                            <td>East</td>
+                            <td>5</td>
+                            <td>No</td>
+                          </tr>
+                          <tr>
+                            <td>East</td>
+                            <td>2</td>
+                            <td>Yes</td>
+                          </tr>
+                        </table>
+
+                        <p>
+                            First, we calculate the entropy of the data w.r.t. the labels (i.e., 
+                            "Affordable" feature). Considering 6 data points labeled as "Yes" and 
+                            2 data points labeled as "No" (see Fig. 1), the probabilities of "Yes" 
+                            (\(p_{yes}\)) and "No" ($p_{no}$) are equal to \(p_{yes} = 6/8\) and 
+                            \(p_{no} = 2/8\). Therefore, we have
+
+                            <figure style="display: flex; flex-direction: column; align-items: center;">
+                                <img src="https://foroughshirinabkenar.github.io/mysite/images/traditional_ml/supervised_learning/dt_num_root.png"
+                                    style="max-width: 40%; height: auto;"
+                                  />
+                                <figcaption>Fig. 1: Root node for decision tree algorithm.</figcaption>
+                            </figure>
+                        </p>
+
+                        <p>
+                            \[
+                                \begin{split}
+                                    \text{H(D)} =~& -p(Y=yes)\log(p(Y=yes)) -\\ & ~~~p(Y=no)\log(p(Y=no))\\
+                                    =~& -\frac{6}{8}\log(\frac{6}{8}) - \frac{2}{8}\log(\frac{2}{8}) = 0.81
+                                \end{split}
+                            \]
+                        </p>
+
+                        <p align="justify">
+                            In the next step, the data samples must be split based on the features, i.e., 
+                            "Neighborhood" and "No. of Rooms", separately. The corresponding IG needs to 
+                            be calculated for each feature, and the feature with the highest IG is 
+                            chosen as the splitting feature. Thus, we have
+                        </p>
+
+                        <p>
+                            \[
+                                \begin{split}
+                                    \text{H(D|Neighborhood)} =~& \text{H(D|Neighborhood=West)} + \text{H(D|Neighborhood=East)}\\
+                                    =~&\text{H(Y=yes|Neighborhood=West) + H(Y=no|Neighborhood=West)} +\\
+                                    & \text{H(Y=yes|Neighborhood=East) + H(Y=no|Neighborhood=East)}\\
+                                    =~&-\frac{3}{8}\left(\frac{3}{3}\log(1) + \frac{0}{3}\log(0)\right) - \frac{5}{8}\left(\frac{3}{5}\log(\frac{3}{5}) + \frac{2}{5}\log(\frac{2}{5})\right) = 0.61
+                                \end{split}
+                            \]
+                        </p>
+
+                        <p>
+                            \[
+                                \begin{split}
+                                    \text{H(D|No. of Rooms)} =~& \text{H(D|No. of Rooms<5)} + \text{H(D|No. of Rooms}\geq 5)\\
+                                    =~&\text{H(Y=yes|No. of Rooms<5) + H(Y=no|No. of Rooms<5)} +\\
+                                    & \text{H(Y=yes|No. of Rooms}\geq 5) + \text{H(Y=no|No. of Rooms}\geq 5)\\
+                                    =~&-\frac{5}{8}\left(\frac{5}{5}\log(1) + \frac{0}{5}\log(0)\right) - \frac{3}{8}\left(\frac{1}{2}\log(\frac{1}{2}) + \frac{2}{3}\log(\frac{2}{3})\right) = 0.35
+                                \end{split}
+                            \]
+                        </p>
+
+                        <p align="justify">
+                            Therefore, IG for each group is calculated as
+                        </p>
+
+                        <p>
+                            \[
+                                \begin{split}
+                                    & \text{IG(D|Neighborhood)} = 0.81 - 0.61 = 0.2\\
+                                    & \text{IG(D|No. of Rooms)} = 0.81 - 0.35 = 0.46
+                                \end{split}
+                            \]
+                        </p>
+
+                        <p align="justify">
+                            Since \(\text{IG(D|No. of Rooms)} > \text{IG(D|Neighborhood)}\), 
+                            we choose "No. of Rooms" as the splitting feature.
+
+                            <figure style="display: flex; flex-direction: column; align-items: center;">
+                                <img src="https://foroughshirinabkenar.github.io/mysite/images/traditional_ml/supervised_learning/dt_num_ig1.png"
+                                    style="max-width: 40%; height: auto;"
+                                  />
+                                <figcaption>Fig. 2: Decision tree after first splitting.</figcaption>
+                            </figure>
+                        </p>
+
+                        <p align="justify">
+                            In the next round, since the entropy of the left child of the tree is zero 
+                            (all samples belong to the same class, i.e., "Yes"), we split the right 
+                            child of the tree w.r.t. the "Neighborhood". Therefore, we have
+
+                            <figure style="display: flex; flex-direction: column; align-items: center;">
+                                <img src="https://foroughshirinabkenar.github.io/mysite/images/traditional_ml/supervised_learning/dt_num_ig2.png"
+                                    style="max-width: 40%; height: auto;"
+                                  />
+                                <figcaption>Fig. 2: Decision tree after second splitting.</figcaption>
+                            </figure>
                         </p>
 
                         
+                        
                          <h2>Implementation</h2>
-                          <p>
+                          <p align="justify">
                             The machine learning decision tree model in Python was developed from 
                               scratch following the guidelines provided in [2]. The complete 
                             implementation script is available on 
