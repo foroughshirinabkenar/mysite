@@ -257,14 +257,18 @@
                           <p align="justify">
                               A confusion matrix consists of four elements: true positive (TP), 
                               false positive (FP), true negative (TN), and false negative (FN). 
-                              Figure I illustrates the confusion matrix, where columns represent 
+                              Figure 1 illustrates the confusion matrix, where columns represent 
                               the actual values and rows represent the predicted values. TP and TN occur 
                               when the model's predictions match the actual values. Conversely, 
                               if the model predicts a negative (positive) instance as positive (negative), 
                               it corresponds to FP (FN) [1].
+                              <figure style="display: flex; flex-direction: column; align-items: center;">
+                                <img src="https://foroughshirinabkenar.github.io/mysite/images/traditional_ml/evaluation_metrics/confusion_matrix.png"
+                                    style="max-width: 15%; height: auto;"
+                                  />
+                                <figcaption>Fig. 1: Confusion Matrix [1].</figcaption>
+                              </figure>
                           </p>
-                          <img src="images/traditional_ml/evaluation_metrics/confusion_matrix.png" alt="Confusion Matrix">
-                          <p>Figure I: Confusion Matrix.</p>
                         
                           <h3>Accuracy</h3>
                           <p align="justify">
@@ -338,26 +342,34 @@
                               chosen negative one [1].
                           </p>
                           <p>
-                              Figure II illustrates the ROC curve for a binary classification scenario in which 
+                              Figure 2 illustrates the ROC curve for a binary classification scenario in which 
                               the model makes predictions completely at random, like a coin flip. In this case, 
                               the AUC equals 0.5 [1].
+                              <figure style="display: flex; flex-direction: column; align-items: center;">
+                                <img src="https://foroughshirinabkenar.github.io/mysite/images/traditional_ml/evaluation_metrics/roc_auc.png"
+                                    style="max-width: 15%; height: auto;"
+                                  />
+                                <figcaption>Fig. 1: ROC-AUC of completely random guesses [1].</figcaption>
+                              </figure>
                           </p>
-                          <img src="images/traditional_ml/evaluation_metrics/roc_auc.png" alt="ROC-AUC">
-                          <p>Figure II: ROC-AUC of completely random guesses.</p>
-                        
+                          
                           <p align="justify">
                               The ROC-AUC concept can be extended to Precision-Recall (PR) curves to more 
-                              effectively evaluate model performance. Figure III shows the PR curve and 
+                              effectively evaluate model performance. Figure 3 shows the PR curve and 
                               its corresponding AUC for an example scenario, providing insight into how 
                               the model balances precision and recall. PR-AUC is particularly useful for 
                               imbalanced datasets, where the positive class is rare, because it focuses 
                               on the model's performance with respect to the minority class rather than 
                               being dominated by the majority class, as can happen with ROC-AUC. In general, 
                               higher PR-AUC values indicate better model performance [1].
+                              <figure style="display: flex; flex-direction: column; align-items: center;">
+                                <img src="https://foroughshirinabkenar.github.io/mysite/images/traditional_ml/evaluation_metrics/pr_auc.png"
+                                    style="max-width: 15%; height: auto;"
+                                  />
+                                <figcaption>Fig. 3: PR-AUC example [1].</figcaption>
+                              </figure>
                           </p>
-                          <img src="images/traditional_ml/evaluation_metrics/pr_auc.png" alt="PR-AUC">
-                          <p>Figure III: PR-AUC example.</p>
-                        
+                          
                           <h2>Regression</h2>
                           <p align="justify">
                               Unlike classification models, which predict discrete classes or labels, 
@@ -521,13 +533,17 @@
                           </p>
 
                           <p align="justify">
-                              Figure IV illustrates an example of a ranking system with K \( = 5\). As shown, the model 
+                              Figure 4 illustrates an example of a ranking system with K \( = 5\). As shown, the model 
                               successfully identifies two relevant items out of four total relevant items within the 
                               top-K results. Therefore, the Precision@K value is computed as \(2 / 5 = 0.4\).
+                              <figure style="display: flex; flex-direction: column; align-items: center;">
+                                <img src="https://foroughshirinabkenar.github.io/mysite/images/traditional_ml/evaluation_metrics/recall_precision_at_k.png"
+                                    style="max-width: 15%; height: auto;"
+                                  />
+                                <figcaption>Fig. 4: An example for a single-list ranking system.</figcaption>
+                              </figure>
                           </p>
-                          <img src="images/traditional_ml/evaluation_metrics/recall_precision_at_k.png" alt="Precision@K Example">
-                          <p>Figure IV: An example for a single-list ranking system.</p>
-
+                          
                           <p align="justify">
                               It is worth noting that Precision@K is highly sensitive to the choice of K. Consider a 
                               case where only two relevant items exist in the ground-truth data, and the model 
@@ -553,7 +569,7 @@
                           </p>
 
                           <p>
-                              Referring to the example provided in Fig. IV, the Recall@K value is computed as 
+                              Referring to the example provided in Fig. 4, the Recall@K value is computed as 
                               \(2 / 4 = 0.5\). Therefore, Recall@K reduces the sensitivity to K observed in 
                               Precision@K. However, although Recall@K is less sensitive to the value of K 
                               compared to Precision@K, it is insensitive to the relative ranking of relevant 
@@ -577,7 +593,7 @@
                           </p>
 
                           <p align="justify">
-                              For example, considering the example in Fig. IV, the RR@K is given as \(1 / 2 = 0.5\). 
+                              For example, considering the example in Fig. 4, the RR@K is given as \(1 / 2 = 0.5\). 
                               Considering \(U\) ranked lists in the results, each corresponding to a query in an 
                               information retrieval task or a user in a recommendation system, MRR@K is defined as 
                               the average of RR@K across all \(U\) lists, i.e.,
@@ -590,14 +606,18 @@
                           </p>
 
                           <p  align="justify">
-                             For instance, Fig. V illustrates a ranking system with three lists in the outputs. 
+                             For instance, Fig. 5 illustrates a ranking system with three lists in the outputs. 
                               As shown, the positions of the first relevant items are 2, 3, and 2 in the first, 
                               the second, and the third lists, respectively. Therefore, the corresponding RR@K 
                               values are computed as \(1 / 2 = 0.5\), \(1 / 3  = 0.33\), and \(1 / 2 = 0.5\). 
-                              Accordingly, the MRR@K is equal to \((0.5 + 0.33 + 0.5) / 3 = 0.44\). 
+                              Accordingly, the MRR@K is equal to \((0.5 + 0.33 + 0.5) / 3 = 0.44\).
+                              <figure style="display: flex; flex-direction: column; align-items: center;">
+                                <img src="https://foroughshirinabkenar.github.io/mysite/images/traditional_ml/evaluation_metrics/mrr_map_at_k.png"
+                                    style="max-width: 15%; height: auto;"
+                                  />
+                                <figcaption>Fig. 5: An example for a multi-list ranking system.</figcaption>
+                              </figure>
                           </p>
-                          <img src="images/traditional_ml/evaluation_metrics/mrr_map_at_k.png" alt="MRR@K Example">
-                          <p>Figure V: An example for a multi-list ranking system.</p>
 
                           <p  align="justify">
                              MRR@K addresses the limitation of Precision@K and Recall@K, both of which ignore 
@@ -625,7 +645,7 @@
                               \(k = 1, \dots, K\); also, rel\((k)\) is the relevance score of the item, that can 
                               be a binary value (relevant/not relevant) or a graded score (e.g., 0, 1, 2, 3). In 
                               the case of AP@K, we defined is as a binary variable where is equal to 1 if the item 
-                              is relevant, and 0 otherwise. For example, referring to Fig. V, for \(u = 1\), we have:
+                              is relevant, and 0 otherwise. For example, referring to Fig. 5, for \(u = 1\), we have:
                           </p>
 
                           <ul>
@@ -688,7 +708,7 @@
                           </p>
 
                           <p align="justify">
-                              Therefore, mAP@K value for the above-mentioned example in Fig. V is computed as
+                              Therefore, mAP@K value for the above-mentioned example in Fig. 5 is computed as
                           </p>
 
                           <p>
@@ -728,12 +748,15 @@
                           </p>
 
                           <p  align="justify">
-                              For instance, consider the results in Fig. VI. There are three output lists, labeled 
+                              For instance, consider the results in Fig. 6. There are three output lists, labeled 
                               1, 2, and 3, and an ideal list with the ideal ranking of the items.
+                              <figure style="display: flex; flex-direction: column; align-items: center;">
+                                <img src="https://foroughshirinabkenar.github.io/mysite/images/traditional_ml/evaluation_metrics/ndcg_at_k.png"
+                                    style="max-width: 15%; height: auto;"
+                                  />
+                                <figcaption>Fig. 6: An example for nDCG.</figcaption>
+                              </figure>
                           </p>
-
-                          <img src="images/traditional_ml/evaluation_metrics/ndcg_at_k.png" alt="nDCG@K Example">
-                          <p>Figure VI: An example for nDCG.</p>
 
                           <p  align="justify">
                               Since the items are categorized as irrelevant, somewhat relevant, and relevant, 
