@@ -241,7 +241,7 @@
                           Categorical data, a type of structured data, represent qualitative 
                           information that is divided into distinct groups or labels. They can 
                           be further classified into two subtypes: <em>Nominal</em> data (e.g., gender) 
-                          and <em>Ordinal</em> data (e.g., rating scales) \cite{data}.
+                          and <em>Ordinal</em> data (e.g., rating scales) [1].
                         </p>
 
                         <h2>Feature Engineering</h2>
@@ -265,7 +265,7 @@
                         <p align="justify">
                           Missing values are common challenges in ML datasets, where the feature values 
                           corresponding to some data points are missing. There are different methods to 
-                          cope with the missing values issue [1].
+                          cope with the missing values issue [2].
                         </p>
 
                         <h4>Removing Rows with Missing Values</h4>
@@ -273,26 +273,26 @@
                           In this method, we remove all data points with missing values. Although this 
                           method is simple to implement and removes potentially problematic data points, 
                           it reduces the size of sample data and is vulnerable to introduce bias in the 
-                          dataset provided certain groups are more likely to have missing values [1].
+                          dataset provided certain groups are more likely to have missing values [2].
                         </p>
 
                         <h4>Imputation</h4>
                         <p align="justify">
                           Using the imputation method, the missing values are replaced by estimated values. 
-                          There are two methods to impute the missing values [1]:
+                          There are two methods to impute the missing values [2]:
 
                           <ul>
                             <li>
                               <p align="justify"><b>Mean, Median and Mode Imputation:</b> The missing values are replaced with 
                               the <em>mean</em>, <em>median</em>, or <em>mode</em> of the corresponding feature. 
                               This method is simple to implement. However, it might reduce the accuracy of 
-                              predictions [1].</p>
+                              predictions [2].</p>
                             </li>
                             <li>
                               <p align="justify"><b>Forward and Backward Fill:</b> The missing values are filled with the nearest 
                               non-missing values from the same feature, where the forward fill method relies on 
                               replacing the missing value with the last observed non-missing value, and the 
-                              backward fill approach replaces them with the next observed non-missing value [1].</p>
+                              backward fill approach replaces them with the next observed non-missing value [2].</p>
                             </li>
                           </ul>
 
@@ -305,17 +305,17 @@
                           data points. This method is more complex to implement and depends on assumptions, such as 
                           the existence of linear or quadratic relationships within the data. However, it often yields 
                           more accurate results than imputation and better preserves data integrity by capturing 
-                          underlying patterns or trends. Two common interpolation techniques are [1].
+                          underlying patterns or trends. Two common interpolation techniques are [2].
 
                           <ul>
                             <li>
                               <p align="justify"><b>Linear:</b> linear method uses a linear interpolation to estimate 
-                                the missing values [1].</p>
+                                the missing values [2].</p>
                             </li>
                             <li>
                               <p align="justify"><b>Quadratic:</b> Quadratic interpolation method assumes a quadratic 
                                 relationship between a missing value and its surrounding known values, and estimates 
-                                the missing value accordingly [1].</p>
+                                the missing value accordingly [2].</p>
                             </li>
                           </ul>
                         </p>
@@ -328,11 +328,11 @@
                         <p align="justify">Data can have different value scales, where larger values may unintentionally 
                           dominate certain features. To prevent such issues during model training and evaluation, data 
                           are scaled to a specific range. Two common scaling methods are <em>normalization</em>, 
-                          <em>standardization</em>, and <em>log scaling</em> [2]</p>
+                          <em>standardization</em>, and <em>log scaling</em> [3]</p>
 
                         <h4>Normalization</h4>
                         <p align="justify">
-                          Normalization, also known as min-max scaling, wherein data are scaled into the range [0, 1] [2].
+                          Normalization, also known as min-max scaling, wherein data are scaled into the range [0, 1] [3].
                         </p>
 
                         <p>
@@ -343,14 +343,14 @@
 
                         <p align="justify">
                           where \(x_{min}\) and \(x_{max}\) are the minimum and the maximum values of the feature, 
-                          respectively. It is worth mentioning that normalization does not alter the data distribution [2].
+                          respectively. It is worth mentioning that normalization does not alter the data distribution [3].
                         </p>
 
                         <h4>Standardization</h4>
                         <p align="justify">
                           Unlike normalization, which preserves the original distribution of the data, standardization, 
                           also known as Z-score normalization, transforms a feature so that it has a mean of 0 and a 
-                          standard deviation of 1 [2].
+                          standard deviation of 1 [3].
                         </p>
 
                         <p>
@@ -360,7 +360,7 @@
                         </p>
 
                         <p align="justify">
-                          where \(\mu\) and \(\sigma\) are the mean and standard deviation of the feature, respectively [2].
+                          where \(\mu\) and \(\sigma\) are the mean and standard deviation of the feature, respectively [3].
                         </p>
 
                         <h4>Log Scaling</h4>
@@ -368,7 +368,7 @@
                           Features can exhibit a power law distribution, where low values of \(x\) correspond to high values 
                           of \(y\), and \(y\) decreases rapidly as \(x\) increases. An example of this is movie ratings, where a 
                           few movies receive many ratings while most receive very few. Logarithmic scaling can help mitigate 
-                          the effects of a power law distribution by transforming the data into a more balanced scale [2].
+                          the effects of a power law distribution by transforming the data into a more balanced scale [3].
                         </p>
 
                         <p>
@@ -382,17 +382,17 @@
                           nonexistent, or when feature values are clustered, traditional scaling methods may fail. Binning, 
                           also known as bucketing, provides an effective alternative by converting numerical data into 
                           categorical data. This method groups numerical subranges into bins or buckets, which can better 
-                          represent features that exhibit clustered or “clumpy” distributions rather than linear patterns [2].</p>
+                          represent features that exhibit clustered or “clumpy” distributions rather than linear patterns [3].</p>
 
                         <h3>Encoding</h3>
                         <p align="justify">As mentioned earlier, categorical data represent qualitative information. Since ML 
                           models operate on numerical values, categorical data must be transformed into a numeric format 
                           through <em>Encoding</em>. Encoding converts categorical values into numerical representations and 
-                          can be performed using methods such as <em>One-Hot Encoding</em> and <em>Embedding Learning</em> [2].</p>
+                          can be performed using methods such as <em>One-Hot Encoding</em> and <em>Embedding Learning</em> [3].</p>
 
                         <h4>One-Hot Encoding</h4>
                         <p align="justify">
-                          One-hot encoding assigns a binary vector to each category [2]. For example, if the feature is weekdays, 
+                          One-hot encoding assigns a binary vector to each category [3]. For example, if the feature is weekdays, 
                           each day can be encoded as:
 
                           <table>
@@ -452,19 +452,19 @@
                         <p align="justify">
                           Data augmentation is a technique to increase the size and diversity of data samples for 
                           training purposes. To this end, the corresponding augmentation method generates new data 
-                          from the existing data [3].
+                          from the existing data [4].
                           
                         <ul>
                             <li>
                               <p align="justify"><b>Tabular Data:</b> For tabular data, new samples can be generated 
                                 through techniques such as adding random noise to existing values, performing feature 
                                 permutation (swapping values within the same column), or creating synthetic data based 
-                                on the mean and standard deviation of the original data [3].</p>
+                                on the mean and standard deviation of the original data [4].</p>
                             </li>
                             <li>
                               <p align="justify"><b>Images:</b> For image data, new samples can be generated through 
                                 augmentation techniques such as cropping, adjusting saturation, flipping (horizontal 
-                                or vertical), and rotating the original images [3].</p>
+                                or vertical), and rotating the original images [4].</p>
                             </li>
                           </ul>
                         </p>
@@ -475,7 +475,7 @@
                         across categories, the model tends to learn patterns from the majority classes while 
                         underrepresenting the minority classes. Data balancing techniques, namely <em>Upsampling</em> 
                         and <em>Downsampling</em>, are used to address this issue and ensure fair learning across all 
-                        categories [4].
+                        categories [5].
                       </p>
 
                       <h3>Upsampling</h3>
@@ -483,13 +483,13 @@
                           Upsampling methods increase the number of samples in the minority class. Although upsampling 
                           increases the dataset size, it is vulnerable to data leak, which leads to model overfitting. 
                           Common upsampling techniques are listed as, random oversampling, synthetic minority oversampling 
-                          technique (SMOTE), adaptive synthetic sampling approach (ADASYN), and data augmentation [5].
+                          technique (SMOTE), adaptive synthetic sampling approach (ADASYN), and data augmentation [6].
                         </p>
 
                         <h4>Random Oversampling</h4>
                         <p align="justify">
                           Random oversampling chooses data points randomly from the minority class and duplicates them. 
-                          Random oversampling is vulnerable to model overfitting [5].
+                          Random oversampling is vulnerable to model overfitting [6].
                         </p>
 
                         <h4>Synthetic Minority Oversampling Technique</h4>
@@ -499,7 +499,7 @@
                           commonly set to 5). Then, one of these neighbors is randomly selected, and a new synthetic 
                           sample is created at a random point along the line segment connecting the original data point 
                           and the chosen neighbor in the feature space. This process is repeated with different neighbors 
-                          as needed until the desired level of upsampling is achieved [5].
+                          as needed until the desired level of upsampling is achieved [6].
                         </p>
 
                         <h4>Adaptive Synthetic Sampling Approach</h4>
@@ -511,12 +511,12 @@
                           samples are generated through linear interpolation between a minority data point and its neighbors. 
                           However, the number of samples generated is scaled by the hardness factor so that more synthetic 
                           points are created in regions where minority data are sparse, and fewer points are added in regions 
-                          where they are already dense [5].
+                          where they are already dense [6].
                         </p>
 
                         <h4>Data Augmentation</h4>
                         <p align="justify">
-                          Data augmentation can also be applied as a strategy for balancing datasets [5].
+                          Data augmentation can also be applied as a strategy for balancing datasets [6].
                         </p>
 
                       <h3>Downsampling</h3>
@@ -525,14 +525,14 @@
                           the size of the minority class. While this approach can lower the risk of model 
                           overfitting, it also increases the likelihood of underfitting and may introduce 
                           bias by discarding potentially useful data. Common downsampling techniques are 
-                          random downsampling and near miss downsampling [6].
+                          random downsampling and near miss downsampling [7].
                         </p>
 
                         <h4>Random Downsampling</h4>
                         <p align="justify">
                           Similar to random oversampling in upsampling, random downsampling selects data 
                           points at random; however, in this case, the selected points come from the majority 
-                          class and are removed [6].
+                          class and are removed [7].
                         </p>
 
                         <h4>Near Miss Downsampling</h4>
@@ -542,45 +542,52 @@
                           calculated. Based on these distances, majority class instances that are farther 
                           away from minority points are removed. This ensures that the remaining majority 
                           samples are closer to the minority class distribution, helping the model better 
-                          capture decision boundaries [6].
+                          capture decision boundaries [7].
                         </p>
                       
                       <h2>References</h2>
                       <p align="justify">
-                        [1] GeeksforGeeks,
+                        [1] A. Jonker and A. Gomstyn,
+                        “What are the key differences between structured and unstructured data?,”
+                        International Business Machines (IBM), accessed: 2025,
+                        <a href="https://www.ibm.com/think/topics/structured-vs-unstructured-data" target="_blank">
+                          https://www.ibm.com/think/topics/structured-vs-unstructured-data</a>.
+                      </p>
+                      <p align="justify">
+                        [2] GeeksforGeeks,
                         “Ml | handling missing values,”
                         GeeksforGeeks, accessed: July 21, 2025,
                         <a href="https://www.geeksforgeeks.org/machine-learning/ml-handling-missing-values/" target="_blank">
                           https://www.geeksforgeeks.org/machine-learning/ml-handling-missing-values/</a>.
                       </p>
                       <p align="justify">
-                        [2] Google,
+                        [3] Google,
                         “Ml concepts - crash course,”
                         Google, accessed: 2025,
                         <a href="https://developers.google.com/machine-learning/crash-course/prereqs-and-prework" target="_blank">https://developers.google.com/machine-learning/crash-course/prereqs-and-prework</a>.
                       </p>
                       <p align="justify">
-                        [3] Z. Wanget al.,
+                        [4] Z. Wanget al.,
                         “A comprehensive survey on data augmentation,”
                         2025,
                         <a href="https: //arxiv.org/abs/2405.09591" target="_blank">https: //arxiv.org/abs/2405.09591</a>.
                       </p>
                       <p align="justify">
-                        [4] GeeksforGeeks,
+                        [5] GeeksforGeeks,
                         “Introduction to upsampling and downsampling imbalanced data in python,”
                         GeeksforGeeks, accessed: July 23, 2025,
                         <a href="https://www.geeksforgeeks.org/machine-learning/introduction-to-upsampling-and-downsampling-imbalanced-data-in-python/" target="_blank">
                           https://www.geeksforgeeks.org/machine-learning/introduction-to-upsampling-and-downsampling-imbalanced-data-in-python/</a>.
                       </p>
                       <p align="justify">
-                        [5] J. Murel,
+                        [6] J. Murel,
                         “What is upsampling?,”
                         International Business Machines (IBM), accessed: 2025,
                         <a href="https://www.ibm.com/think/topics/upsampling" target="_blank">
                           https://www.ibm.com/think/topics/upsampling</a>.
                       </p>
                       <p align="justify">
-                        [6] J. Murel,
+                        [7] J. Murel,
                         “What is downsampling?,”
                         International Business Machines (IBM), accessed: 2025,
                         <a href="https://www.ibm.com/think/topics/downsampling" target="_blank">
