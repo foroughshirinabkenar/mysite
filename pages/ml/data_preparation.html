@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <!-- begin SEO -->
+        <title>Data Preparation - Forough Shirin Abkenar</title>
+        <meta property="og:locale" content="en-US">
+        <meta property="og:site_name" content="Data Preparation">
+        <meta property="og:title" content="Data Preparation">
+        <link rel="canonical" href="https://foroughshirinabkenar.github.io/mysite/genAI.html">
+        <meta property="og:url" content="https://foroughshirinabkenar.github.io/mysite/genAI.html">
+        <meta property="og:description" content="Data Preparation">
+        <script async="" src="//www.google-analytics.com/analytics.js"></script>
+        <script type="application/ld+json"> { "@context" : "http://schema.org", "@type" : "Person", "name" : "Aritra Ghosh", "url" : "https://foroughshirinabkenar.github.io", "sameAs" : null } </script>
+        <!-- end SEO -->
+        <!-- http://t.co/dKP3o1e -->
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script> document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js '; </script>
+        <!-- For all browsers -->
+        <link rel="stylesheet" href="https://foroughshirinabkenar.github.io/mysite/assets/css/main.css">
+        <meta http-equiv="cleartype" content="on">
+        <!-- start custom head snippets -->
+        <meta name="theme-color" content="#ffffff">
+        <link rel="stylesheet" href="https://foroughshirinabkenar.github.io/mysite/assets/css/academicons.css">
+        <script type="text/x-mathjax-config;executed=true"> MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "all" } } }); </script>
+        <script type="text/x-mathjax-config;executed=true"> MathJax.Hub.Config({ tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ], processEscapes: true } }); </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML" async=""></script>
+        <!-- end custom head snippets -->
+        <style id="fit-vids-style">.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}</style>
+        <script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+            .MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+            .MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+            .MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+            .MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+        </style>
+        <style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+                #MathJax_About.MathJax_MousePost {outline: none}
+                .MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+                .MathJax_MenuItem {padding: 2px 2em; background: transparent}
+                .MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+                .MathJax_MenuActive .MathJax_MenuArrow {color: white}
+                .MathJax_MenuArrow.RTL {left: .5em; right: auto}
+                .MathJax_MenuCheck {position: absolute; left: .7em}
+                .MathJax_MenuCheck.RTL {right: .7em; left: auto}
+                .MathJax_MenuRadioCheck {position: absolute; left: 1em}
+                .MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+                .MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+                .MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+                .MathJax_MenuDisabled {color: GrayText}
+                .MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+                .MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+                .MathJax_ContextMenu:focus {outline: none}
+                .MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+                #MathJax_AboutClose {top: .2em; right: .2em}
+                .MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+                .MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+                .MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+                .MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+                .MathJax_MenuClose:hover span {background-color: #CCC!important}
+                .MathJax_MenuClose:hover:focus {outline: none}
+        </style>
+        <style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+        </style>
+        <style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+            .MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+        </style>
+        <style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+            #MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+            #MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+            #MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+        </style>
+        <style type="text/css">.MathJax_Preview {color: #888}
+            #MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+            #MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+            .MathJax_Error {color: #CC0000; font-style: italic}
+        </style>
+        <style type="text/css">.MJXp-script {font-size: .8em}
+            .MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+            .MJXp-bold {font-weight: bold}
+            .MJXp-italic {font-style: italic}
+            .MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+            .MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+            .MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+            .MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+            .MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+            .MJXp-largeop {font-size: 150%}
+            .MJXp-largeop.MJXp-int {vertical-align: -.2em}
+            .MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+            .MJXp-display {display: block; text-align: center; margin: 1em 0}
+            .MJXp-math span {display: inline-block}
+            .MJXp-box {display: block!important; text-align: center}
+            .MJXp-box:after {content: " "}
+            .MJXp-rule {display: block!important; margin-top: .1em}
+            .MJXp-char {display: block!important}
+            .MJXp-mo {margin: 0 .15em}
+            .MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+            .MJXp-denom {display: inline-table!important; width: 100%}
+            .MJXp-denom > * {display: table-row!important}
+            .MJXp-surd {vertical-align: top}
+            .MJXp-surd > * {display: block!important}
+            .MJXp-script-box > *  {display: table!important; height: 50%}
+            .MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+            .MJXp-script-box > *:last-child > * {vertical-align: bottom}
+            .MJXp-script-box > * > * > * {display: block!important}
+            .MJXp-mphantom {visibility: hidden}
+            .MJXp-munderover {display: inline-table!important}
+            .MJXp-over {display: inline-block!important; text-align: center}
+            .MJXp-over > * {display: block!important}
+            .MJXp-munderover > * {display: table-row!important}
+            .MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+            .MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+            .MJXp-mtr {display: table-row!important}
+            .MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+            .MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+            .MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+            .MJXp-mlabeledtr {display: table-row!important}
+            .MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+            .MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+            .MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+            .MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+            .MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+            .MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+            .MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+            .MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+            .MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+            .MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+            .MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+            .MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+            .MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+            .MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+        </style>
+        <style>
+          .table-wrap {overflow-x: auto;}
+          #tab-eval-finetune {border-collapse: collapse; width: 100%; min-width: 720px; text-align: center;}
+          #tab-eval-finetune caption {caption-side: top; font-weight: 600; margin-bottom: 0.5rem;}
+          #tab-eval-finetune th,
+          #tab-eval-finetune td {border: 1px solid #444; padding: 0.5rem 0.6rem; vertical-align: middle;}
+          #tab-eval-finetune thead th {background: #f5f5f5;}
+          /* Add cline effect under BLEU + ROUGE headers only */
+          #tab-eval-finetune thead .cline-row th {border-top: none;}
+          /* Draw a thick line under the second header row except the first column (PPL) */
+          #tab-eval-finetune thead .cline-row th:not(:first-child) {border-bottom: 2px solid #000;}
+        </style>
+    </head>
+
+    <body data-new-gr-c-s-check-loaded="14.984.0" data-gr-ext-installed="">
+        <div id="MathJax_Message" style="display: none;"></div>
+        <!--[if lt IE 9]>
+            <div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+        <![endif]-->
+        <div class="masthead">
+            <div class="masthead__inner-wrap">
+                <div class="masthead__menu">
+                    <nav id="site-nav" class="greedy-nav"> 
+                        <button class="hidden" count="0"><div class="navicon"></div></button>
+                        <ul class="visible-links">
+                            <li class="masthead__menu-item masthead__menu-item--lg"><a href="https://foroughshirinabkenar.github.io/mysite/index.html">Forough Shirin Abkenar</a></li>
+                            <li class="masthead__menu-item"><a href="https://foroughshirinabkenar.github.io/mysite/publications.html">Publications</a></li>
+                            <li class="masthead__menu-item"><a href="https://foroughshirinabkenar.github.io/mysite/bio.html">Bio</a></li>
+                            <li class="masthead__menu-item"><a href="https://foroughshirinabkenar.github.io/mysite/traditional_ml.html">Traditional ML</a></li>
+                            <li class="masthead__menu-item"><a href="https://foroughshirinabkenar.github.io/mysite/genAI.html">Gen AI Projects</a></li>
+                        </ul>
+                        <ul class="hidden-links hidden"></ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div id="main" role="main">
+            <div class="sidebar sticky">
+                <div itemscope="" itemtype="http://schema.org/Person">
+                    <div class="author__avatar"> <img src="https://foroughshirinabkenar.github.io/mysite/images/profile.jpeg" class="author__avatar" alt="Forough Shirin Abkenar"></div>
+                    <div class="author__content">
+                        <h3 class="author__name">Forough Shirin Abkenar</h3>
+                        <p class="author__bio">Ph.D., Electrical Engineering and Computer Science</p>
+                    </div>
+                    <div class="author__urls-wrapper">
+                        <button class="btn btn--inverse">Follow</button>
+                        <ul class="author__urls social-icons">
+                            <li><i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> California, USA</li>
+                            <li><a href="mailto:fshirina@uci.edu" target="_blank"><i class="fas fa-envelope" aria-hidden="true"></i> Email</a></li>
+                            <!--<li><a href="https://foroughshirinabkenar.wixsite.com/mysite" target="_blank"><i class="fab fa-wix" aria-hidden="true"></i> Wix</a></li>
+                            <li><a href="https://iasl.ics.uci.edu/people/forough-shirin-abkenar/" target="_blank">UCI</a></li>
+                            <li><a href="https://www.researchgate.net/profile/Forough_Shirin_Abkenar2" target="_blank"><i class="fab fa-researchgate" style='color:green' aria-hidden="true"></i> ResearchGate</a></li>
+                            -->
+                            <li><a href="https://www.linkedin.com/in/forough-s-1460b2198" target="_blank"><i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn</a></li>
+                            <li><a href="https://github.com/foroughshirinabkenar" target="_blank"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a></li>
+                            <li><a href="https://scholar.google.com/citations?user=TQ0vI44AAAAJ&hl=en" target="_blank"><i class="fas fa-graduation-cap"></i> Google Scholar</a></li>
+                            <li><a href="https://ieeexplore.ieee.org/author/37086113585" target="_blank"><img src="https://foroughshirinabkenar.github.io/mysite/images/logos/IEEE.jpg" style="width: 3em;"> IEEE</a></li>
+                            <li><a href="https://www.webofscience.com/wos/author/record/AAA-7697-2019" target="_blank"><img src="https://foroughshirinabkenar.github.io/mysite/images/logos/wos.png" style="width: 1em;"> Web of Science</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <article class="page" itemscope="" itemtype="http://schema.org/CreativeWork">
+                <meta itemprop="headline" content="Data Preparation">
+                <meta itemprop="description" content="Data Preparation">
+                <div class="page__inner-wrap">
+                    <header>
+                        <h1 class="page__title" itemprop="headline">Data Preparation</h1>
+                        <p align="justify">
+                          Machine learning (ML) models rely on data as input. In ML, data 
+                          are divided into two major categories, namely <em>Structured</em> 
+                          and <em>Unstructured</em>. The former includes <em>Numerical</em> 
+                          and <em>Categorical</em> data, and the latter comprises 
+                          <em>Images</em>, <em>Audios</em>, <em>Videos</em>, and <em>Texts</em>. 
+                          Categorical data, a type of structured data, represent qualitative 
+                          information that is divided into distinct groups or labels. They can 
+                          be further classified into two subtypes: <em>Nominal</em> data (e.g., gender) 
+                          and <em>Ordinal</em> data (e.g., rating scales) \cite{data}.
+                        </p>
+
+                        <h2>Feature Engineering</h2>
+                        <p align="justify">
+                          Each record in a dataset is called a data point (or sample). Each data 
+                          point is composed of fundamental components, called <em>features</em>. 
+                          The number of features and the relation between them play an important 
+                          role in the performance of an ML model. Therefore, <em>feature engineering</em> 
+                          is a crucial step in preparing the data before they are fed to the model.
+                        </p>
+
+                        <p align="justify">
+                          The main focus of the current document is on structured data and image 
+                          data. Therefore, we review feature engineering techniques relevant to 
+                          these data types. Some techniques apply to both structured and image data; 
+                          however, others are specific to images. Therefore, we explicitly highlight 
+                          the image-specific methods in the corresponding subsections.
+                        </p>
+
+                        <h3>Handling Missing Values</h3>
+                        <p align="justify">
+                          Missing values are common challenges in ML datasets, where the feature values 
+                          corresponding to some data points are missing. There are different methods to 
+                          cope with the missing values issue [1].
+                        </p>
+
+                        <h4>Removing Rows with Missing Values</h4>
+                        <p align="justify">
+                          In this method, we remove all data points with missing values. Although this 
+                          method is simple to implement and removes potentially problematic data points, 
+                          it reduces the size of sample data and is vulnerable to introduce bias in the 
+                          dataset provided certain groups are more likely to have missing values [1].
+                        </p>
+
+                        <h4>Imputation</h4>
+                        <p align="justify">
+                          Using the imputation method, the missing values are replaced by estimated values. 
+                          There are two methods to impute the missing values [1]:
+
+                          <ul>
+                            <li>
+                              <p align="justify"><b>Mean, Median and Mode Imputation:</b> The missing values are replaced with 
+                              the <em>mean</em>, <em>median</em>, or <em>mode</em> of the corresponding feature. 
+                              This method is simple to implement. However, it might reduce the accuracy of 
+                              predictions [1].</p>
+                            </li>
+                            <li>
+                              <p align="justify"><b>Forward and Backward Fill:</b> The missing values are filled with the nearest 
+                              non-missing values from the same feature, where the forward fill method relies on 
+                              replacing the missing value with the last observed non-missing value, and the 
+                              backward fill approach replaces them with the next observed non-missing value [1].</p>
+                            </li>
+                          </ul>
+
+                        </p>
+                        
+                        <h4>Interpolation</h4>
+                        <p align="justify">
+                          Rather than relying on measures such as the mean, median, or mode (as in simple imputation), 
+                          interpolation estimates missing values by leveraging the relationships between neighboring 
+                          data points. This method is more complex to implement and depends on assumptions, such as 
+                          the existence of linear or quadratic relationships within the data. However, it often yields 
+                          more accurate results than imputation and better preserves data integrity by capturing 
+                          underlying patterns or trends. Two common interpolation techniques are [1].
+
+                          <ul>
+                            <li>
+                              <p align="justify"><b>Linear:</b> linear method uses a linear interpolation to estimate 
+                                the missing values [1].</p>
+                            </li>
+                            <li>
+                              <p align="justify"><b>Quadratic:</b> Quadratic interpolation method assumes a quadratic 
+                                relationship between a missing value and its surrounding known values, and estimates 
+                                the missing value accordingly [1].</p>
+                            </li>
+                          </ul>
+                        </p>
+
+                        <h3>Resizing</h3>
+                        <p align="justify">To standardize the shape of input images, they must be resized to a fixed size, 
+                          such as 28 &times; 28.</p>
+
+                        <h3>Scaling</h3>
+                        <p align="justify">Data can have different value scales, where larger values may unintentionally 
+                          dominate certain features. To prevent such issues during model training and evaluation, data 
+                          are scaled to a specific range. Two common scaling methods are <em>normalization</em>, 
+                          <em>standardization</em>, and <em>log scaling</em> [2]</p>
+
+                        <h4>Normalization</h4>
+                        <p align="justify">
+                          Normalization, also known as min-max scaling, wherein data are scaled into the range [0, 1] [2].
+                        </p>
+
+                        <p>
+                          \[
+                            x_{scaled} = \frac{x - x_{min}}{x_{max} - x_{min}},
+                          \]
+                        </p>
+
+                        <p align="justify">
+                          where \[x_{min}\] and \[x_{max}\] are the minimum and the maximum values of the feature, 
+                          respectively. It is worth mentioning that normalization does not alter the data distribution [2].
+                        </p>
+
+                        <h4>Standardization</h4>
+                        <p align="justify">
+                          Unlike normalization, which preserves the original distribution of the data, standardization, 
+                          also known as Z-score normalization, transforms a feature so that it has a mean of 0 and a 
+                          standard deviation of 1 [2].
+                        </p>
+
+                        <p>
+                          \[
+                            x_{scaled} = \frac{x - \mu}{\sigma},
+                          \]
+                        </p>
+
+                        <p align="justify">
+                          where \[\mu\] and \[\sigma\] are the mean and standard deviation of the feature, respectively [2].
+                        </p>
+
+                        <h4>Log Scaling</h4>
+                        <p align="justify">
+                          Features can exhibit a power law distribution, where low values of \[x\] correspond to high values 
+                          of $y$, and $y$ decreases rapidly as \[x\] increases. An example of this is movie ratings, where a 
+                          few movies receive many ratings while most receive very few. Logarithmic scaling can help mitigate 
+                          the effects of a power law distribution by transforming the data into a more balanced scale [2].
+                        </p>
+
+                        <p>
+                          \[
+                            x_{scaled} = \log(x)
+                          \]
+                        </p>
+
+                        <h3>Binning</h3>
+                        <p align="justify">When the overall linear relationship between a feature and the label is weak or 
+                          nonexistent, or when feature values are clustered, traditional scaling methods may fail. Binning, 
+                          also known as bucketing, provides an effective alternative by converting numerical data into 
+                          categorical data. This method groups numerical subranges into bins or buckets, which can better 
+                          represent features that exhibit clustered or “clumpy” distributions rather than linear patterns [2].</p>
+
+                        <h3>Encoding</h3>
+                        <p align="justify">As mentioned earlier, categorical data represent qualitative information. Since ML 
+                          models operate on numerical values, categorical data must be transformed into a numeric format 
+                          through <em>Encoding</em>. Encoding converts categorical values into numerical representations and 
+                          can be performed using methods such as <em>One-Hot Encoding</em> and <em>Embedding Learning</em> [2].</p>
+
+                        <h4>One-Hot Encoding</h4>
+                        <p align="justify">
+                          One-hot encoding assigns a binary vector to each category [2]. For example, if the feature is weekdays, 
+                          each day can be encoded as:
+
+                          <table>
+                            <caption>Table I. One-Hot Encoding Example</caption>
+                            <thead>
+                              <tr>
+                                <th>Weekdays</th>
+                                <th colspan="7">Value</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>Monday</td>
+                                <td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+                              </tr>
+                              <tr>
+                                <td>Tuesday</td>
+                                <td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+                              </tr>
+                              <tr>
+                                <td>Wednesday</td>
+                                <td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td>
+                              </tr>
+                              <tr>
+                                <td>Thursday</td>
+                                <td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td>
+                              </tr>
+                              <tr>
+                                <td>Friday</td>
+                                <td>0</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td>
+                              </tr>
+                              <tr>
+                                <td>Saturday</td>
+                                <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td>
+                              </tr>
+                              <tr>
+                                <td>Sunday</td>
+                                <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </p>
+
+                        <h4>Embedding Learning</h4>
+                        <p align="justify">
+                          Pre-trained models can provide embeddings, i.e., numerical vector representations, 
+                          of input data. These models are particularly useful when capturing the semantic 
+                          relationships between inputs is important.
+                        </p>
+
+                        <h3>Consisting Color Mode</h3>
+                        <p align="justify">In image processing, it is important for all images to have a consistent 
+                          color mode. Common color modes include Grayscale, RGB (Red, Green, Blue), and CMYK 
+                          (Cyan, Magenta, Yellow, Key/Black).</p>
+
+                        <h2>Data Augmentation</h2>
+                        <p align="justify">
+                          Data augmentation is a technique to increase the size and diversity of data samples for 
+                          training purposes. To this end, the corresponding augmentation method generates new data 
+                          from the existing data [3].
+                          
+                        <ul>
+                            <li>
+                              <p align="justify"><b>Tabular Data:</b> For tabular data, new samples can be generated 
+                                through techniques such as adding random noise to existing values, performing feature 
+                                permutation (swapping values within the same column), or creating synthetic data based 
+                                on the mean and standard deviation of the original data [3].</p>
+                            </li>
+                            <li>
+                              <p align="justify"><b>Images:</b> For image data, new samples can be generated through 
+                                augmentation techniques such as cropping, adjusting saturation, flipping (horizontal 
+                                or vertical), and rotating the original images [3].</p>
+                            </li>
+                          </ul>
+                        </p>
+                      
+                      <h2>Data Balancing</h2>
+                      <p align="justify">
+                        If a labeled dataset is imbalanced, i.e., the number of data points varies significantly 
+                        across categories, the model tends to learn patterns from the majority classes while 
+                        underrepresenting the minority classes. Data balancing techniques, namely <em>Upsampling</em> 
+                        and <em>Downsampling</em>, are used to address this issue and ensure fair learning across all 
+                        categories [4].
+                      </p>
+
+                      <h3>Upsampling</h3>
+                        <p align="justify">
+                          Upsampling methods increase the number of samples in the minority class. Although upsampling 
+                          increases the dataset size, it is vulnerable to data leak, which leads to model overfitting. 
+                          Common upsampling techniques are listed as, random oversampling, synthetic minority oversampling 
+                          technique (SMOTE), adaptive synthetic sampling approach (ADASYN), and data augmentation [5].
+                        </p>
+
+                        <h4>Random Oversampling</h4>
+                        <p align="justify">
+                          Random oversampling chooses data points randomly from the minority class and duplicates them. 
+                          Random oversampling is vulnerable to model overfitting [5].
+                        </p>
+
+                        <h4>Synthetic Minority Oversampling Technique</h4>
+                        <p align="justify">
+                          The SMOTE generates new samples for the minority class by interpolation. First, for each 
+                          minority class data point, the algorithm identifies its \[K\] nearest neighbors (with \[K\] 
+                          commonly set to 5). Then, one of these neighbors is randomly selected, and a new synthetic 
+                          sample is created at a random point along the line segment connecting the original data point 
+                          and the chosen neighbor in the feature space. This process is repeated with different neighbors 
+                          as needed until the desired level of upsampling is achieved [5].
+                        </p>
+
+                        <h4>Adaptive Synthetic Sampling Approach</h4>
+                        <p align="justify">
+                          The ADASYN technique extends the idea of SMOTE by focusing on regions where the minority class 
+                          is underrepresented. A \[K\]-nearest neighbor (KNN) model is first built on the entire dataset, 
+                          and each minority class point is assigned a "hardness factor" (\[K\]), defined as the ratio of 
+                          majority class neighbors to the total number of neighbors in KNN. Similar to SMOTE, new synthetic 
+                          samples are generated through linear interpolation between a minority data point and its neighbors. 
+                          However, the number of samples generated is scaled by the hardness factor so that more synthetic 
+                          points are created in regions where minority data are sparse, and fewer points are added in regions 
+                          where they are already dense [5].
+                        </p>
+
+                        <h4>Data Augmentation</h4>
+                        <p align="justify">
+                          Data augmentation can also be applied as a strategy for balancing datasets [5].
+                        </p>
+
+                      <h3>Downsampling</h3>
+                        <p align="justify">
+                          Downsampling methods reduce the number of samples in the majority class to match 
+                          the size of the minority class. While this approach can lower the risk of model 
+                          overfitting, it also increases the likelihood of underfitting and may introduce 
+                          bias by discarding potentially useful data. Common downsampling techniques are 
+                          random downsampling and near miss downsampling [6].
+                        </p>
+
+                        <h4>Random Downsampling</h4>
+                        <p align="justify">
+                          Similar to random oversampling in upsampling, random downsampling selects data 
+                          points at random; however, in this case, the selected points come from the majority 
+                          class and are removed [6].
+                        </p>
+
+                        <h4>Near Miss Downsampling</h4>
+                        <p align="justify">
+                          Near Miss Downsampling involves distance-based instance selection. In this method, 
+                          the pairwise distance between all majority and minority class instances is first 
+                          calculated. Based on these distances, majority class instances that are farther 
+                          away from minority points are removed. This ensures that the remaining majority 
+                          samples are closer to the minority class distribution, helping the model better 
+                          capture decision boundaries [6].
+                        </p>
+                      
+                      <h2>References</h2>
+                      <p align="justify">
+                        [1] GeeksforGeeks,
+                        “Ml | handling missing values,”
+                        GeeksforGeeks, accessed: July 21, 2025,
+                        <a href="https://www.geeksforgeeks.org/machine-learning/ml-handling-missing-values/" target="_blank">
+                          https://www.geeksforgeeks.org/machine-learning/ml-handling-missing-values/</a>.
+                      </p>
+                      <p align="justify">
+                        [2] Google,
+                        “Ml concepts - crash course,”
+                        Google, accessed: 2025,
+                        <a href="https://developers.google.com/machine-learning/crash-course/prereqs-and-prework" target="_blank">https://developers.google.com/machine-learning/crash-course/prereqs-and-prework</a>.
+                      </p>
+                      <p align="justify">
+                        [3] Z. Wanget al.,
+                        “A comprehensive survey on data augmentation,”
+                        2025,
+                        <a href="https: //arxiv.org/abs/2405.09591" target="_blank">https: //arxiv.org/abs/2405.09591</a>.
+                      </p>
+                      <p align="justify">
+                        [4] GeeksforGeeks,
+                        “Introduction to upsampling and downsampling imbalanced data in python,”
+                        GeeksforGeeks, accessed: July 23, 2025,
+                        <a href="https://www.geeksforgeeks.org/machine-learning/introduction-to-upsampling-and-downsampling-imbalanced-data-in-python/" target="_blank">
+                          https://www.geeksforgeeks.org/machine-learning/introduction-to-upsampling-and-downsampling-imbalanced-data-in-python/</a>.
+                      </p>
+                      <p align="justify">
+                        [5] J. Murel,
+                        “What is upsampling?”
+                        International Business Machines (IBM), accessed: 2025,
+                        <a href="https://www.ibm.com/think/topics/upsampling" target="_blank">
+                          https://www.ibm.com/think/topics/upsampling</a>.
+                      </p>
+                      <p align="justify">
+                        [6] J. Murel,
+                        “What is downsampling?”
+                        International Business Machines (IBM), accessed: 2025,
+                        <a href="https://www.ibm.com/think/topics/downsampling" target="_blank">
+                          https://www.ibm.com/think/topics/downsampling</a>.
+                      </p>
+                    </header>
+                    <section class="page__content" itemprop="text">
+                        <footer class="page__meta"></footer>
+                    </section>
+                </div>
+            </article>
+        </div>
+        <div class="page__footer">
+            <footer> 
+                <!-- start custom footer snippets --> 
+                <!-- <a href="/sitemap/">Sitemap</a> end custom footer snippets -->
+                <!-- <div class="page__footer-follow">
+                    <ul class="social-icons">
+                        <li><strong>Follow:</strong></li> -->
+                        <!-- <li><a href="http://github.com/arghosh"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a></li> -->
+                        <!-- <li><a href="https://arghosh.github.io/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li> -->
+                    <!-- </ul> -->
+                <!-- </div> -->
+                <!-- <div class="page__footer-copyright">© 2020 Forough Shirin Abkenar. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/academicpages/academicpages.github.io">AcademicPages</a>, a fork of <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>. -->
+                <!-- </div> -->
+            </footer>
+        </div>
+        <script src="https://foroughshirinabkenar.github.io/mysite/assets/js/main.min.js"></script> 
+        <script> (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','//www.google-analytics.com/analytics.js','ga'); ga('create', 'UA-113060154-1', 'auto'); ga('send', 'pageview'); </script>
+    </body>
+
+</html>
