@@ -237,27 +237,69 @@
                         </p>
                       
                           <h2>Implementation</h2>
-                              <p>
-                                The machine learning random forest model in Python was developed 
-                                from scratch following the guidelines provided in [2]. The complete 
-                                implementation script is available on 
-                                <a href="https://github.com/foroughshirinabkenar/traditional_ml_tutorial/blob/main/random_forest_scratch.ipynb" target="_blank">
-                                  Random Forest from Scratch</a>.
-                              </p>
-                          
-                              <p align="justify">
-                                We developed a random forest classifier using the <b>Breast Cancer</b> dataset 
-                                available in scikit-learn [1]. The following screenshot shows the training 
-                                (fitting) process the regressor, following by the evaluation results.
-                                Notably, the model is imported from sklearn.<span style="color: blue;">ensemble</span>. 
-                                The complete implementation script is available on the GitHub page 
-                                <a href="https://github.com/foroughshirinabkenar/traditional_ml_tutorial/blob/main/random_forest_classification.ipynb" target="_blank">
-                                  Random Forest Classifier</a>.
-    
-                                <center>
-                                  <img src="https://foroughshirinabkenar.github.io/mysite/images/traditional_ml/supervised_learning/rf_clf_test.png">
-                                </center>
-                              </p>
+                          <p>
+                            The machine learning random forest model in Python was developed from 
+                              scratch following the guidelines provided in [2]. The complete 
+                            implementation script is available on 
+                            <a href="https://github.com/foroughshirinabkenar/traditional_ml_tutorial/blob/main/random_forest_scratch.ipynb" target="_blank">
+                              Random Forest from Scratch</a>.
+                          </p>
+
+                          <h3>Classifier</h3>
+                          <p align="justify">
+                              We developed a decision tree classifier for the <b>Breast Cancer</b> dataset 
+                              using the built-in functions provided in <em>scikit-learn</em> [1] in Python. 
+                              The following screenshot illustrates the training process of the decision tree 
+                              classifier. The model is imported from 
+                              sklearn.<span style="color: blue;">ensemble</span>.  
+                              Moreover, we applied <b>Grid Search Cross-Validation</b> to identify 
+                              the optimal hyperparameters of the model. In this process, we defined ranges 
+                              for various various parameters, such as <em>n_estimators</em> (no. of trees), 
+                              <em>max_depth</em>, <em>min_samples_split</em>, and 
+                              <em>min_samples_leaf</em>.
+
+                              <center>
+                                  <img src="https://foroughshirinabkenar.github.io/mysite/images/traditional_ml/supervised_learning/rf_clf_train.png">
+                            </center>
+                          </p>
+                        
+                          <p align="justify">
+                            After identifying the best classifier through Grid Search Cross-Validation, 
+                              we evaluated its performance using the test dataset. The following screenshot 
+                              presents the corresponding results.
+                            The complete implementation script is available on the GitHub page 
+                            <a href="https://github.com/foroughshirinabkenar/traditional_ml_tutorial/blob/main/random_forest_classification.ipynb" target="_blank">
+                              Random Forest Classifier</a>.
+
+                            <center>
+                              <img src="https://foroughshirinabkenar.github.io/mysite/images/traditional_ml/supervised_learning/rf_clf_test.png">
+                            </center>
+                          </p>
+
+                        <h3>Regressor</h3>
+                          <p align="justify">
+                              We developed a random forest–based regressor. To this end, we implemented a 
+                              <b>Random Forest Regressor</b> using the <b>California Housing</b> dataset 
+                              available in scikit-learn. The following screenshot shows the training 
+                              (fitting) process of the regressor, where <b>Grid Search Cross-Validation</b> 
+                              was employed to tune the optimal hyperparameters.
+
+                              <center>
+                                  <img src="https://foroughshirinabkenar.github.io/mysite/images/traditional_ml/supervised_learning/rf_reg_train.png">
+                            </center>
+                          </p>
+
+                        <p align="justify">
+                            After training the regressor, we evaluated its performance on the test dataset. 
+                            The following screenshot displays the corresponding results. The complete 
+                            implementation script is available on the GitHub page 
+                            <a href="https://github.com/foroughshirinabkenar/traditional_ml_tutorial/blob/main/random_forest_regression.ipynb" target="_blank">
+                              Random Forest Regressor</a>.
+                            
+                            <center>
+                              <img src="https://foroughshirinabkenar.github.io/mysite/images/traditional_ml/supervised_learning/rf_reg_test.png">
+                            </center>
+                          </p>
 
                       
                       <h2>References</h2>
