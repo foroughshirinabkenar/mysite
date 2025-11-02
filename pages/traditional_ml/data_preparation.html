@@ -316,7 +316,7 @@
                         </p>
 
                         <p align="justify">
-                          where \[x_{min}\] and \[x_{max}\] are the minimum and the maximum values of the feature, 
+                          where \(x_{min}\) and \(x_{max}\) are the minimum and the maximum values of the feature, 
                           respectively. It is worth mentioning that normalization does not alter the data distribution [2].
                         </p>
 
@@ -334,13 +334,13 @@
                         </p>
 
                         <p align="justify">
-                          where \[\mu\] and \[\sigma\] are the mean and standard deviation of the feature, respectively [2].
+                          where \(\mu\) and \(\sigma\) are the mean and standard deviation of the feature, respectively [2].
                         </p>
 
                         <h4>Log Scaling</h4>
                         <p align="justify">
-                          Features can exhibit a power law distribution, where low values of \[x\] correspond to high values 
-                          of $y$, and $y$ decreases rapidly as \[x\] increases. An example of this is movie ratings, where a 
+                          Features can exhibit a power law distribution, where low values of \(x\) correspond to high values 
+                          of \(y\), and \(y\) decreases rapidly as \(x\) increases. An example of this is movie ratings, where a 
                           few movies receive many ratings while most receive very few. Logarithmic scaling can help mitigate 
                           the effects of a power law distribution by transforming the data into a more balanced scale [2].
                         </p>
@@ -469,7 +469,7 @@
                         <h4>Synthetic Minority Oversampling Technique</h4>
                         <p align="justify">
                           The SMOTE generates new samples for the minority class by interpolation. First, for each 
-                          minority class data point, the algorithm identifies its \[K\] nearest neighbors (with \[K\] 
+                          minority class data point, the algorithm identifies its \(K\) nearest neighbors (with \(K\) 
                           commonly set to 5). Then, one of these neighbors is randomly selected, and a new synthetic 
                           sample is created at a random point along the line segment connecting the original data point 
                           and the chosen neighbor in the feature space. This process is repeated with different neighbors 
@@ -479,8 +479,8 @@
                         <h4>Adaptive Synthetic Sampling Approach</h4>
                         <p align="justify">
                           The ADASYN technique extends the idea of SMOTE by focusing on regions where the minority class 
-                          is underrepresented. A \[K\]-nearest neighbor (KNN) model is first built on the entire dataset, 
-                          and each minority class point is assigned a "hardness factor" (\[K\]), defined as the ratio of 
+                          is underrepresented. A \(K\)-nearest neighbor (KNN) model is first built on the entire dataset, 
+                          and each minority class point is assigned a "hardness factor" (\(K\)), defined as the ratio of 
                           majority class neighbors to the total number of neighbors in KNN. Similar to SMOTE, new synthetic 
                           samples are generated through linear interpolation between a minority data point and its neighbors. 
                           However, the number of samples generated is scaled by the hardness factor so that more synthetic 
