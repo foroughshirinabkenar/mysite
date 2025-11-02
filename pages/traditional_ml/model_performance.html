@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <!-- begin SEO -->
+        <title>Model Performance - Forough Shirin Abkenar</title>
+        <meta property="og:locale" content="en-US">
+        <meta property="og:site_name" content="Model Performance">
+        <meta property="og:title" content="Model Performance">
+        <link rel="canonical" href="https://foroughshirinabkenar.github.io/mysite/genAI.html">
+        <meta property="og:url" content="https://foroughshirinabkenar.github.io/mysite/genAI.html">
+        <meta property="og:description" content="Model Performance">
+        <script async="" src="//www.google-analytics.com/analytics.js"></script>
+        <script type="application/ld+json"> { "@context" : "http://schema.org", "@type" : "Person", "name" : "Aritra Ghosh", "url" : "https://foroughshirinabkenar.github.io", "sameAs" : null } </script>
+        <!-- end SEO -->
+        <!-- http://t.co/dKP3o1e -->
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script> document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js '; </script>
+        <!-- For all browsers -->
+        <link rel="stylesheet" href="https://foroughshirinabkenar.github.io/mysite/assets/css/main.css">
+        <meta http-equiv="cleartype" content="on">
+        <!-- start custom head snippets -->
+        <meta name="theme-color" content="#ffffff">
+        <link rel="stylesheet" href="https://foroughshirinabkenar.github.io/mysite/assets/css/academicons.css">
+        <script type="text/x-mathjax-config;executed=true"> MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "all" } } }); </script>
+        <script type="text/x-mathjax-config;executed=true"> MathJax.Hub.Config({ tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ], processEscapes: true } }); </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML" async=""></script>
+        <!-- end custom head snippets -->
+        <style id="fit-vids-style">.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}</style>
+        <script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+            .MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+            .MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+            .MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+            .MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+        </style>
+        <style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+                #MathJax_About.MathJax_MousePost {outline: none}
+                .MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+                .MathJax_MenuItem {padding: 2px 2em; background: transparent}
+                .MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+                .MathJax_MenuActive .MathJax_MenuArrow {color: white}
+                .MathJax_MenuArrow.RTL {left: .5em; right: auto}
+                .MathJax_MenuCheck {position: absolute; left: .7em}
+                .MathJax_MenuCheck.RTL {right: .7em; left: auto}
+                .MathJax_MenuRadioCheck {position: absolute; left: 1em}
+                .MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+                .MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+                .MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+                .MathJax_MenuDisabled {color: GrayText}
+                .MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+                .MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+                .MathJax_ContextMenu:focus {outline: none}
+                .MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+                #MathJax_AboutClose {top: .2em; right: .2em}
+                .MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+                .MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+                .MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+                .MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+                .MathJax_MenuClose:hover span {background-color: #CCC!important}
+                .MathJax_MenuClose:hover:focus {outline: none}
+        </style>
+        <style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+        </style>
+        <style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+            .MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+        </style>
+        <style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+            #MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+            #MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+            #MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+        </style>
+        <style type="text/css">.MathJax_Preview {color: #888}
+            #MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+            #MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+            .MathJax_Error {color: #CC0000; font-style: italic}
+        </style>
+        <style type="text/css">.MJXp-script {font-size: .8em}
+            .MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+            .MJXp-bold {font-weight: bold}
+            .MJXp-italic {font-style: italic}
+            .MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+            .MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+            .MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+            .MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+            .MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+            .MJXp-largeop {font-size: 150%}
+            .MJXp-largeop.MJXp-int {vertical-align: -.2em}
+            .MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+            .MJXp-display {display: block; text-align: center; margin: 1em 0}
+            .MJXp-math span {display: inline-block}
+            .MJXp-box {display: block!important; text-align: center}
+            .MJXp-box:after {content: " "}
+            .MJXp-rule {display: block!important; margin-top: .1em}
+            .MJXp-char {display: block!important}
+            .MJXp-mo {margin: 0 .15em}
+            .MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+            .MJXp-denom {display: inline-table!important; width: 100%}
+            .MJXp-denom > * {display: table-row!important}
+            .MJXp-surd {vertical-align: top}
+            .MJXp-surd > * {display: block!important}
+            .MJXp-script-box > *  {display: table!important; height: 50%}
+            .MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+            .MJXp-script-box > *:last-child > * {vertical-align: bottom}
+            .MJXp-script-box > * > * > * {display: block!important}
+            .MJXp-mphantom {visibility: hidden}
+            .MJXp-munderover {display: inline-table!important}
+            .MJXp-over {display: inline-block!important; text-align: center}
+            .MJXp-over > * {display: block!important}
+            .MJXp-munderover > * {display: table-row!important}
+            .MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+            .MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+            .MJXp-mtr {display: table-row!important}
+            .MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+            .MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+            .MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+            .MJXp-mlabeledtr {display: table-row!important}
+            .MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+            .MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+            .MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+            .MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+            .MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+            .MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+            .MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+            .MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+            .MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+            .MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+            .MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+            .MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+            .MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+            .MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+        </style>
+        <style>
+          .table-wrap {overflow-x: auto;}
+          #tab-eval-finetune {border-collapse: collapse; width: 100%; min-width: 720px; text-align: center;}
+          #tab-eval-finetune caption {caption-side: top; font-weight: 600; margin-bottom: 0.5rem;}
+          #tab-eval-finetune th,
+          #tab-eval-finetune td {border: 1px solid #444; padding: 0.5rem 0.6rem; vertical-align: middle;}
+          #tab-eval-finetune thead th {background: #f5f5f5;}
+          /* Add cline effect under BLEU + ROUGE headers only */
+          #tab-eval-finetune thead .cline-row th {border-top: none;}
+          /* Draw a thick line under the second header row except the first column (PPL) */
+          #tab-eval-finetune thead .cline-row th:not(:first-child) {border-bottom: 2px solid #000;}
+        </style>
+        <style>
+          body {
+            font-size: 16px;
+            font-family: Arial, sans-serif;
+          }
+          h1 {
+            font-size: 24;  /* adjust as you like */
+            font-weight: bold;
+            color: #333;
+          }
+          h2 {
+            font-size: 22;  /* adjust as you like */
+            font-weight: bold;
+            color: #333;
+          }
+          h3 {
+            font-size: 20px;  /* adjust as you like */
+            font-weight: bold;
+            color: #333;
+          }
+          h4 {
+            font-size: 18px;  /* adjust as you like */
+            font-weight: bold;
+            color: #333;
+          }
+        </style>
+    </head>
+
+    <body data-new-gr-c-s-check-loaded="14.984.0" data-gr-ext-installed="">
+        <div id="MathJax_Message" style="display: none;"></div>
+        <!--[if lt IE 9]>
+            <div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+        <![endif]-->
+        <div class="masthead">
+            <div class="masthead__inner-wrap">
+                <div class="masthead__menu">
+                    <nav id="site-nav" class="greedy-nav"> 
+                        <button class="hidden" count="0"><div class="navicon"></div></button>
+                        <ul class="visible-links">
+                            <li class="masthead__menu-item masthead__menu-item--lg"><a href="https://foroughshirinabkenar.github.io/mysite/index.html">Forough Shirin Abkenar</a></li>
+                            <li class="masthead__menu-item"><a href="https://foroughshirinabkenar.github.io/mysite/publications.html">Publications</a></li>
+                            <li class="masthead__menu-item"><a href="https://foroughshirinabkenar.github.io/mysite/bio.html">Bio</a></li>
+                            <li class="masthead__menu-item"><a href="https://foroughshirinabkenar.github.io/mysite/traditional_ml.html">Traditional ML</a></li>
+                            <li class="masthead__menu-item"><a href="https://foroughshirinabkenar.github.io/mysite/genAI.html">Gen AI Projects</a></li>
+                        </ul>
+                        <ul class="hidden-links hidden"></ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div id="main" role="main">
+            <div class="sidebar sticky">
+                <div itemscope="" itemtype="http://schema.org/Person">
+                    <div class="author__avatar"> <img src="https://foroughshirinabkenar.github.io/mysite/images/profile.jpeg" class="author__avatar" alt="Forough Shirin Abkenar"></div>
+                    <div class="author__content">
+                        <h3 class="author__name">Forough Shirin Abkenar</h3>
+                        <p class="author__bio">Ph.D., Electrical Engineering and Computer Science</p>
+                    </div>
+                    <div class="author__urls-wrapper">
+                        <button class="btn btn--inverse">Follow</button>
+                        <ul class="author__urls social-icons">
+                            <li><i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> California, USA</li>
+                            <li><a href="mailto:fshirina@uci.edu" target="_blank"><i class="fas fa-envelope" aria-hidden="true"></i> Email</a></li>
+                            <!--<li><a href="https://foroughshirinabkenar.wixsite.com/mysite" target="_blank"><i class="fab fa-wix" aria-hidden="true"></i> Wix</a></li>
+                            <li><a href="https://iasl.ics.uci.edu/people/forough-shirin-abkenar/" target="_blank">UCI</a></li>
+                            <li><a href="https://www.researchgate.net/profile/Forough_Shirin_Abkenar2" target="_blank"><i class="fab fa-researchgate" style='color:green' aria-hidden="true"></i> ResearchGate</a></li>
+                            -->
+                            <li><a href="https://www.linkedin.com/in/forough-s-1460b2198" target="_blank"><i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn</a></li>
+                            <li><a href="https://github.com/foroughshirinabkenar" target="_blank"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a></li>
+                            <li><a href="https://scholar.google.com/citations?user=TQ0vI44AAAAJ&hl=en" target="_blank"><i class="fas fa-graduation-cap"></i> Google Scholar</a></li>
+                            <li><a href="https://ieeexplore.ieee.org/author/37086113585" target="_blank"><img src="https://foroughshirinabkenar.github.io/mysite/images/logos/IEEE.jpg" style="width: 3em;"> IEEE</a></li>
+                            <li><a href="https://www.webofscience.com/wos/author/record/AAA-7697-2019" target="_blank"><img src="https://foroughshirinabkenar.github.io/mysite/images/logos/wos.png" style="width: 1em;"> Web of Science</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <article class="page" itemscope="" itemtype="http://schema.org/CreativeWork">
+                <meta itemprop="headline" content="Model Performance">
+                <meta itemprop="description" content="Model Performance">
+                <div class="page__inner-wrap">
+                    <header>
+                        <h1 class="page__title" itemprop="headline">Model Performance</h1>
+                        <p align="justify">
+                          To develop a machine learning model, a dataset is used to train the model, 
+                          referred to as the <b>training set</b>. The model is then evaluated on previously 
+                          unseen data, known as the \textbf{test set}. A robust model is one that not only 
+                          performs well on the training data but also generalizes effectively to the test 
+                          data. To assess the quality of a model, two fundamental concepts are often considered: 
+                          bias and variance.
+                        </p>
+
+                        <h2>Bias</h2>
+                        <p align="justify">
+                          In simple terms, bias refers to the error incurred by a model when predicting values. 
+                          A high bias indicates that the model is not trained well, meaning it is too simple to 
+                          capture the underlying patterns in the data. On the other hand, a low bias suggests 
+                          that the model is more flexible and better able to learn the relationship between the 
+                          input features and the corresponding labels or output values. Given the actual values 
+                          \(Y\), and the predicted values \(\hat{Y}\), the bias is defined as [1]
+                        </p>
+
+                       <p>
+                         \[
+                             \text{Bias} = \mathbb{E}[\hat{Y}] - Y,
+                         \]
+                       </p>
+
+                       <p align="justify">
+                         where \(\mathbb{E}[\hat{Y}]\) is the expected value of the predictions. High bias 
+                         leads to poor model performance, a phenomenon known as <b>underfitting</b>, where 
+                         the model fails to capture the underlying patterns in the training data. As a 
+                         result, it performs poorly even during the training phase [1].
+                       </p>
+
+                       <h2>Variance</h2>
+                        <p align="justify">
+                          Mathematically, variance measures the spread of data around its mean. In machine 
+                          learning, variance quantifies the sensitivity of a model's predictions to different 
+                          subsets of the training data. In simple terms, it indicates how much a model's 
+                          predictions change when trained on different datasets. Formally, variance measures 
+                          the expected squared deviation of the model's predictions from their mean, 
+                          expressed as [1]
+                        </p>
+
+                       <p>
+                         \[
+                             \text{Variance} = \mathbb{E}\left[(\hat{Y} - \mathbb{E}[\hat{Y}])^{2}\right]
+                         \]
+                       </p>
+
+                       <p align="justify">
+                         A model exhibiting high variance along with low bias is said to suffer from 
+                         <b>overfitting</b>, that is a common problem in ML. Overfitting occurs when the 
+                         model memorizes the training data, including noise, rather than learning the 
+                         underlying patterns. As a result, when presented with unseen data, the model 
+                         fails to generalize, leading to a significant drop in performance [1].
+                       </p>
+
+                        <h2>Overfitting and Underfitting</h2>
+                          <p align="justify">
+                              As mentioned earlier, overfitting occurs when a model has low bias but high 
+                            variance. In contrast, underfitting refers to the situation wherein the model 
+                            exhibits high bias and low variance. Figure 1 shows the bias-variance trade-off 
+                            diagram [1].
+                            <figure style="display: flex; flex-direction: column; align-items: center;">
+                              <img src="https://foroughshirinabkenar.github.io/mysite/images/traditional_ml/model_performance/bias_variance.png"
+                                  style="max-width: 40%; height: auto;"
+                                />
+                              <figcaption>Fig. 1: Bias-variance trade-off [1].</figcaption>
+                            </figure>
+                          </p>
+
+                         <h3>Methods to Address</h3>
+                          <p align="justify">
+                            There are different methods and techniques to overcome both overfitting and 
+                            underfitting. In the rest, we review some of them. Before reviewing the 
+                            corresponding methods, we discuss two important techniques, namely 
+                            regularization and cross validation, in details [1, 2].
+                          </p>
+                        
+                          <h4>Regularization</h4>
+                          <p align="justify">
+                            Regularization methods, such as L1-norm and L2-norm, mitigate the 
+                            overfitting by adding a penalty term to the weights during updating [2].
+                          </p>
+
+                          <p align="justify">
+                            The L1-norm, also known as Least Absolute Shrinkage and Selection Operator 
+                            (Lasso) regression, introduces the absolute value of the coefficient magnitudes 
+                            as a penalty term to the loss function \(\mathcal{L}\). Formally, it is defined as [2]
+                          </p>
+                          <p>
+                            \[
+                              \mathcal{L}_{L1} = \mathcal{L} + \lambda\sum_{i}^{M}|w_{i}| = \frac{1}{N}\sum_{i=1}^{N}(y_{i} - \hat{y}_{i})^{2} + \lambda\sum_{i}^{M}|w_{i}|,
+                            \]
+                          </p>
+
+                          <p  align="justify">
+                            where \(N\) and \(M\) are total number of samples and features, respectively; 
+                            \(\lambda\) is the regularization parameter; \(w\) shows the weight (or coefficient); 
+                            and \(y_{i}\) and \(\hat{y}_{i}\) represent the actual and predicted values, 
+                            respectively. The L1 penalty encourages sparsity by shrinking less important 
+                            weights toward zero that allows only the most significant features to contribute 
+                            to the model during training [2].
+                          </p>
+
+                          <p align="justify">
+                            The L2-norm, also known as Ridge regression or Euclidean norm, adds the 
+                            square of the coefficient magnitudes as a penalty term to the loss function 
+                            \(\mathcal{L}\). Formally, it is defined as [2]
+                          </p>
+                          <p>
+                            \[
+                              \mathcal{L}_{L1} = \mathcal{L} + \lambda\sum_{i}^{M}w_{i}^{2} = \frac{1}{N}\sum_{i=1}^{N}(y_{i} - \hat{y}_{i})^{2} + \lambda\sum_{i}^{M}w_{i}^{2}
+                            \]
+                          </p>
+
+                          <p  align="justify">
+                            Unlike L1 regularization, which enforces sparsity by driving some coefficients 
+                            exactly to zero, L2 regularization uniformly penalizes large weights, leading 
+                            to smaller but nonzero coefficients. This helps prevent overfitting by reducing 
+                            model complexity while maintaining all features' contributions. However, it is 
+                            highly sensitive to outliers in the data. Any outlier in the data can increase 
+                            the error. To minimize this large penalty, the model will shift its parameters 
+                            toward the outlier. Thus, the model is vulnerable to an improper fitting [2].
+                          </p>
+
+                          <p  align="justify">
+                            In summary, L1 and L2 regularization each offer distinct advantages depending 
+                            on the characteristics of the data and the model. L1 regularization encourages 
+                            sparsity by driving less important coefficients exactly to zero that makes it 
+                            useful for feature selection in high-dimensional datasets. L2 regularization, 
+                            on the other hand, penalizes large weights more smoothly that yields smaller 
+                            but nonzero coefficients and promoting weight stability across correlated features. 
+                            To leverage the benefits of both methods, Elastic Net regularization combines the 
+                            L1 and L2 penalties as follows [2].
+                          </p>
+
+                          <p>
+                            \[
+                                \mathcal{L}_{ElasticNet} = \mathcal{L} + \lambda_{1}\sum_{i}^{M}|w_{i}| + \lambda_{2}\sum_{i}^{M}w_{i}^{2},
+                            \]
+                          </p>
+
+                          <p  align="justify">
+                            where \(\lambda_{1}\) and \(\lambda_{2}\) control the contribution of the L1 and L2 
+                            terms, respectively. Elastic Net is particularly effective when dealing with datasets 
+                            that contain highly correlated features or when both feature selection and regularization 
+                            are desired simultaneously [2].
+                          </p>
+                        
+                          <h4>Cross-Validation</h4>
+                          <p align="justify">
+                            Cross-validation is a widely used technique to mitigate overfitting by providing a 
+                            more reliable estimate of a model's generalization performance. The most common type 
+                            is <b>k-fold cross-validation</b>, where the training dataset is divided into \(k\)
+                            equal-sized subsets, known as <em>folds</em> [3].
+                          </p>
+                          
+                          <p align="justify">
+                            The training procedure is repeated \(k\) times. In each iteration, one fold is used 
+                            as the validation set, while the remaining \((k - 1)\) folds are combined to form 
+                            the training set. This ensures that every data point is used for both training and 
+                            validation exactly once. Importantly, each iteration is independent, and the model 
+                            learns separate weights corresponding to that iteration [3].
+                          </p>
+                          
+                          <p align="justify">
+                            After completing all \(k\) iterations, the validation results from each fold are 
+                            averaged to obtain the final performance estimate. This approach effectively 
+                            reduces both <b>bias</b> and <b>variance</b>, thereby improving the model's 
+                            ability to generalize and preventing overfitting [3].
+                          </p>
+                        
+                          <h4>Alleviate Underfitting and Overfitting</h4>
+                          <ul>
+                            <li>
+                              <b>Underfitting:</b> To cope with the underfitting problem [1]:
+                              <ul>
+                                <li>
+                                  <p align="justify">
+                                    Increase the model complexity: More complex models are able to learn 
+                                    underlying pattern of data. One efficient way is to use complex model 
+                                    (such as deep neural network models) rather than simpler model (such as 
+                                    linear/logistic regression) [1].
+                                  </p>
+                                </li>
+                                <li>
+                                  <p align="justify">
+                                    Add more features: Increasing the dimensionality of data, in terms of 
+                                    features, can help models to learn more complex patterns. Add more relevant 
+                                    features using feature engineering process [1].
+                                  </p>
+                                </li>
+                                <li>
+                                  <p align="justify">
+                                    Reduce regularization: Regularization techniques, such as the L1-norm 
+                                    (Lasso) and L2-norm (Ridge or Euclidean norm), play a crucial role in 
+                                    preventing overfitting by penalizing overly complex models. However, 
+                                    excessive regularization can lead to underfitting, as the model becomes 
+                                    too constrained to capture important patterns in the data. To mitigate 
+                                    this issue, the regularization strength can be reduced by using a smaller 
+                                    penalty coefficient [1].
+                                  </p>
+                                </li>
+                                <li>
+                                  <p align="justify">
+                                    Increase training duration: Increasing the number of epochs for training 
+                                    the model, let the model to learn more effectively [1].
+                                  </p>
+                                </li>
+                              </ul>
+                            </li>
+                            <li>
+                              <b>Overfitting:</b>To prevent the model from overfitting [1]:
+                              <ul>
+                                <li>
+                                  <p align="justify">
+                                    Increase training data: Increasing the dimensionality of training data, 
+                                    in terms of the number of samples, can help mitigate the overfitting problem. 
+                                    With more data, the model has greater opportunity to generalize and learn 
+                                    the underlying patterns, rather than memorizing the training examples [1].
+                                  </p>
+                                </li>
+                                <li>
+                                  <p align="justify">
+                                    Reduce model's complexity: Sometimes, the underlying data patterns are simple 
+                                    enough to be effectively learned by simpler models rather than highly complex 
+                                    ones. Complex models are not always the optimal choice; they tend to perform 
+                                    well only when the data are intricate and involve a large number of features, 
+                                    making pattern learning more challenging. To reduce the risk of overfitting 
+                                    in such cases, it is advisable to use simpler algorithms or architectures, 
+                                    decrease the number of layers, or reduce the number of neurons in the model [1].
+                                  </p>
+                                </li>
+                                <li>
+                                  <p align="justify">
+                                    Use regularization: Regularization techniques, such as the L1-norm (Lasso) 
+                                    and L2-norm (Ridge or Euclidean norm), play a crucial role in preventing 
+                                    overfitting by penalizing overly complex models [1].
+                                  </p>
+                                </li>
+                                <li>
+                                  <p align="justify">
+                                    Use dropout: Dropout is a regularization technique in neural networks that 
+                                    involves randomly deactivating a subset of neurons during training. This prevents 
+                                    the model from becoming overly reliant on specific neurons or pathways, 
+                                    thereby improving its ability to generalize to unseen data [1].
+                                  </p>
+                                </li>
+                                <li>
+                                  <p align="justify">
+                                    Implement early stopping: Early stopping is a regularization technique that 
+                                    halts training when the model's performance on a separate validation set begins 
+                                    to deteriorate, even if its performance on the training set continues to improve. 
+                                    This approach helps prevent overfitting by stopping the learning process before the 
+                                    model starts to memorize noise in the training data [1].
+                                  </p>
+                                </li>
+                                <li>
+                                  <p align="justify">
+                                    Perform feature selection: Irrelevant or redundant features can cause the model to 
+                                    overfit to noise. Removing those features improves generalization and the model's 
+                                    performance [1].
+                                  </p>
+                                </li>
+                                <li>
+                                  <p align="justify">
+                                    Deploy data augmentation: When the diversity of a dataset is low, a model is more 
+                                    likely to memorize the data patterns rather than learning them. Data augmentation 
+                                    is a technique that addresses this issue by increasing dataset diversity. To this 
+                                    end, it generates new data points through transformations of existing samples [1].
+                                  </p>
+                                </li>
+                                <li>
+                                  <p align="justify">
+                                    Apply cross-validation: Cross-validation guarantees that every data point in the 
+                                    training set is used for both training and validation exactly once. Therefore, 
+                                    it avoids the model to be trained over fixed sets. As a result, both bias and 
+                                    variance are decreased [1].
+                                  </p>
+                                </li>
+                              </ul>
+                            </li>
+                          </ul>
+                        
+                          <h2>Vanishing and Exploding Gradient</h2>
+                          <p align="justify">
+                              Gradients are the key parameters in model training. During backpropagation in neural 
+                            network (NN) models, the gradient of the loss is computed w.r.t. the weights and biases 
+                            separately. Then, based on the optimization algorithm, such as Stochastic Gradient Descent 
+                            (SGD) or Adaptive Moment Estimation (Adam)-both driven by the gradient descent mechanism, 
+                            the weights and biases are updated layer by layer. This implies that in each layer, the 
+                            weights are multiplied recursively by gradient-based updates so that the overall loss is 
+                            minimized across the network. However, if these multipliers become excessively small or 
+                            large, the learning process encounters major difficulties. The former issue is referred to 
+                            as <b>gradient vanishing</b>, while the latter is known as <b>gradient exploding</b> [4].
+                          </p>
+                          
+                          <h3>Gradient Vanishing</h3>
+                          <p align="justify">
+                            One common challenge in neural networks, particularly recurrent neural networks (RNNs), 
+                            that often leads to underfitting is \textbf{gradient vanishing}. During backpropagation, 
+                            if the gradients are repeatedly multiplied by values smaller than one, they shrink 
+                            exponentially as they propagate backward through the layers. Consequently, the weights in 
+                            the early layers approach zero, preventing the model from learning useful patterns. This 
+                            phenomenon results in slow or completely stalled learning [4].
+                          </p>
+                        
+                          <h3>Gradient Exploding</h3>
+                          <p align="justify">
+                            The opposite of gradient vanishing is the <b>gradient exploding</b> problem. It occurs 
+                            when the gradients grow exponentially during backpropagation—often in deep or recurrent 
+                            networks. This causes the model parameters to oscillate or diverge. When gradient exploding 
+                            happens, the loss fails to converge, and the model parameters may take extremely large 
+                            values that results in unstable training or numerical overflow. Gradient exploding 
+                            typically arises when [4]:
+
+                            <ul>
+                              <li>
+                                <p align="justify">
+                                  The network is very deep, and the product of large gradients across multiple layers 
+                                  accumulates exponentially [4].
+                                </p>
+                              </li>
+                              <li>
+                                <p align="justify">
+                                  Improper weight initialization leads to excessively large parameter updates [4].
+                                </p>
+                              </li>
+                              <li>
+                                <p align="justify">
+                                  The learning rate is too high that amplifies each weight update [4].
+                                </p>
+                              </li>
+                            </ul>
+                          </p>
+                        
+                          <h3>Techniques to Cope with Gradient Vanishing and Exploding</h3>
+                          <p align="justify">
+                              Before diving into the gradient vanishing and exploding problems, it is essential 
+                            to review several fundamental techniques that can effectively alleviate both issues.
+                          </p>
+
+                          <h4>Weight Initialization</h4>
+                          <p align="justify">
+                            Avoiding random initialization of weights and adopting principled initialization 
+                            strategies can significantly reduce the probability of both vanishing and exploding 
+                            gradients. Techniques such as <b>Kaiming initialization</b> and 
+                            <b>Xavier initialization</b> set the initial weights at appropriate scales, thereby 
+                            maintaining stable gradient propagation during early training [5, 6].
+
+                            <ul>
+                              <li>
+                                <p align="justify">
+                                  <b>Kaiming Initialization:</b> Kaiming (or He) initialization is suitable for 
+                                  layers that use the <em>ReLU</em> activation function. It prevents vanishing gradients 
+                                  by assigning a larger variance to the initial weights. There are two common 
+                                  variants [5]:
+
+                                  <ul>
+                                    <li>
+                                      <p align="justify">
+                                        <b>Kaiming Normal Initialization:</b> Weights are drawn from a normal 
+                                        distribution with a mean of 0 and a standard deviation of 
+                                        \(\sqrt{\frac{2}{n_{in}}}\):
+                                      </p>
+                                      <p>
+                                        \[
+                                            w_i \sim \mathcal{N}(0, \sqrt{\tfrac{2}{n_{in}}}),
+                                        \]
+                                      </p>
+                                      <p align="justify">
+                                        where \(n_{in}\) is the number of input units to the layer.
+                                      </p>
+                                    </li>
+                                    <li>
+                                      <p align="justify">
+                                        <b>Kaiming Uniform Initialization:</b> Weights are drawn 
+                                        from a uniform distribution in the range:
+                                      </p>
+                                      <p>
+                                        \[
+                                            w_i \sim U\left(-\sqrt{\tfrac{6}{n_{in}}}, \sqrt{\tfrac{6}{n_{in}}}\right),
+                                        \]
+                                      </p>
+                                      <p align="justify">
+                                        that ensures variance preservation across layers.
+                                      </p>
+                                    </li>
+                                  </ul>
+                                </p>
+                              </li>
+                              <li>
+                                <p align="justify">
+                                  <b>Xavier Initialization:</b> Xavier (or Glorot) initialization is more suitable for 
+                                  layers using <em>Sigmoid</em> or <em>Tanh</em> activation functions. It aims to keep 
+                                  the variance of activations and gradients consistent across layers. Two variants 
+                                  exist [6]:
+
+                                  <ul>
+                                    <li>
+                                      <p align="justify">
+                                        <b>Normal Xavier Initialization:</b> Weights are drawn from a normal distribution 
+                                        with a mean of 0 and a standard deviation of 
+                                        \(\sqrt{\frac{2}{n_{in} + n_{out}}}\):
+                                      </p>
+                                      <p>
+                                        \[
+                                           w_i \sim \mathcal{N}\left(0, \sqrt{\tfrac{2}{n_{in} + n_{out}}}\right),
+                                        \]
+                                      </p>
+                                      <p align="justify">
+                                        where \(n_{in}\) and \(n_{out}\) denote the number of input and output units, 
+                                        respectively.
+                                      </p>
+                                    </li>
+                                    <li>
+                                      <p align="justify">
+                                        <b>Uniform Xavier Initialization:</b> Weights are drawn 
+                                        from a uniform distribution in the range:
+                                      </p>
+                                      <p>
+                                        \[
+                                            w_i \sim U\left(-\sqrt{\tfrac{6}{n_{in} + n_{out}}}, \sqrt{\tfrac{6}{n_{in} + n_{out}}}\right)
+                                        \]
+                                      </p>
+                                    </li>
+                                  </ul>
+                                </p>
+                              </li>
+                            </ul>
+                          </p>
+                        
+                          <h4>Normalization</h4>
+                          <p align="justify">
+                            Normalizing inputs to each layer stabilizes gradient flow, accelerates 
+                            convergence, and mitigates both vanishing and exploding gradients. Two 
+                            widely used normalization methods are described below.
+
+                            <ul>
+                              <li>
+                                <p align="justify">
+                                  <b>Batch Normalization:</b> batch, ensuring zero mean and unit variance. 
+                                  Consequently, the input to each layer becomes dependent on the batch 
+                                  statistics. Although highly effective for large batch sizes, it can be 
+                                  less stable for small batches or recurrent neural networks (RNNs),
+                                  where batch statistics fluctuate significantly [6].
+                                </p>
+                              </li>
+                              <li>
+                                <p align="justify">
+                                  <b>Layer Normalization:</b> This approach normalizes activations across 
+                                  the features of each individual sample, independently of other samples 
+                                  in the batch. This makes it particularly suitable for small or variable 
+                                  batch sizes, as in RNNs and natural language processing tasks [7].
+                                </p>
+                              </li>
+                            </ul>
+                          </p>
+                        
+                          <h4>Additional Strategies for Gradient Stabilization</h4>
+                          <p align="justify">
+                            Several other strategies can further mitigate the vanishing 
+                            and exploding gradient problems [4].
+
+                            <ul>
+                              <li>
+                                <p align="justify">
+                                  <b>Alternative Activation Functions:</b> Saturating activation functions 
+                                  such as <em>Sigmoid</em> and <em>Tanh</em> are prone to vanishing gradients 
+                                  because their derivatives approach zero for large input magnitudes. In contrast,
+                                  <em>ReLU</em> maintains gradients close to 1 for positive inputs, preventing 
+                                  exponential shrinkage [4].
+                                </p>
+                              </li>
+                              <li>
+                                <p align="justify">
+                                  <b>Residual and Skip Connections:</b> Architectures such as ResNets incorporate 
+                                  shortcut connections that allow gradients to bypass intermediate layers, ensuring 
+                                  more effective propagation to earlier layers [4].
+                                </p>
+                              </li>
+                              <li>
+                                <p align="justify">
+                                  <b>Gradient Clipping:</b> This widely used technique constrains the gradient norm 
+                                  to a predefined threshold (e.g., by rescaling gradients when their magnitude exceeds 
+                                  a limit), thereby preventing instability due to gradient explosion [4].
+                                </p>
+                              </li>
+                              <li>
+                                <p align="justify">
+                                  <b>Learning Rate Adjustment:</b> A smaller learning rate ensures smoother parameter 
+                                  updates, helping avoid overshooting and gradient amplification during optimization [4].
+                                </p>
+                              </li>
+                              <li>
+                                <p align="justify">
+                                  <b>Gated Architectures (for RNNs):</b> In sequential models, gating mechanisms such as 
+                                  those in Long Short-Term Memory (LSTM) regulate information  and gradient flow over time, 
+                                  effectively mitigating both vanishing and exploding gradients in long sequences [4].
+                                </p>
+                              </li>
+                            </ul>
+                          </p>
+
+                      <p align="justify">
+                        In practice, both vanishing and exploding gradients can coexist in different parts of a deep 
+                        network. Therefore, combining techniques such as careful initialization, normalization, skip 
+                        connections, and adaptive optimizers (e.g., Adam) is essential to achieve stable and efficient 
+                        training.
+                      </p>
+                      
+                      <h2>References</h2>
+                      <p align="justify">
+                        [1] GeeksforGeeks,
+                        “Bias and variance in machine learning,”
+                        GeeksforGeeks, accessed: July 12, 2025,
+                        <a href="https://www.geeksforgeeks.org/machine-learning/bias-vs-variance-in-machine-learning/" target="_blank">
+                          https://www.geeksforgeeks.org/machine-learning/bias-vs-variance-in-machine-learning/</a>.
+                      </p>
+                      <p align="justify">
+                        [2] GeeksforGeeks,
+                        “Regularization in machine learning,”
+                        GeeksforGeeks, accessed: September 18, 2025,
+                        <a href="https://www.geeksforgeeks.org/machine-learning/regularization-in-machine-learning/" target="_blank">
+                          https://www.geeksforgeeks.org/machine-learning/regularization-in-machine-learning/</a>.
+                      </p>
+                      <p align="justify">
+                        [3] GeeksforGeeks,
+                        “Cross Validation in Machine Learning,”
+                        GeeksforGeeks, accessed: July 23, 2025,
+                        <a href="https://www.geeksforgeeks.org/machine-learning/cross-validation-machine-learning/" target="_blank">
+                          https://www.geeksforgeeks.org/machine-learning/cross-validation-machine-learning/</a>.
+                      </p>
+                      <p align="justify">
+                        [4] GeeksforGeeks,
+                        “Vanishing and exploding gradients problems in deep learning,”
+                        GeeksforGeeks, accessed: July 23, 2025,
+                        <a href="https://www.geeksforgeeks.org/deep-learning/vanishing-and-exploding-gradients-problems-in-deep-learning/" target="_blank">
+                          https://www.geeksforgeeks.org/deep-learning/vanishing-and-exploding-gradients-problems-in-deep-learning/</a>.
+                      </p>
+                      <p align="justify">
+                        [5] GeeksforGeeks,
+                        “Kaiming initialization in deep learning,”
+                        GeeksforGeeks, accessed: July 23, 2025,
+                        <a href="https://www.geeksforgeeks.org/deep-learning/kaiming-initialization-in-deep-learning/" target="_blank">
+                          https://www.geeksforgeeks.org/deep-learning/kaiming-initialization-in-deep-learning/</a>.
+                      </p>
+                      <p align="justify">
+                        [6] GeeksforGeeks,
+                        “Xavier initialization,”
+                        GeeksforGeeks, accessed: July 23, 2025,
+                        <a href="https://www.geeksforgeeks.org/deep-learning/xavier-initialization/" target="_blank">
+                          https://www.geeksforgeeks.org/deep-learning/xavier-initialization/</a>.
+                      </p>
+                      <p align="justify">
+                        [7] GeeksforGeeks,
+                        “What is batch normalization in deep learning?,”
+                        GeeksforGeeks, accessed: July 23, 2025,
+                        <a href="https://www.geeksforgeeks.org/deep-learning/what-is-batch-normalization-in-deep-learning/" target="_blank">
+                          https://www.geeksforgeeks.org/deep-learning/what-is-batch-normalization-in-deep-learning/</a>.
+                      </p>
+                      <p align="justify">
+                        [8] GeeksforGeeks,
+                        “What is layer normalization?,”
+                        GeeksforGeeks, accessed: July 23, 2025,
+                        <a href="https://www.geeksforgeeks.org/deep-learning/what-is-layer-normalization/" target="_blank">
+                          https://www.geeksforgeeks.org/deep-learning/what-is-layer-normalization/</a>.
+                      </p>
+                    </header>
+                    <section class="page__content" itemprop="text">
+                        <footer class="page__meta"></footer>
+                    </section>
+                </div>
+            </article>
+        </div>
+        <div class="page__footer">
+            <footer> 
+                <!-- start custom footer snippets --> 
+                <!-- <a href="/sitemap/">Sitemap</a> end custom footer snippets -->
+                <!-- <div class="page__footer-follow">
+                    <ul class="social-icons">
+                        <li><strong>Follow:</strong></li> -->
+                        <!-- <li><a href="http://github.com/arghosh"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a></li> -->
+                        <!-- <li><a href="https://arghosh.github.io/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li> -->
+                    <!-- </ul> -->
+                <!-- </div> -->
+                <!-- <div class="page__footer-copyright">© 2020 Forough Shirin Abkenar. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/academicpages/academicpages.github.io">AcademicPages</a>, a fork of <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>. -->
+                <!-- </div> -->
+            </footer>
+        </div>
+        <script src="https://foroughshirinabkenar.github.io/mysite/assets/js/main.min.js"></script> 
+        <script> (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','//www.google-analytics.com/analytics.js','ga'); ga('create', 'UA-113060154-1', 'auto'); ga('send', 'pageview'); </script>
+    </body>
+
+</html>
