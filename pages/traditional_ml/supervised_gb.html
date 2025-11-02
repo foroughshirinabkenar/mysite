@@ -233,30 +233,328 @@
                     <header>
                         <h1 class="page__title" itemprop="headline">Gradient Boosting</h1>
                         <p align="justify">
-                          
+                          Unlike Random Forest, which constructs independent trees on bootstrap samples 
+                            to reduce variance and improve generalization, <b>Gradient Boosting</b> 
+                            builds trees sequentially, where each new tree aims to correct the errors 
+                            made by the previous ones to achieve higher predictive accuracy.
+                        </p>
+
+                        <p align="justify">
+                            Gradient Boosting enhances the final prediction function, \(F(x)\), 
+                            by combining \(M\) \textbf{weak learners}. In this approach, each subsequent 
+                            weak learner is trained to minimize the residual errors (mistakes) of the 
+                            preceding learners, and the aggregation of all weak learners produces a 
+                            strong predictive model. Assuming \(f_{i}(x)\) represents the \(i\)-th weak 
+                            learner, the overall model is expressed as [2]
+                        </p>
+
+                        <p>
+                            \[
+                                F(x) = \sum_{i=1}^{M} f_{i}(x)
+                            \]
+                        </p>
+
+                        <p align="justify">
+                            To implement this, the algorithm first initializes a loss function and an 
+                            initial weak learner. The loss function must be <b>differentiable</b>, 
+                            as Gradient Boosting is a <em>gradient-based</em> optimization procedure. 
+                            The algorithm begins with an extremely weak learner, \(f_{1}(x)\) [2].
+                        </p>
+
+                        <p align="justify">
+                            For each learner \(f_{j}(x)\), where \(j = 1, \ldots, M\), the algorithm 
+                            computes the <b>negative gradient</b> of the loss function w.r.t. 
+                            the predictions, i.e., [2]
+                        </p>
+
+                        <p>
+                            \[
+                                \hat{r}_{ji} = - \frac{\partial \mathcal{L}(y_{i}, \hat{y}_{i})}{\partial \hat{y}_{i}} \bigg|_{\hat{y}_{i} = F_{j}(x_{i})},
+                            \]
+                        </p>
+
+                        <p  align="justify">
+                            where \(y_{i}\) and \(\hat{y}_{i}\) are the actual and predicted values 
+                            corresponding to the input \(x_{i}\), respectively [2].
+                        </p>
+
+                        <p  align="justify">
+                            Next, the new weak learner, \(f_{j+1}(x)\), is trained on the residuals 
+                            \(\hat{r}_{j}\) (i.e., the computed gradients) along with the original 
+                            input data \(X\). The contribution of this new weak learner, denoted as 
+                            \(\hat{\gamma}_{j+1}\), is obtained by solving [2]
+                        </p>
+
+                        <p>
+                            \[
+                                \hat{\gamma}_{j + 1} = \argmin_{\gamma} \sum_{i=1}^{N} \mathcal{L} \left( y_{i}, F_{j}(x_{i}) + \gamma f_{j+1}(x_{i}) \right)
+                            \]
+                        </p>
+
+                        <p  align="justify">
+                            The model is then updated as [2]
+                        </p>
+
+                        <p>
+                            \[
+                                F_{j + 1}(x) = F_{j}(x) + \hat{\gamma}_{j + 1} f_{j + 1}(x)
+                            \]
+                        </p>
+
+                        <p  align="justify">
+                            This process continues iteratively until the algorithm converges 
+                            to the optimal solution (i.e., the minimum loss) [2].
+                        </p>
+
+                        <p  align="justify">
+                            <b>Comparison with Random Forest:</b>
+
+                            <ul>
+                                <li>
+                                    <p  align="justify">
+                                        Since each weak learner in Gradient Boosting is trained to 
+                                        correct the errors of its predecessors, it often achieves 
+                                        <b>higher predictive accuracy</b> than Random Forest.
+                                    </p>
+                                </li>
+                                <li>
+                                    <p  align="justify">
+                                        However, Gradient Boosting is <b>slower to train</b> and 
+                                        <b>more complex to tune</b>, as it involves more 
+                                        hyperparameters.
+                                    </p>
+                                </li>
+                                <li>
+                                    <p  align="justify">
+                                        It is also <b>more susceptible to overfitting</b> if not 
+                                        properly regularized (e.g., via learning rate, subsampling, 
+                                        or tree depth constraints).
+                                    </p>
+                                </li>
+                            </ul>
                         </p>
 
                         
-                         <h3>Implementation</h3>
+                         <h2>Implementation</h2>
                           <p>
-                            The machine learning gradient boosting model for binary classification in Python 
-                            was developed from scratch. The complete 
-                            implementation script is available on 
+                            The machine learning random fores model in Python was developed from scratch. 
+                              The complete implementation script is available on 
                             <a href="https://github.com/foroughshirinabkenar/traditional_ml_tutorial/blob/main/gradient_boosting_scratch.ipynb" target="_blank">
                               Gradient Boosting from Scratch</a>.
                           </p>
-                      
+
+                          <h3>Classifier</h3>
                           <p align="justify">
-                            We developed a gradient boosting classifier for the <b>Breast Cancer</b> dataset using the 
-                            built-in functions provided in <em>scikit-learn</em> [1] in Python. The following screenshot 
-                            illustrates the training process and the evaluation results of the model. 
-                            Notably, the model is imported from sklearn.<span style="color: blue;">ensemble</span>. 
+                              We developed a gradient boosting classifier for the <b>Breast Cancer</b> dataset 
+                              using the built-in functions provided in <em>scikit-learn</em> [1] in Python. 
+                              The following screenshot illustrates the training process of the 
+                              classifier. The model was imported from 
+                              sklearn.<span style="color: blue;">ensemble</span>.  
+                              Moreover, we applied <b>Grid Search Cross-Validation</b> to identify 
+                              the optimal hyperparameters of the model. In this process, we defined ranges 
+                              for various various parameters, such as <em>n_estimators</em> (no. of trees), 
+                              <em>max_depth</em>, <em>min_samples_split</em>, and 
+                              <em>learning_rate</em>.
+
+                              <center>
+                                  <img src="https://foroughshirinabkenar.github.io/mysite/images/traditional_ml/supervised_learning/gb_clf_train.png">
+                            </center>
+                          </p>
+                        
+                          <p align="justify">
+                            After identifying the best classifier through Grid Search Cross-Validation, 
+                              we evaluated its performance using the test dataset. The following screenshot 
+                              presents the corresponding results.
                             The complete implementation script is available on the GitHub page 
                             <a href="https://github.com/foroughshirinabkenar/traditional_ml_tutorial/blob/main/gradient_boosting_classification.ipynb" target="_blank">
                               Gradient Boosting Classifier</a>.
 
                             <center>
-                              <img src="https://foroughshirinabkenar.github.io/mysite/images/traditional_ml/supervised_learning/gb_clf_train.png">
+                              <img src="https://foroughshirinabkenar.github.io/mysite/images/traditional_ml/supervised_learning/gb_clf_test.png">
+                            </center>
+                          </p>
+
+                        <h3>Regressor</h3>
+                          <p align="justify">
+                              We developed a gradient boosting–based regressor. To this end, we implemented a 
+                              <b>Gradient Boosting Regressor</b> using the <b>California Housing</b> dataset 
+                              available in scikit-learn. The following screenshot shows the training 
+                              (fitting) process of the regressor, where <b>Grid Search Cross-Validation</b> 
+                              was employed to tune the optimal hyperparameters.
+
+                              <center>
+                                  <img src="https://foroughshirinabkenar.github.io/mysite/images/traditional_ml/supervised_learning/gb_reg_train.png">
+                            </center>
+                          </p>
+
+                        <p align="justify">
+                            After training the regressor, we evaluated its performance on the test dataset. 
+                            The following screenshot displays the corresponding results. The complete 
+                            implementation script is available on the GitHub page 
+                            <a href="https://github.com/foroughshirinabkenar/traditional_ml_tutorial/blob/main/gradient_boosting_regression.ipynb" target="_blank">
+                              Gradient Boosting Regressor</a>.
+                            
+                            <center>
+                              <img src="https://foroughshirinabkenar.github.io/mysite/images/traditional_ml/supervised_learning/gb_reg_test.png">
+                            </center>
+                          </p>
+
+                     <h2>XGBoost</h2>
+                        <p align="justify">
+                            Extreme Gradient Boosting (XGBoost) is an enhanced variation of the traditional 
+                            Gradient Boosting algorithm that provides significant improvements in speed, 
+                            accuracy, and feature handling. These enhancements are achieved through advanced 
+                            techniques such as regularization, parallel processing, and a more sophisticated 
+                            loss function optimization using the second-order Taylor approximation instead of 
+                            standard first-order gradient descent. Key characteristics of XGBoost include:
+
+                            <ul>
+                                <li>
+                                    <p align="justify">
+                                        XGBoost incorporates both L1-norm and L2-norm regularization techniques 
+                                        to prevent overfitting and improve model generalization.
+                                    </p>
+                                </li>
+                                <li>
+                                    <p align="justify">
+                                        It includes built-in mechanisms for handling missing values efficiently, 
+                                        eliminating the need for external preprocessing.
+                                    </p>
+                                </li>
+                                <li>
+                                    <p align="justify">
+                                        XGBoost inherently supports cross-validation, which helps in reducing 
+                                        overfitting and improving model robustness.
+                                    </p>
+                                </li>
+                                <li>
+                                    <p align="justify">
+                                        It is computationally efficient and supports parallel processing via 
+                                        leveraging multi-core architectures for faster training and tuning.
+                                    </p>
+                                </li>
+                                <li>
+                                    <p align="justify">
+                                        XGBoost employs a depth-first tree growth strategy and stops branching 
+                                        when further splits provide no performance gain. The model then performs 
+                                        backward pruning to optimize the final tree structure.
+                                    </p>
+                                </li>
+                                <li>
+                                    <p align="justify">
+                                        It supports user-defined objective functions and evaluation metrics that 
+                                        enhances versatility and provides flexibility for a wide range of learning 
+                                        tasks.
+                                    </p>
+                                </li>
+                            </ul>
+                        </p>
+
+                        <p align="justify">
+                            Compared to traditional Gradient Boosting, XGBoost leverages a 
+                            <b>Taylor series approximation</b> of the loss function to accelerate convergence. 
+                            In XGBoost, the overall objective function is defined as
+                        </p>
+
+                        <p>
+                            \[
+                                \mathcal{L}(\Phi) = \sum_{i}\mathcal{L}(y_{i}, \hat{y}_{i}) + \sum_{k}\Omega(f_{k}),
+                            \]
+                        </p>
+
+                        <p align="justify">
+                            where the first term represents the residual loss w.r.t. the samples, aiming to minimize 
+                            the bias, and the second term denotes the regularization component over all trees, aiming 
+                            to control model complexity and reduce variance.
+                        </p>
+
+                        <p align="justify">
+                            The residual loss at iteration $t$ combines the predictions of all previous trees with 
+                            the contribution from the current tree, such that
+                        </p>
+
+                        <p>
+                            \[
+                                \mathcal{L}(y_{i}, \hat{y}_{i}) = \mathcal{L}(y_{i}, \hat{y}_{i(t-1)} + f_{t}(x_{i})),
+                            \]
+                        </p>
+
+                        <p align="justify">
+                            where \(\hat{y}_{i(t-1)}\) represents the aggregated predictions from the previous 
+                            \((t-1)\) trees, and \(f_{t}(x_{i})\) corresponds to the prediction of the current tree.
+                        </p>
+
+                        <p align="justify">
+                            To efficiently optimize this objective, XGBoost applies a second-order Taylor series 
+                            approximation to the loss function around \(\hat{y}_{i(t-1)}\), that yields in
+                        </p>
+
+                        <p>
+                            \[
+                                \mathcal{L}(y_{i}, \hat{y}_{i(t-1)} + f_{t}(x_{i})) \approx \mathcal{L}(y_{i}, \hat{y}_{i}) + g_{i}f_{t}(x_{i}) + \frac{1}{2}h_{i}f_{t}^{2}(x_{i}),
+                            \]
+                        </p>
+
+                        <p align="justify">
+                            where \(g_{i}\) and \(h_{i}\) denote the first- and second-order derivatives 
+                            (gradient and Hessian) of the loss function w.r.t. the previous prediction, defined as
+                            \(g_{i} = \partial_{\hat{y}_{i(t-1)}}\mathcal{L}(y_{i}, \hat{y}_{i(t-1)})\) and 
+                            \)h_{i} = \partial^{2}_{\hat{y}_{i(t-1)}}\mathcal{L}(y_{i}, \hat{y}_{i(t-1)})\).
+                        </p>
+
+                        <h3>Classifier</h3>
+                            <p align="justify">
+                                  We developed an XGBoost classifier for the <b>Breast Cancer</b> dataset 
+                                  using the built-in functions provided in <em>scikit-learn</em> [1] in Python. 
+                                  The following screenshot illustrates the training process of the 
+                                  classifier. The model was imported from 
+                                  <em><b>xgboost</b></em>.  
+                                  Moreover, we applied <b>Grid Search Cross-Validation</b> to identify 
+                                  the optimal hyperparameters of the model. In this process, we defined ranges 
+                                  for various various parameters, such as <em>n_estimators</em> (no. of trees), 
+                                  <em>max_depth</em>, <em>min_samples_split</em>, and 
+                                  <em>learning_rate</em>.
+    
+                                  <center>
+                                      <img src="https://foroughshirinabkenar.github.io/mysite/images/traditional_ml/supervised_learning/xgb_clf_train.png">
+                                </center>
+                              </p>
+
+                            <p align="justify">
+                            After identifying the best classifier through Grid Search Cross-Validation, 
+                              we evaluated its performance using the test dataset. The following screenshot 
+                              presents the corresponding results.
+                            The complete implementation script is available on the GitHub page 
+                            <a href="https://github.com/foroughshirinabkenar/traditional_ml_tutorial/blob/main/xgboost_classification.ipynb" target="_blank">
+                              XGBoost Classifier</a>.
+
+                            <center>
+                              <img src="https://foroughshirinabkenar.github.io/mysite/images/traditional_ml/supervised_learning/xgb_clf_test.png">
+                            </center>
+                          </p>
+
+                        <h3>Regressor</h3>
+                          <p align="justify">
+                              We developed an XGBoost–based regressor. To this end, we implemented a 
+                              <b>XGBoost Regressor</b> using the <b>California Housing</b> dataset 
+                              available in scikit-learn. The following screenshot shows the training 
+                              (fitting) process of the regressor, where <b>Grid Search Cross-Validation</b> 
+                              was employed to tune the optimal hyperparameters.
+
+                              <center>
+                                  <img src="https://foroughshirinabkenar.github.io/mysite/images/traditional_ml/supervised_learning/xgb_reg_train.png">
+                            </center>
+                          </p>
+
+                        <p align="justify">
+                            After training the regressor, we evaluated its performance on the test dataset. 
+                            The following screenshot displays the corresponding results. The complete 
+                            implementation script is available on the GitHub page 
+                            <a href="https://github.com/foroughshirinabkenar/traditional_ml_tutorial/blob/main/xgboost_regression.ipynb" target="_blank">
+                              XGBoost Regressor</a>.
+                            
+                            <center>
+                              <img src="https://foroughshirinabkenar.github.io/mysite/images/traditional_ml/supervised_learning/xgb_reg_test.png">
                             </center>
                           </p>
                       
@@ -266,6 +564,13 @@
                         P.Prettenhofer, R.Weiss, V. Dubourg, J. Vanderplas, A. Passos, D. Cournapeau, 
                         M. Brucher, M. Perrot, and E. Duchesnay, “Scikit-learn: Machine learning in Python,” 
                         Journal of Machine Learning Research, vol. 12, pp. 2825–2830, 2011.
+                      </p>
+                      <p align="justify">
+                        [2] ritvikmath,
+                        “Gradient Boosting : Data Science's Silver Bullet,”
+                        ritvikmath, accessed: September 29, 2021,
+                        <a href="https://www.youtube.com/watch?v=en2bmeB4QUo&t=608s" target="_blank">
+                          https://www.youtube.com/watch?v=en2bmeB4QUo&t=608s</a>.
                       </p>
                     </header>
                     <section class="page__content" itemprop="text">
