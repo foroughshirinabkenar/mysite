@@ -243,108 +243,553 @@
 
                         <h2>Classification</h2>
                         <p align="justify">
-                          
+                            Several metrics can be used to evaluate the performance of a tuned model for 
+                            classification purposes (binary classification). In this chapter, we focus on 
+                            key metrics: <em>Accuracy</em>, <em>Recall</em> (or true positive rate), false 
+                            positive rate, <em>Precision</em>, <em>F1-score</em>, and <em>ROC-AUC</em>.
                         </p>
 
-                        <h3>Accuracy</h3>
-                        <p align="justify">
-                          
-                        </p>
-
-                        <h3>Recall</h3>
-                        <p align="justify">
-                          
-                        </p>
-
-                        <h3>False Positive Rate</h3>
-                        <p align="justify">
-                          
-                        </p>
-
-                        <h3>Precision</h3>
-                        <p align="justify">
-                          
-                        </p>
-
-                        <h3>F1-Score</h3>
-                        <p align="justify">
-                          
-                        </p>
-
-                        <h3>ROC-AUC</h3>
-                        <p align="justify">
-                          
-                        </p>
-
-                        <h2>Regression</h2>
-                        <p align="justify">
-                          
-                        </p>
-
-                        <h3>Mean Absolute Error</h3>
-                        <p align="justify">
-                          
-                        </p>
-
-                        <h3>Mean Squared Error</h3>
-                        <p align="justify">
-                          
-                        </p>
-
-                        <h3>Root Mean Squared Error</h3>
-                        <p align="justify">
-                          
-                        </p>
-
-                        <h3>R-squared Score</h3>
-                        <p align="justify">
-                          
-                        </p>
-
-                        <h2>Clustering</h2>
-                        <p align="justify">
-                          
-                        </p>
-
-                      <h3>Silhouette Score</h3>
-                        <p align="justify">
-                          
-                        </p>
-
-                      <h3>Davies-Bouldin Index</h3>
-                        <p align="justify">
-                          
-                        </p>
-                      
-                      <h2>Ranking and Recommendation Systems</h2>
-                      <p align="justify">
+                        <h3>Confusion Matrix</h3>
+                          <p align="justify">
+                              Before discussing evaluation metrics, it is important to understand the confusion 
+                              matrix and its components, which play a crucial role in model evaluation [1].
+                          </p>
+                          <p align="justify">
+                              A confusion matrix consists of four elements: true positive (TP), 
+                              false positive (FP), true negative (TN), and false negative (FN). 
+                              Figure I illustrates the confusion matrix, where columns represent 
+                              the actual values and rows represent the predicted values. TP and TN occur 
+                              when the model's predictions match the actual values. Conversely, 
+                              if the model predicts a negative (positive) instance as positive (negative), 
+                              it corresponds to FP (FN) [1].
+                          </p>
+                          <img src="images/evaluation_metrics/confusion_matrix.png" alt="Confusion Matrix">
+                          <p>Figure I: Confusion Matrix.</p>
                         
-                      </p>
-
-                      <h3>Precision@K</h3>
-                        <p align="justify">
+                          <h3>Accuracy</h3>
+                          <p align="justify">
+                              Accuracy indicates how accurate a model is to predict both positive and negative 
+                              classes correctly [1].
+                          </p>
+                          <p>
+                            \[
+                              \text{Accuracy} = \frac{\text{TP} + \text{TN}}{\text{TP} + \text{FP} + \text{TN} + \text{FN}}
+                            \]
+                          </p>
+                        
+                          <h3>Recall</h3>
+                          <p align="justify">
+                              Recall, also known as true positive rate (TPR), measures how effectively a model 
+                              identifies positive instances. Specifically, it is the proportion of true positive 
+                              instances relative to all actual positive samples, including both correctly predicted 
+                              positives and positive instances that were incorrectly predicted as negative [1].
+                          </p>
+                          <p>
+                            \[
+                              \text{Recall} = \frac{\text{TP}}{\text{TP} + \text{FN}}
+                            \]
+                          </p>
+                        
+                          <h3>False Positive Rate (FPR)</h3>
+                          <p align="justify">
+                              The false positive rate (FPR) measures how often a model incorrectly classifies 
+                              negative instances as positive. Specifically, it is the proportion of negative 
+                              samples that are misclassified as positive relative to all actual negative samples [1].
+                          </p>
+                          <p>
+                            \[
+                              \text{FPR} = \frac{\text{FP}}{\text{TN} + \text{FP}}
+                            \]
+                          </p>
+                        
+                          <h3>Precision</h3>
+                          <p align="justify">
+                              Precision describes how precise a model is to classify true positive instances. Precision 
+                              measures the proportion of true positive instances among all predicted positive instances [1].
+                          </p>
+                          <p>
+                            \[
+                              \text{Precision} = \frac{\text{TP}}{\text{TP} + \text{FP}}
+                            \]
+                          </p>
+                        
+                          <h3>F1-score</h3>
+                          <p align="justify">
+                              In imbalanced datasets, the arithmetic mean can be skewed by high values. In contrast, 
+                              the harmonic mean gives more weight to lower values. The F1-score 
+                              (that is F\(_{\beta}\)-score with \(\beta = 1\)) is the harmonic mean of precision 
+                              and recall, that guarantees a low value in either metric results in a correspondingly 
+                              low F1-score [1]
+                          </p>
+                          <p>
+                            \[
+                              \text{F1-score} = \frac{(1 + \beta^2)\cdot \text{Precision}\cdot \text{Recall}}{\beta^2 \cdot \text{Precision} + \text{Recall}} \quad (\beta = 1)
+                            \]
+                          </p>
+                        
+                          <h3>ROC-AUC</h3>
+                          <p align="justify">
+                              Accuracy depends on a specific decision threshold. In contrast, the Receiver 
+                              Operating Characteristic (ROC) curve provides a visual representation of 
+                              model performance across all thresholds, making it threshold-independent. 
+                              The ROC plots the True Positive Rate (TPR) against the False Positive Rate (FPR). 
+                              The Area Under the Curve (AUC) quantifies the probability that the model will 
+                              assign a higher score to a randomly chosen positive instance than to a randomly 
+                              chosen negative one [1].
+                          </p>
+                          <p>
+                              Figure II illustrates the ROC curve for a binary classification scenario in which 
+                              the model makes predictions completely at random, like a coin flip. In this case, 
+                              the AUC equals 0.5 [1].
+                          </p>
+                          <img src="images/evaluation_metrics/roc_auc.png" alt="ROC-AUC">
+                          <p>Figure II: ROC-AUC of completely random guesses.</p>
+                        
+                          <p align="justify">
+                              The ROC-AUC concept can be extended to Precision-Recall (PR) curves to more 
+                              effectively evaluate model performance. Figure III shows the PR curve and 
+                              its corresponding AUC for an example scenario, providing insight into how 
+                              the model balances precision and recall. PR-AUC is particularly useful for 
+                              imbalanced datasets, where the positive class is rare, because it focuses 
+                              on the model's performance with respect to the minority class rather than 
+                              being dominated by the majority class, as can happen with ROC-AUC. In general, 
+                              higher PR-AUC values indicate better model performance [1].
+                          </p>
+                          <img src="images/evaluation_metrics/pr_auc.png" alt="PR-AUC">
+                          <p>Figure III: PR-AUC example.</p>
+                        
+                          <h2>Regression</h2>
+                          <p align="justify">
+                              Unlike classification models, which predict discrete classes or labels, 
+                              regression models produce continuous numerical values as output. Therefore, 
+                              specific evaluation metrics are needed to assess the performance of regression 
+                              models.
+                          </p>
+                        
+                          <p align="justify">
+                              In regression models, the key concept for evaluating performance is 
+                              <em>error</em> (or <em>residual</em>). The error is defined as the difference 
+                              between the actual value and the predicted value. Regression models are developed 
+                              to minimize the error.
+                          </p>
                           
-                        </p>
+                          <h3>Mean Absolute Error (MAE)</h3>
+                          <p align="justify">
+                              Mean absolute error (MAE) measures the arithmetic mean of absolute errors for 
+                              predictions [2].
+                          </p>
+                        
+                          <p>
+                            \[
+                              \text{MAE} = \frac{1}{N} \sum_{i=1}^{N} |\text{Actual}_i - \text{Predicted}_i|
+                            \]
+                          </p>
 
-                      <h3>Recall@K</h3>
-                        <p align="justify">
-                          
-                        </p>
+                          <p align="justify">
+                              MAE treats all errors equally, assigning the same weight to small and large errors. 
+                              As a result, large errors are not penalized more heavily than small ones. This 
+                              property also makes MAE relatively robust to outliers, i.e., extreme values that lie 
+                              far from the typical range of the data. Overall, MAE is appropriate for balanced data [2].
+                          </p>
+                        
+                          <h3>Mean Squared Error (MSE)</h3>
+                          <p align="justify">
+                              Mean squared error (MSE) calculates the arithmetic mean of squared differences between 
+                              the actual data and the predicted values [2].
+                          </p>
+                        
+                          <p>
+                            \[
+                              \text{MSE} = \frac{1}{N} \sum_{i=1}^{N} (\text{Actual}_i - \text{Predicted}_i)^2
+                            \]
+                          </p>
 
-                      <h3>Mean Reciprocal Rank@K (MRR@K)</h3>
-                        <p align="justify">
-                          
-                        </p>
+                          <p align="justify">
+                              Squaring the errors makes the MSE enable to penalize larger errors more heavily 
+                              than smaller errors, making it sensitive to outliers in the data [2].
+                          </p>
+                        
+                          <h3>Root Mean Squared Error (RMSE)</h3>
+                          <p align="justify">
+                              Root mean squared error (RMSE) measures to root of MSE, i.e., the arithmetic mean 
+                              of squared differences between the actual data and the predicted values [2].
+                          </p>
+                        
+                          <p>
+                            \[
+                              \text{RMSE} = \sqrt{\text{MSE}} = \sqrt{\frac{1}{N}\sum_{i=1}^{N} (\text{Actual}_i - \text{Predicted}_i)^2}
+                            \]
+                          </p>
 
-                      <h3>Mean Average Precision@K (mAP@K)</h3>
-                        <p align="justify">
+                          <h3>R-squared Score</h3>
+                          <p align="justify">
+                              R-squared Score (R<sup>2</sup>-score) is a measure of goodness of fit, i.e., it measures how close 
+                              the data points are to the fitted line [2].
+                          </p>
                           
-                        </p>
+                          <p>
+                            \[
+                              R^2\text{-score} = 1 - \frac{\text{SS}_{\text{RES}}}{\text{SS}_{\text{TOT}}} = 1 - \frac{\sum_{i=1}^{N}(y_i - \hat{y}_i)^2}{\sum_{i=1}^{N}(y_i - \bar{y})^2},
+                            \]
+                          </p>
 
-                      <h3>Normalized Discounted Cumulative Gain@K (nDCG@K)</h3>
-                        <p align="justify">
+                          <p align="justify">
+                              where SSR<sub>RES</sub> and SS<sub>TOT</sub> show the sum of squares residuals (errors) and total, 
+                              respectively. The former, measures the sum of squared difference between predicted values and 
+                              actual values. The latter calculated the sum of squared difference between the actual values 
+                              and their arithmetic mean [2].
+                          </p>
+                        
+                          <h2>Clustering</h2>
+                          <p align="justify">
+                              Unlike classification and regression problems, where data are labeled, clustering deals with 
+                              unlabeled data. Since no ground-truth labels are available, clustering models group data based 
+                              on similarities such as distance or distribution. As a result, traditional evaluation metrics 
+                              used in classification or regression are not directly applicable to clustering.
+                          </p>
+                        
+                          <h3>Silhouette Score</h3>
+                          <p align="justify">
+                              The Silhouette Score evaluates the quality of clustering by measuring how well each data 
+                              point fits within its assigned cluster compared to neighboring clusters. A score close 
+                              to +1 indicates that a data point is well-matched to its own cluster and far from other 
+                              clusters, while a score near 0 suggests that the point lies on or near a cluster boundary. 
+                              Negative scores (close to –1) indicate that a data point may have been misassigned to 
+                              the wrong cluster. The overall clustering quality is typically assessed by the average 
+                              silhouette score across all data points, with <b>higher values</b> reflecting better-defined 
+                              and more clearly separated clusters [3].
+                          </p>
                           
-                        </p>
+                          <p>
+                            \[
+                              s(i) = \frac{b(i) - a(i)}{\max\{a(i), b(i)\}},
+                            \]
+                          </p>
+
+                          <p align="justify">
+                              where \(a(i)\) is the inter-cluster distance, i.e., average distance from point \(i\) to all 
+                              other points in the same cluster; and \(b(i)\) represents the nearest-cluster distance, i.e., 
+                              minimum average distance from point \(i\) to points in the nearest neighboring cluster [3].
+                          </p>
+                        
+                          <h3>Davies-Bouldin Index</h3>
+                          <p align="justify">
+                              The Davies-Bouldin Index (DBI) is an internal evaluation metric that measures the quality of 
+                              clustering based on the trade-off between cluster compactness and separation. Compactness 
+                              is quantified by the average distance of data points within a cluster to their centroid, 
+                              while separation is measured by the distance between cluster centroids. A <b>lower DBI</b> 
+                              value indicates better clustering, as it reflects more compact clusters that are well separated 
+                              from each other. Since DBI relies only on the data and cluster assignments, it does not require 
+                              external ground-truth labels [3].
+                          </p>
+                          
+                          <p>
+                            \[
+                              DBI = \frac{1}{k} \sum_{i=1}^{k} \max_{i \neq j} \left( \frac{S_i + S_j}{M_{ij}} \right),
+                            \]
+                          </p>
+
+                          <p align="justify">
+                              where \(k\) is the number of clusters; \(S_{i}\) represents the compactness of the cluster \(i\), 
+                              that is, the average distance of all points of the cluster \(i\) to its centroid; and \(M_{i}\) 
+                              indicates the separation between the clusters, that is, the distance between the centroids of 
+                              the clusters $i$ and \(j\). Notably, \((S_{i} + S_{j}) / M_{ij}\) compares the similarity between 
+                              clusters $i$ and \(j\) [3].
+                          </p>
+                          
+                          <h2>Ranking and Recommendation</h2>
+                          <p align="justify">
+                              In ranking and recommendation tasks, the developed machine learning system generates a list of 
+                              outputs ranked from highest to lowest relevance. However, according to the ground-truth data, 
+                              some truly relevant items may be incorrectly classified as irrelevant. Evaluation metrics such 
+                              as <b>Recall@k</b>, <b>Precision@k</b>, and <b>Mean Average Precision (mAP)</b> are commonly 
+                              used to assess the model's performance in capturing and ranking the relevant results accurately.
+                          </p>
+                          
+                          <h3>Precision@K</h3>
+                          <p align="justify">
+                              In ranking and recommendation tasks, the evaluation is typically limited to the top-K retrieved 
+                              items. In this context, Precision@K measures how many of the items within the top-K positions 
+                              are relevant. Formally, Precision@K is defined as the ratio of relevant items retrieved in the 
+                              top-K results to K. Therefore, we have [4].
+                          </p>
+                          
+                          <p>
+                            \[
+                              \text{Precision@K} = \frac{\text{TP}}{\text{TP} + \text{FP}}
+                            \]
+                          </p>
+
+                          <p align="justify">
+                              Figure IV illustrates an example of a ranking system with K $ = 5$. As shown, the model 
+                              successfully identifies two relevant items out of four total relevant items within the 
+                              top-K results. Therefore, the Precision@K value is computed as \(2 / 5 = 0.4\).
+                          </p>
+                          <img src="images/evaluation_metrics/recall_precision_at_k.png" alt="Precision@K Example">
+                          <p>Figure IV: An example for a single-list ranking system.</p>
+
+                          <p align="justify">
+                              It is worth noting that Precision@K is highly sensitive to the choice of K. Consider a 
+                              case where only two relevant items exist in the ground-truth data, and the model 
+                              successfully retrieves both within the top-K results. If K is set to a large value, 
+                              the precision will decrease substantially, since the number of retrieved items increases 
+                              while the number of relevant items remains constant.
+                          </p>
+                        
+                          <h3>Recall@K</h3>
+                          <p align="justify">
+                              Recall is defined as the model's ability to identify true positive instances in its 
+                              predictions. In ranking and recommendation tasks, Recall@K measures how many of the 
+                              relevant items are correctly retrieved by the model within the top-K positions. 
+                              Formally, Recall@K is defined as the ratio of relevant items retrieved in the top-K 
+                              results to the total number of relevant items in the ground-truth data. Therefore, 
+                              we have [4]
+                          </p>
+                          
+                          <p>
+                            \[
+                              \text{Recall@K} = \frac{\text{TP}}{\text{TP} + \text{FN}}
+                            \]
+                          </p>
+
+                          <p>
+                              Referring to the example provided in Fig. IV, the Recall@K value is computed as 
+                              \(2 / 4 = 0.5\). Therefore, Recall@K reduces the sensitivity to K observed in 
+                              Precision@K. However, although Recall@K is less sensitive to the value of K 
+                              compared to Precision@K, it is insensitive to the relative ranking of relevant 
+                              items within the top-K positions. For example, consider a case where only two 
+                              relevant items exist in the ground-truth data, and both are retrieved within the 
+                              top-K results but appear at lower ranks (e.g., positions 9 and 10 when K \(= 10\)). 
+                              In this case, Recall@K equals 1.0, even though the ranking quality is poor.
+                          </p>
+                        
+                          <h3>Mean Reciprocal Rank@K (MRR@K)</h3>
+                          <p align="justify">
+                              To understand Mean Reciprocal Rank@K (MRR@K), it is necessary to introduce Reciprocal 
+                              Rank@K (RR@K) first. RR@K is a metric that focuses on the position of the first relevant 
+                              item within the top-K results. It is defined as [4].
+                          </p>
+                          
+                          <p>
+                            \[
+                              \text{RR} = \frac{1}{\text{Rank of the first relevant item}}
+                            \]
+                          </p>
+
+                          <p align="justify">
+                              For example, considering the example in Fig. IV, the RR@K is given as \(1 / 2 = 0.5\). 
+                              Considering \(U\) ranked lists in the results, each corresponding to a query in an 
+                              information retrieval task or a user in a recommendation system, MRR@K is defined as 
+                              the average of RR@K across all \(U\) lists, i.e.,
+                          </p>
+
+                          <p>
+                            \[
+                              \text{MRR@K} = \frac{1}{U} \sum_{u=1}^{U} RR@K_u
+                            \]
+                          </p>
+
+                          <p  align="justify">
+                             For instance, Fig. V illustrates a ranking system with three lists in the outputs. 
+                              As shown, the positions of the first relevant items are 2, 3, and 2 in the first, 
+                              the second, and the third lists, respectively. Therefore, the corresponding RR@K 
+                              values are computed as \(1 / 2 = 0.5\), \(1 / 3  = 0.33\), and \(1 / 2 = 0.5\). 
+                              Accordingly, the MRR@K is equal to \((0.5 + 0.33 + 0.5) / 3 = 0.44\). 
+                          </p>
+                          <img src="images/evaluation_metrics/mrr_map_at_k.png" alt="MRR@K Example">
+                          <p>Figure V: An example for a multi-list ranking system.</p>
+
+                          <p  align="justify">
+                             MRR@K addresses the limitation of Precision@K and Recall@K, both of which ignore 
+                              the ranks of relevant items within the top-K results. However, MRR@K only accounts 
+                              for the rank of the first relevant item and disregards the positions of other 
+                              relevant items that may also appear within the top-K list.
+                          </p>
+                        
+                          <h3>Mean Average Precision@K (mAP@K)</h3>
+                          <p align="justify">
+                              Unlike MMR@K that measures the rank of the first relevant item in the output lists, 
+                              Mean Average Precision@K (mAP@K) considers all relevant elements in the top-K positions. 
+                              mAP@K is the mean of AP@K values. Taking into account \(N_{u}\) relevant items in the 
+                              list \(u\), we have [4]
+                          </p>
+                          
+                          <p>
+                            \[
+                              \text{AP@K}_u = \frac{1}{N_u} \sum_{k=1}^{K} \text{Precision}(k) \cdot \text{rel}(k),
+                            \]
+                          </p>
+
+                          <p align="justify">
+                              where Precision\((k)\) is the precision of predictions at top-$k$ positions, where 
+                              \(k = 1, \dots, K\); also, rel\((k)\) is the relevance score of the item, that can 
+                              be a binary value (relevant/not relevant) or a graded score (e.g., 0, 1, 2, 3). In 
+                              the case of AP@K, we defined is as a binary variable where is equal to 1 if the item 
+                              is relevant, and 0 otherwise. For example, referring to Fig. V, for \(u = 1\), we have:
+                          </p>
+
+                          <ul>
+                              <li>
+                                  <p align="justify">
+                                      \(k = 1\): Precision\((k) = 0 / 1 = 0\), rel\((k) = 0\)
+                                  </p>
+                              </li>
+                              <li>
+                                  <p align="justify">
+                                      \(k = 2\): Precision\((k) = 1 / 2 = 0.5\), rel\((k) = 1\)
+                                  </p>
+                              </li>
+                              <li>
+                                  <p align="justify">
+                                      \(k = 3\): Precision\((k) = 1 / 3 = 0.33\), rel\((k) = 0\)
+                                  </p>
+                              </li>
+                              <li>
+                                  <p align="justify">
+                                      \(k = 4\): Precision\((k) = 2 / 4 = 0.5\), rel\((k) = 1\)
+                                  </p>
+                              </li>
+                          </ul>
+
+                          <p align="justify">
+                              Therefore
+                          </p>
+
+                          <p>
+                              \[
+                                  \text{AP@K}_{1}= \frac{0\times 0 + 0.5\times 1 + 0.33\times 0 + 0.5\times 1}{2} = \frac{0 + 0.5 + 0 + 0.5}{2} = \frac{1.0}{2} = 0.5
+                              \]
+                          </p>
+
+                          <p align="justify">
+                              Accordingly, for \(u = 2\) and \(u = 3\), we have
+                          </p>
+
+                          <p>
+                              \[
+                                  \text{AP@K}_{2}= \frac{0\times 0 + 0\times 0 + 0.33\times 1 + 0.0.5\times 1}{2} = \frac{0 + 0 + 0.33 + 0.5}{2} = \frac{0.83}{2} = 0.42
+                              \]
+                          </p>
+
+                          <p>
+                              \[
+                                  \text{AP@K}_{3}= \frac{0\times 0 + 0.5\times 1 + 0\times 0 + 0\times 0}{1} = \frac{0 + 0.5 + 0 + 0}{1} = \frac{0.5}{1} = 0.5
+                              \]
+                          </p>
+
+                          <p align="justify">
+                              mAP@K measure the mean of all AP@K values as
+                          </p>
+
+                          <p>
+                            \[
+                              \text{mAP@K} = \frac{1}{U} \sum_{u=1}^{U} \text{AP@K}_u
+                            \]
+                          </p>
+
+                          <p align="justify">
+                              Therefore, mAP@K value for the above-mentioned example in Fig. V is computed as
+                          </p>
+
+                          <p>
+                            \[
+                              \text{mAP@K}= \frac{0.5 + 0.42 + 0.5}{3} = \frac{1.42}{3} = 0.47
+                            \]
+                          </p>
+                        
+                          <h3>Normalized Discounted Cumulative Gain@K (nDCG@K)</h3>
+                          <p align="justify">
+                              It is important not only to determine whether an item is relevant within an output 
+                              list but also to evaluate how relevant it is. None of the aforementioned metrics 
+                              account for the degree of relevance of items. In contrast, Normalized Discounted 
+                              Cumulative Gain@K (nDCG@K) captures this aspect by assigning graded relevance 
+                              scores to items. To compute nDCG@K, the Discounted Cumulative Gain@K (DCG@K) is 
+                              first calculated, which applies a logarithmic discount factor based on the position 
+                              of each item in the ranked list, i.e., \(\log_{2}(i + 1)\). Formally, DCG@K is 
+                              defined as [4]
+                          </p>
+                          
+                          <p>
+                            \[
+                              \text{DCG@K} = \sum_{i=1}^{K} \frac{\text{rel}_i}{\log_2(i+1)}
+                            \]
+                          </p>
+
+                          <p align="justify">
+                              In addition to the predicted ranks, the Ideal DCG (IDCG) metric represents the maximum 
+                              possible DCG for a given set of results. nDCG@K normalizes the DCG with respect to the IDCG, 
+                              yielding a score between 0 and 1. Formally [4],
+                          </p>
+
+                          <p>
+                            \[
+                              \text{nDCG@K} = \frac{\text{DCG@K}}{\text{IDCG@K}}
+                            \]
+                          </p>
+
+                          <p  align="justify">
+                              For instance, consider the results in Fig. VI. There are three output lists, labeled 
+                              1, 2, and 3, and an ideal list with the ideal ranking of the items.
+                          </p>
+
+                          <img src="images/evaluation_metrics/ndcg_at_k.png" alt="nDCG@K Example">
+                          <p>Figure VI: An example for nDCG.</p>
+
+                          <p  align="justify">
+                              Since the items are categorized as irrelevant, somewhat relevant, and relevant, 
+                              we define relevance scores 0, 1, and 2, respectively. Therefore, for each 
+                              list \(u\), the corresponding DCG@K\(_{u}\) is computed as
+                          </p>
+
+                          <p>
+                              \[
+                                  \text{DCG@K}_{1} = \frac{2}{\log_{2}(1+1)} + \frac{1}{\log_{2}(2+1)} + \frac{0}{\log_{2}(3+1)} + \frac{1}{\log_{2}(4+1)} = \frac{2}{1} + \frac{1}{1.59} + 0 + \frac{1}{2.32} = 2 + 0.63 + 0.43 = 3.06
+                              \]
+                          </p>
+
+                          <p>
+                              \[
+                                  \text{DCG@K}_{2} = \frac{2}{\log_{2}(1+1)} + \frac{0}{\log_{2}(2+1)} + \frac{1}{\log_{2}(3+1)} + \frac{1}{\log_{2}(4+1)} = \frac{2}{1} + 0 + \frac{1}{2} + \frac{1}{2.32} = 2 + 0.5 + 0.43 = 2.93
+                              \]
+                          </p>
+                        
+                          <p>
+                              \[
+                                  \text{DCG@K}_{2} = \frac{1}{\log_{2}(1+1)} + \frac{0}{\log_{2}(2+1)} + \frac{2}{\log_{2}(3+1)} + \frac{1}{\log_{2}(4+1)} = \frac{1}{1} + 0 + \frac{2}{2} + \frac{1}{2.32} = 1 + 1 + 0.43 = 2.43
+                              \]
+                          </p>
+
+                          <p  align="justify">
+                              Also, IDCG@K value is given by
+                          </p>
+
+                          <p>
+                              \[
+                                  \text{IDCG@K} = \frac{2}{\log_{2}(1+1)} + \frac{1}{\log_{2}(2+1)} + \frac{1}{\log_{2}(3+1)} + \frac{0}{\log_{2}(4+1)} = \frac{2}{1} + \frac{1}{1.59} + \frac{1}{2} + 0 = 2 + 0.63 + 0.5 = 3.13
+                              \]
+                          </p>
+
+                          <p  align="justify">
+                              Accordingly, the nDCG@K for each list is calculated as
+                          </p>
+
+                          <p>
+                              \[
+                                  \text{nDCG@K}_{1} = \frac{\text{DCG@K}_{1}}{\text{IDCG@K}} = \frac{3.06}{3.13} = 0.98
+                              \]
+                          </p>
+
+                          <p>
+                              \[
+                                  \text{nDCG@K}_{2} = \frac{\text{DCG@K}_{2}}{\text{IDCG@K}} = \frac{2.93}{3.13} = 0.94
+                              \]
+                          </p>
+
+                          <p>
+                              \[
+                                  \text{nDCG@K}_{3} = \frac{\text{DCG@K}_{3}}{\text{IDCG@K}} = \frac{2.43}{3.13} = 0.78
+                              \]
+                          </p>
                       
                       <h2>References</h2>
                       <p align="justify">
