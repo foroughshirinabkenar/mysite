@@ -233,36 +233,85 @@
                     <header>
                         <h1 class="page__title" itemprop="headline">Support Vector Machine</h1>
                         <p align="justify">
-                          
+                          Support Vector Machine (SVM) is a linear model designed to find a decision 
+                            boundary (or hyperplane) that separates classes in the feature space. 
+                            The optimal hyperplane is the one that maximizes the margin, i.e., 
+                            the distance between the hyperplane and the nearest points from each 
+                            class (also called support vectors), which typically leads to better 
+                            generalization and classification performance. Figure 1 illustrates 
+                            the SVM with linear kernel wherein the red line is the separator 
+                            surrounded by two dashed lines as the support vectors.
+
+                            <figure style="display: flex; flex-direction: column; align-items: center;">
+                                <img src="https://foroughshirinabkenar.github.io/mysite/images/traditional_ml/supervised_learning/svm.png"
+                                    style="max-width: 20%; height: auto;"
+                                  />
+                                <figcaption>Fig. 1: An illustration of SVM with linear kernel.</figcaption>
+                            </figure>
+                        </p>
+
+                        <p align="justify">
+                            The linear hyperplane described above corresponds to the linear kernel in SVM, 
+                            which produces a straight-line decision boundary suitable for linearly 
+                            separable data. In addition to the linear kernel, SVM also supports non-linear 
+                            kernels to capture more complex relationships. Two common non-linear kernels 
+                            are the <b>Radial Basis Function (RBF)</b> and the <b>Polynomial</b> kernel. 
+                            The RBF kernel generates a highly flexible, non-linear boundary capable of 
+                            modeling intricate patterns, while the Polynomial kernel constructs non-linear 
+                            boundaries using polynomial functions. However, the Polynomial kernel is more 
+                            prone to overfitting when higher-degree polynomials are used.
+                        </p>
+
+                        <p align="justify">
+                            The key hyperparameter in SVM is the regularization parameter, denoted by \(C\), 
+                            which must be carefully tuned. The parameter \(C\) is a strictly positive value 
+                            (commonly initialized as 1.0 by default) that controls the trade-off between 
+                            maximizing the margin and minimizing classification error. Moreover, it is 
+                            essential to normalize the input data in the preprocessing step for both training 
+                            and testing. A commonly used normalization technique is z-score normalization, 
+                            which standardizes features to have zero mean and unit variance.
                         </p>
 
                          <h2>Implementation</h2>
-                          <p>
-                            The machine learning SVM model for binary classification in Python 
-                            was developed from scratch following the guidelines provided in [2]. The complete 
+                          <p align="justify">
+                            The machine learning SVM model in Python was developed from 
+                              scratch following the guidelines provided in [2]. The complete 
                             implementation script is available on 
                             <a href="https://github.com/foroughshirinabkenar/traditional_ml_tutorial/blob/main/svm_scratch.ipynb" target="_blank">
-                              Logistic Regression (Binary) from Scratch</a>.
-                            Also, the corresponding model for the multi-class classification was developed 
-                            from scratch, that is available on 
-                            <a href="https://github.com/foroughshirinabkenar/traditional_ml_tutorial/blob/main/logistic_regression_multiclass_scratch.ipynb" target="_blank">
                               SVM from Scratch</a>.
                           </p>
-                      
+
+                          <h3>Classifier</h3>
                           <p align="justify">
-                            We developed a SVM classifier for the <b>Breast Cancer</b> dataset using the 
-                            built-in functions provided in <em>scikit-learn</em> [1] in Python. The following screenshot 
-                            illustrates the training process and the evaluation results of the model. 
-                            Notably, the model is imported from sklearn.<span style="color: blue;">svm</span>. 
-                            The complete implementation script is available on the GitHub page 
-                            <a href="https://github.com/foroughshirinabkenar/traditional_ml_tutorial/blob/main/svm_classification.ipynb" target="_blank">
+                              We developed an SVM classifier for the <b>Breast Cancer</b> dataset 
+                              using the built-in functions provided in <em>scikit-learn</em> [1] in Python. 
+                              The following screenshot illustrates the training process and the evaluation 
+                              results of the model. The model was imported from 
+                              sklearn.<span style="color: blue;">svm</span>.
+                              The implementation includes all linear, rbf, and polynomial kernels. 
+                              The complete implementation script is available on the GitHub page 
+                              <a href="https://github.com/foroughshirinabkenar/traditional_ml_tutorial/blob/main/svm_classification.ipynb" target="_blank">
                               SVM Classifier</a>.
 
-                            <center>
-                              <img src="https://foroughshirinabkenar.github.io/mysite/images/traditional_ml/supervised_learning/svm_clf.png">
+                              <center>
+                                  <img src="https://foroughshirinabkenar.github.io/mysite/images/traditional_ml/supervised_learning/svm_clf.png">
                             </center>
                           </p>
 
+                        <h3>Regressor</h3>
+                          <p align="justify">
+                              We developed an SVM regressor using the <b>California Housing</b> dataset 
+                              available in scikit-learn. The following screenshot shows the training (fitting) 
+                              process the regressor, following by the evaluation results. The implementation 
+                              includes all linear, rbf, and polynomial kernels. The complete 
+                            implementation script is available on the GitHub page 
+                            <a href="https://github.com/foroughshirinabkenar/traditional_ml_tutorial/blob/main/svm_regression.ipynb" target="_blank">
+                              SVM Regressor</a>.
+
+                              <center>
+                                  <img src="https://foroughshirinabkenar.github.io/mysite/images/traditional_ml/supervised_learning/svm_reg.png">
+                            </center>
+                          </p>
                           
                       <h2>References</h2>
                       <p align="justify">
