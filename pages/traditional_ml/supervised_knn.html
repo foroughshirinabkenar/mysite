@@ -233,29 +233,54 @@
                     <header>
                         <h1 class="page__title" itemprop="headline">K-Nearest Neighbors</h1>
                         <p align="justify">
-                          
+                          The K-Nearest Neighbors (KNN) algorithm is a lazy learning model, 
+                            meaning it does not build an explicit training model but rather 
+                            stores the entire dataset for prediction. For each data point 
+                            in the test set, KNN computes the distance, commonly using 
+                            Manhattan, Euclidean, or Minkowski metrics, between the query 
+                            point and all points in the training set. It then selects the 
+                            \(k\) nearest neighbors (typically \(k = 5\)) based on these 
+                            distances. Finally, the model predicts the outcome by applying 
+                            majority voting for classification tasks or averaging the neighbors' 
+                            values for regression tasks.
                         </p>
 
                          <h2>Implementation</h2>
-                          <p>
-                            The machine learning KNN model for binary classification in Python 
-                            was developed from scratch following the guidelines provided in [2]. The complete 
+                          <p align="justify">
+                            The machine learning KNN model in Python was developed from 
+                              scratch following the guidelines provided in [2]. The complete 
                             implementation script is available on 
                             <a href="https://github.com/foroughshirinabkenar/traditional_ml_tutorial/blob/main/knn_scratch.ipynb" target="_blank">
                               KNN from Scratch</a>.
                           </p>
-                      
+
+                          <h3>Classifier</h3>
                           <p align="justify">
-                            We developed a logistic regression classifier for the <b>Breast Cancer</b> dataset using the 
-                            built-in functions provided in <em>scikit-learn</em> [1] in Python. The following screenshot 
-                            illustrates the training process and the evaluation results of the model. 
-                            Notably, the model is imported from sklearn.<span style="color: blue;">neighbors</span>. 
-                            The complete implementation script is available on the GitHub page 
-                            <a href="https://github.com/foroughshirinabkenar/traditional_ml_tutorial/blob/main/knn_classification.ipynb" target="_blank">
+                              We developed a KNN classifier for the <b>Breast Cancer</b> dataset 
+                              using the built-in functions provided in <em>scikit-learn</em> [1] in Python. 
+                              The following screenshot illustrates the training process and the evaluation 
+                              results of the model. The model was imported from 
+                              sklearn.<span style="color: blue;">neighbors</span>. 
+                              The complete implementation script is available on the GitHub page 
+                              <a href="https://github.com/foroughshirinabkenar/traditional_ml_tutorial/blob/main/knn_classification.ipynb" target="_blank">
                               KNN Classifier</a>.
 
-                            <center>
-                              <img src="https://foroughshirinabkenar.github.io/mysite/images/traditional_ml/supervised_learning/knn_clf.png">
+                              <center>
+                                  <img src="https://foroughshirinabkenar.github.io/mysite/images/traditional_ml/supervised_learning/knn_clf.png">
+                            </center>
+                          </p>
+
+                        <h3>Regressor</h3>
+                          <p align="justify">
+                              We developed a KNN regressor using the <b>California Housing</b> dataset 
+                              available in scikit-learn. The following screenshot shows the training (fitting) 
+                              process the regressor, following by the evaluation results. The complete 
+                            implementation script is available on the GitHub page 
+                            <a href="https://github.com/foroughshirinabkenar/traditional_ml_tutorial/blob/main/knn_regression.ipynb" target="_blank">
+                              KNN Regressor</a>.
+
+                              <center>
+                                  <img src="https://foroughshirinabkenar.github.io/mysite/images/traditional_ml/supervised_learning/knn_reg.png">
                             </center>
                           </p>
                       
