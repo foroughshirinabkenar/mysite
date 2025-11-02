@@ -307,66 +307,71 @@
                         <h2>Numerical Example</h2>
                         <p align="justify">
                             Given the data in Table 1, we perform the decision tree algorithm based on IG.
-                        </p>
 
-                        <table border="Example Data for Decision Tree [2].">
-                          <tr>
-                            <th>Neighborhood</th>
-                            <th>No. of Rooms</th>
-                            <th>Affordable</th>
-                          </tr>
-                          <tr>
-                            <td>West</td>
-                            <td>3</td>
-                            <td>Yes</td>
-                          </tr>
-                          <tr>
-                            <td>West</td>
-                            <td>5</td>
-                            <td>Yes</td>
-                          </tr>
-                          <tr>
-                            <td>West</td>
-                            <td>2</td>
-                            <td>Yes</td>
-                          </tr>
-                          <tr>
-                            <td>East</td>
-                            <td>3</td>
-                            <td>Yes</td>
-                          </tr>
-                          <tr>
-                            <td>East</td>
-                            <td>4</td>
-                            <td>Yes</td>
-                          </tr>
-                          <tr>
-                            <td>East</td>
-                            <td>6</td>
-                            <td>No</td>
-                          </tr>
-                          <tr>
-                            <td>East</td>
-                            <td>5</td>
-                            <td>No</td>
-                          </tr>
-                          <tr>
-                            <td>East</td>
-                            <td>2</td>
-                            <td>Yes</td>
-                          </tr>
-                        </table>
+                            <table>
+                                <caption>Table 1. Example Data for Decision Tree [2].</caption>
+                                <thead>
+                                  <tr>
+                                    <th>Neighborhood</th>
+                                    <th>No. of Rooms</th>
+                                    <th>Affordable</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>West</td>
+                                    <td>3</td>
+                                    <td>Yes</td>
+                                  </tr>
+                                  <tr>
+                                    <td>West</td>
+                                    <td>5</td>
+                                    <td>Yes</td>
+                                  </tr>
+                                  <tr>
+                                    <td>West</td>
+                                    <td>2</td>
+                                    <td>Yes</td>
+                                  </tr>
+                                  <tr>
+                                    <td>East</td>
+                                    <td>3</td>
+                                    <td>Yes</td>
+                                  </tr>
+                                  <tr>
+                                    <td>East</td>
+                                    <td>4</td>
+                                    <td>Yes</td>
+                                  </tr>
+                                  <tr>
+                                    <td>East</td>
+                                    <td>6</td>
+                                    <td>No</td>
+                                  </tr>
+                                  <tr>
+                                    <td>East</td>
+                                    <td>5</td>
+                                    <td>No</td>
+                                  </tr>
+                                  <tr>
+                                    <td>East</td>
+                                    <td>2</td>
+                                    <td>Yes</td>
+                                  </tr>
+                                </tbody>
+                            </table>
+                        </p>
 
                         <p>
                             First, we calculate the entropy of the data w.r.t. the labels (i.e., 
                             "Affordable" feature). Considering 6 data points labeled as "Yes" and 
                             2 data points labeled as "No" (see Fig. 1), the probabilities of "Yes" 
-                            (\(p_{yes}\)) and "No" ($p_{no}$) are equal to \(p_{yes} = 6/8\) and 
+                            (\(p_{yes}\)) and "No" (\(p_{no}\)) are equal to \(p_{yes} = 6/8\) and 
                             \(p_{no} = 2/8\). Therefore, we have
 
                             <figure style="display: flex; flex-direction: column; align-items: center;">
                                 <img src="https://foroughshirinabkenar.github.io/mysite/images/traditional_ml/supervised_learning/dt_num_root.png"
-                                    style="max-width: 40%; height: auto;"
+                                    style="max-width: 20%; height: auto;"
                                   />
                                 <figcaption>Fig. 1: Root node for decision tree algorithm.</figcaption>
                             </figure>
