@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <!-- begin SEO -->
+        <title>MLP - Forough Shirin Abkenar</title>
+        <meta property="og:locale" content="en-US">
+        <meta property="og:site_name" content="MLP">
+        <meta property="og:title" content="MLP">
+        <link rel="canonical" href="https://foroughshirinabkenar.github.io/mysite/genAI.html">
+        <meta property="og:url" content="https://foroughshirinabkenar.github.io/mysite/genAI.html">
+        <meta property="og:description" content="MLP">
+        <script async="" src="//www.google-analytics.com/analytics.js"></script>
+        <script type="application/ld+json"> { "@context" : "http://schema.org", "@type" : "Person", "name" : "Aritra Ghosh", "url" : "https://foroughshirinabkenar.github.io", "sameAs" : null } </script>
+        <!-- end SEO -->
+        <!-- http://t.co/dKP3o1e -->
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script> document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js '; </script>
+        <!-- For all browsers -->
+        <link rel="stylesheet" href="https://foroughshirinabkenar.github.io/mysite/assets/css/main.css">
+        <meta http-equiv="cleartype" content="on">
+        <!-- start custom head snippets -->
+        <meta name="theme-color" content="#ffffff">
+        <link rel="stylesheet" href="https://foroughshirinabkenar.github.io/mysite/assets/css/academicons.css">
+        <script type="text/x-mathjax-config;executed=true"> MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "all" } } }); </script>
+        <script type="text/x-mathjax-config;executed=true"> MathJax.Hub.Config({ tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ], processEscapes: true } }); </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML" async=""></script>
+        <!-- end custom head snippets -->
+        <style id="fit-vids-style">.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}</style>
+        <script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+            .MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+            .MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+            .MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+            .MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+        </style>
+        <style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+                #MathJax_About.MathJax_MousePost {outline: none}
+                .MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+                .MathJax_MenuItem {padding: 2px 2em; background: transparent}
+                .MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+                .MathJax_MenuActive .MathJax_MenuArrow {color: white}
+                .MathJax_MenuArrow.RTL {left: .5em; right: auto}
+                .MathJax_MenuCheck {position: absolute; left: .7em}
+                .MathJax_MenuCheck.RTL {right: .7em; left: auto}
+                .MathJax_MenuRadioCheck {position: absolute; left: 1em}
+                .MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+                .MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+                .MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+                .MathJax_MenuDisabled {color: GrayText}
+                .MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+                .MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+                .MathJax_ContextMenu:focus {outline: none}
+                .MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+                #MathJax_AboutClose {top: .2em; right: .2em}
+                .MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+                .MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+                .MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+                .MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+                .MathJax_MenuClose:hover span {background-color: #CCC!important}
+                .MathJax_MenuClose:hover:focus {outline: none}
+        </style>
+        <style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+        </style>
+        <style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+            .MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+        </style>
+        <style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+            #MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+            #MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+            #MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+        </style>
+        <style type="text/css">.MathJax_Preview {color: #888}
+            #MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+            #MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+            .MathJax_Error {color: #CC0000; font-style: italic}
+        </style>
+        <style type="text/css">.MJXp-script {font-size: .8em}
+            .MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+            .MJXp-bold {font-weight: bold}
+            .MJXp-italic {font-style: italic}
+            .MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+            .MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+            .MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+            .MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+            .MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+            .MJXp-largeop {font-size: 150%}
+            .MJXp-largeop.MJXp-int {vertical-align: -.2em}
+            .MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+            .MJXp-display {display: block; text-align: center; margin: 1em 0}
+            .MJXp-math span {display: inline-block}
+            .MJXp-box {display: block!important; text-align: center}
+            .MJXp-box:after {content: " "}
+            .MJXp-rule {display: block!important; margin-top: .1em}
+            .MJXp-char {display: block!important}
+            .MJXp-mo {margin: 0 .15em}
+            .MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+            .MJXp-denom {display: inline-table!important; width: 100%}
+            .MJXp-denom > * {display: table-row!important}
+            .MJXp-surd {vertical-align: top}
+            .MJXp-surd > * {display: block!important}
+            .MJXp-script-box > *  {display: table!important; height: 50%}
+            .MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+            .MJXp-script-box > *:last-child > * {vertical-align: bottom}
+            .MJXp-script-box > * > * > * {display: block!important}
+            .MJXp-mphantom {visibility: hidden}
+            .MJXp-munderover {display: inline-table!important}
+            .MJXp-over {display: inline-block!important; text-align: center}
+            .MJXp-over > * {display: block!important}
+            .MJXp-munderover > * {display: table-row!important}
+            .MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+            .MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+            .MJXp-mtr {display: table-row!important}
+            .MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+            .MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+            .MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+            .MJXp-mlabeledtr {display: table-row!important}
+            .MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+            .MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+            .MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+            .MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+            .MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+            .MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+            .MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+            .MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+            .MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+            .MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+            .MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+            .MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+            .MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+            .MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+        </style>
+        <style>
+          .table-wrap {overflow-x: auto;}
+          #tab-eval-finetune {border-collapse: collapse; width: 100%; min-width: 720px; text-align: center;}
+          #tab-eval-finetune caption {caption-side: top; font-weight: 600; margin-bottom: 0.5rem;}
+          #tab-eval-finetune th,
+          #tab-eval-finetune td {border: 1px solid #444; padding: 0.5rem 0.6rem; vertical-align: middle;}
+          #tab-eval-finetune thead th {background: #f5f5f5;}
+          /* Add cline effect under BLEU + ROUGE headers only */
+          #tab-eval-finetune thead .cline-row th {border-top: none;}
+          /* Draw a thick line under the second header row except the first column (PPL) */
+          #tab-eval-finetune thead .cline-row th:not(:first-child) {border-bottom: 2px solid #000;}
+        </style>
+        <style>
+          body {
+            font-size: 16px;
+            font-family: Arial, sans-serif;
+          }
+          h1 {
+            font-size: 24;  /* adjust as you like */
+            font-weight: bold;
+            color: #333;
+          }
+          h2 {
+            font-size: 22;  /* adjust as you like */
+            font-weight: bold;
+            color: #333;
+          }
+          h3 {
+            font-size: 20px;  /* adjust as you like */
+            font-weight: bold;
+            color: #333;
+          }
+          h4 {
+            font-size: 18px;  /* adjust as you like */
+            font-weight: bold;
+            color: #333;
+          }
+        </style>
+    </head>
+
+    <body data-new-gr-c-s-check-loaded="14.984.0" data-gr-ext-installed="">
+        <div id="MathJax_Message" style="display: none;"></div>
+        <!--[if lt IE 9]>
+            <div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+        <![endif]-->
+        <div class="masthead">
+            <div class="masthead__inner-wrap">
+                <div class="masthead__menu">
+                    <nav id="site-nav" class="greedy-nav"> 
+                        <button class="hidden" count="0"><div class="navicon"></div></button>
+                        <ul class="visible-links">
+                            <li class="masthead__menu-item masthead__menu-item--lg"><a href="https://foroughshirinabkenar.github.io/mysite/index.html">Forough Shirin Abkenar</a></li>
+                            <li class="masthead__menu-item"><a href="https://foroughshirinabkenar.github.io/mysite/publications.html">Publications</a></li>
+                            <li class="masthead__menu-item"><a href="https://foroughshirinabkenar.github.io/mysite/bio.html">Bio</a></li>
+                            <li class="masthead__menu-item"><a href="https://foroughshirinabkenar.github.io/mysite/traditional_ml.html">Traditional ML</a></li>
+                            <li class="masthead__menu-item"><a href="https://foroughshirinabkenar.github.io/mysite/genAI.html">Gen AI Projects</a></li>
+                        </ul>
+                        <ul class="hidden-links hidden"></ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div id="main" role="main">
+            <div class="sidebar sticky">
+                <div itemscope="" itemtype="http://schema.org/Person">
+                    <div class="author__avatar"> <img src="https://foroughshirinabkenar.github.io/mysite/images/profile.jpeg" class="author__avatar" alt="Forough Shirin Abkenar"></div>
+                    <div class="author__content">
+                        <h3 class="author__name">Forough Shirin Abkenar</h3>
+                        <p class="author__bio">Ph.D., Electrical Engineering and Computer Science</p>
+                    </div>
+                    <div class="author__urls-wrapper">
+                        <button class="btn btn--inverse">Follow</button>
+                        <ul class="author__urls social-icons">
+                            <li><i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> California, USA</li>
+                            <li><a href="mailto:fshirina@uci.edu" target="_blank"><i class="fas fa-envelope" aria-hidden="true"></i> Email</a></li>
+                            <!--<li><a href="https://foroughshirinabkenar.wixsite.com/mysite" target="_blank"><i class="fab fa-wix" aria-hidden="true"></i> Wix</a></li>
+                            <li><a href="https://iasl.ics.uci.edu/people/forough-shirin-abkenar/" target="_blank">UCI</a></li>
+                            <li><a href="https://www.researchgate.net/profile/Forough_Shirin_Abkenar2" target="_blank"><i class="fab fa-researchgate" style='color:green' aria-hidden="true"></i> ResearchGate</a></li>
+                            -->
+                            <li><a href="https://www.linkedin.com/in/forough-s-1460b2198" target="_blank"><i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn</a></li>
+                            <li><a href="https://github.com/foroughshirinabkenar" target="_blank"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a></li>
+                            <li><a href="https://scholar.google.com/citations?user=TQ0vI44AAAAJ&hl=en" target="_blank"><i class="fas fa-graduation-cap"></i> Google Scholar</a></li>
+                            <li><a href="https://ieeexplore.ieee.org/author/37086113585" target="_blank"><img src="https://foroughshirinabkenar.github.io/mysite/images/logos/IEEE.jpg" style="width: 3em;"> IEEE</a></li>
+                            <li><a href="https://www.webofscience.com/wos/author/record/AAA-7697-2019" target="_blank"><img src="https://foroughshirinabkenar.github.io/mysite/images/logos/wos.png" style="width: 1em;"> Web of Science</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <article class="page" itemscope="" itemtype="http://schema.org/CreativeWork">
+                <meta itemprop="headline" content="MLP">
+                <meta itemprop="description" content="MLP">
+                <div class="page__inner-wrap">
+                    <header>
+                        <h1 class="page__title" itemprop="headline">Multi-Layer Perceptron Network</h1>
+                        <p align="justify">
+                          Multi-Layer Perceptron (MLP) networks are inspired by the biological neural 
+                          connections in the brain. Each neuron receives inputs from other neurons, 
+                          processes them, and transmits the output to the subsequent neurons [1-3].
+                        </p>
+
+                        <p align="justify">
+                            In neural networks, a <em>perceptron</em> acts as a computational unit 
+                          that receives multiple inputs, computes a weighted sum, and applies an 
+                          activation function to introduce non-linearity. This non-linearity enables 
+                          the network to learn non-linear relationships between input and output [2, 3].
+                        </p>
+
+                        <h2>Architecture</h2>
+                        <p align="justify">
+                          Figure 1 illustrates the overall architecture of an MLP, which typically 
+                          includes one input layer, one or more hidden layers, and one output layer [2, 3].
+
+                          <figure style="display: flex; flex-direction: column; align-items: center;">
+                              <img src="https://foroughshirinabkenar.github.io/mysite/images/traditional_ml/deep_learning/mlp.png"
+                                  style="max-width: 20%; height: auto;"
+                                />
+                              <figcaption>Fig. 1: An overall architecture for an MLP.</figcaption>
+                          </figure>
+
+                          <ul>
+                            <li>
+                              <p align="justify">
+                                <b>Input Layer:</b> The number of neurons in the input layer corresponds 
+                                to the number of features in the dataset. 
+                              </p>
+                            </li>
+                            <li>
+                              <p align="justify">
+                                <b>Hidden Layer:</b> The network may include one or multiple hidden layers, 
+                                each containing an arbitrary number of neurons. These layers are responsible 
+                                for learning hierarchical feature representations.
+                              </p>
+                            </li>
+                            <li>
+                              <p align="justify">
+                                <b>Output Layer:</b> This layer generates the final prediction or output of 
+                                the model.
+                              </p>
+                            </li>
+                          </ul>
+                        </p>
+
+                        <p align="justify">
+                          Since neurons in an MLP are typically densely connected, most architectures are 
+                          <em>fully connected</em>, i.e., each neuron in one layer is connected to all 
+                          neurons in the subsequent layer [2, 3].
+                        </p>
+
+                        <h2>Mechanisms</h2>
+                        <p align="justify">
+                          Each MLP operates based on four fundamental mechanisms: <b>forward propagation</b>, 
+                          <b>loss computation</b>, <b>backpropagation</b>, and <b>optimization</b> [2, 3].
+                        </p>
+
+
+                        <h3>Forward Propagation</h3>
+                        <p align="justify">
+                          During forward propagation, data flows from the input layer to the output layer, 
+                          passing through the hidden layers. Each neuron processes the input in two steps [2, 3].
+
+                          <ol>
+                            <li>
+                              <p align="justify">
+                                <b>Weighted Sum:</b> Each neuron computes a weighted sum of its inputs as [2, 3]
+                              </p>
+
+                              <p>
+                                \[
+                                    z = \sum_{i=1}^{N} w_{i}x_{i} + b,
+                                \]
+                              </p>
+
+                              <p align="justify">
+                                <b>where \(N\) is the number of inputs, \(x_{i}\) represents the input data, 
+                                  \(w_{i}\) the corresponding weights, and \(b\) the bias term. This operation 
+                                  establishes a linear relationship among inputs, weights, and bias [2, 3].
+                              </p>
+                            </li>
+                            <li>
+                              <p align="justify">
+                                <b>Activation Function:</b> To introduce non-linearity, an activation function 
+                                is applied to \(z\). Common activation functions include [2, 3]:
+
+                                <ul>
+                                  <li>
+                                    <p align="justify">
+                                      <b>Sigmoid:</b>
+                                    </p>
+
+                                    <p>
+                                      \[
+                                          \sigma(z) = \frac{1}{1 + e^{-z}}
+                                      \]
+                                    </p>
+                                  </li>
+                                  <li>
+                                    <p align="justify">
+                                      <b>Rectified Linear Unit (ReLU):</b>
+                                    </p>
+
+                                    <p>
+                                      \[
+                                          f(z) = \max\{0, z\}
+                                      \]
+                                    </p>
+                                  </li>
+                                  <li>
+                                    <p align="justify">
+                                      <b>Hyperbolic Tangent (Tanh):</b>
+                                    </p>
+
+                                    <p>
+                                      \[
+                                          \tanh(z) = \frac{2}{1 + e^{-2z}} - 1
+                                      \]
+                                    </p>
+                                  </li>
+                                </ul>
+                              </p>
+                            </li>
+                          </ol>
+                        </p>
+
+                        <h3>Loss Function</h3>
+                        <p align="justify">
+                          The loss function quantifies the difference between predicted and actual values, 
+                          that guides the optimization process. Selecting an appropriate loss function is 
+                          crucial for effective training. Common loss functions include [2, 3]:
+
+                          <ul>
+                            <li>
+                              <p align="justify">
+                                <b>Binary Classification:</b> Binary Cross-Entropy Loss (BCELoss) is 
+                                suitable when the output layer contains a single neuron. For \(N\) samples, 
+                                with true labels \(y_{i}\) and predicted probabilities \(\hat{y}_{i}\), 
+                                the loss is defined as [2, 3]:
+                              </p>
+
+                              <p>
+                                \[
+                                    \mathcal{L} = -\frac{1}{N}\sum_{i=1}^{N}\left[ y_{i}\log(\hat{y}_{i}) + (1 - y_{i})\log(1 - \hat{y}_{i})\right]
+                                \]
+                              </p>
+                            </li>
+                            <li>
+                              <p align="justify">
+                                <b>Multi-class Classification:</b> For tasks with \(C\) classes, 
+                                Cross-Entropy Loss (CELoss) is used. The output layer includes 
+                                \(C\) neurons, each representing a class [2, 3]:
+                              </p>
+
+                              <p>
+                                \[
+                                    \mathcal{L} = -\frac{1}{N}\sum_{i=1}^{N}\sum_{c=1}^{C} y_{ic}\log(\hat{y}_{ic})
+                                \]
+                              </p>
+                            </li>
+                            <li>
+                              <p align="justify">
+                                <b>Regression:</b> Mean Squared Error (MSE) Loss is commonly used 
+                                for regression tasks [2, 3]:
+                              </p>
+
+                              <p>
+                                \[
+                                    \mathcal{L} = \frac{1}{N}\sum_{i=1}^{N}(y_{i} - \hat{y}_{i})^{2}
+                                \]
+                              </p>
+                            </li>
+                          </ul>
+                        </p>
+
+                        <h3>Backpropagation</h3>
+                        <p align="justify">
+                          The objective of training is to minimize the loss by updating the network's 
+                          parameters (weights and biases). Backpropagation is the process through 
+                          which this minimization is achieved [2, 3].
+
+                          <ol>
+                            <li>
+                              <p align="justify">
+                                <b>Gradient Calculation:</b> In the backpropagation, the mode first 
+                                computes the gradient of the loss function w.r.t. each weight and 
+                                bias [2, 3].
+                              </p>
+                            </li>
+                            <li>
+                              <p align="justify">
+                                <b>Error Propagation:</b> In this step, the computed errors are 
+                                propagated backward from the output layer to the input layer [2, 3].
+                              </p>
+                            </li>
+                            <li>
+                              <p align="justify">
+                                <b>Parameter Update:</b> Finally, weights and biases are updated 
+                                using the gradient descent rule with a defined learning rate 
+                                \(\alpha\) [2, 3]:
+                              </p>
+
+                              <p>
+                                \[
+                                    \begin{split}
+                                        w &\leftarrow w - \alpha\frac{\partial\mathcal{L}}{\partial w},\\
+                                        b &\leftarrow b - \alpha\frac{\partial\mathcal{L}}{\partial b}
+                                    \end{split}
+                                \]
+                              </p>
+                            </li>
+                          </ol>
+                        </p>
+
+                        <h3>Optimization</h3>
+                        <p align="justify">
+                          Optimization algorithms are applied to adjust the weights and biases 
+                          efficiently based on the gradients. Two widely used optimization 
+                          techniques in MLPs are <b>Stochastic Gradient Descent (SGD)</b> [4] 
+                          and <b>Adaptive Moment Estimation (Adam)</b> [5].
+
+                          <ul>
+                            <li>
+                              <p align="justify">
+                                <b>Stochastic Gradient Descent (SGD):</b> In SGD, the model 
+                                updates parameters using a single (or small batch of) training 
+                                samples at each iteration, rather than the entire dataset. 
+                                This approach improves computational efficiency and helps escape 
+                                local minima. The parameter update rule is [4]:
+                              </p>
+
+                              <p>
+                                \[
+                                    \theta \leftarrow \theta - \alpha \nabla_{\theta}\mathcal{L}(\theta; x_{i}, y_{i}),
+                                \]
+                              </p>
+
+                              <p align="justify">
+                                where \(\alpha\) is the learning rate, \(\theta\) denotes model 
+                                parameters, and \(\nabla_{\theta}\mathcal{L}\) represents the 
+                                gradient of the loss [4].
+                              </p>
+                            </li>
+                            <li>
+                              <p align="justify">
+                                <b>Adaptive Moment Estimation (Adam)::</b> SGD is prone to trapping 
+                                in local minima. To address this limitation, Adam combines the 
+                                advantages of SGD with momentum and adaptive learning rates. 
+                                It uses <em>momentum</em> to accelerate the gradient descent process 
+                                by incorporating an exponentially weighted moving average of past 
+                                gradients. This helps smooth out the trajectory of the optimization 
+                                allowing the algorithm to converge faster by reducing oscillations. 
+                                The update rule with momentum is given by [5]:
+                              </p>
+
+                              <p>
+                                \[
+                                    w_{t + 1} = w_{t} - \alpha m_{t},
+                                \]
+                              </p>
+
+                              <p align="justify">
+                                where \(m_{t}\) is the moving average of the gradients at time \(t\); 
+                                parameter \(\alpha\) shows the learning rate; and \(w_{t}\) and \(w_{t+1}\) 
+                                represent the weights of the model at times \(t\) and \(t + 1\), respectively. 
+                                The momentum term \(m_{t}\) is updated recursively as [5]
+                              </p>
+
+                              <p>
+                                \[
+                                    m_{t} = \beta_{1}m_{t - 1} + (1 - \beta_{1})\frac{\partial\mathcal{L}}{\partial w_{t}},
+                                \]
+                              </p>
+
+                              <p align="justify">
+                                where \(\beta_{1}\) is the momentum parameter (typically set to 0.9), 
+                                \(\partial\mathcal{L}/\partial w_{t}\) is the gradient of the loss 
+                                function w.r.t. the weights at time \(t\) [5].
+                              </p>
+
+                              <p align="justify">
+                                Adam also exploits Root Mean Square Propagation (RMSprop) that helps 
+                                overcome the problem of diminishing learning rates via exponentially 
+                                weighted moving average of squared gradients. The update rule for 
+                                RMSprop is [5]
+                              </p>
+
+                              <p>
+                                \[
+                                    w_{t + 1} = w_{t} - \frac{\alpha_{t}}{\sqrt{v_{t} + \epsilon}}\frac{\partial\mathcal{L}}{\partial w_{t}},
+                                \]
+                              </p>
+
+                              <p align="justify">
+                                where \(\epsilon\) is a small constant to avoid division by zero. 
+                                Also, \(v_{t}\) is the exponentially weighted average of squared 
+                                gradients that is given by [5]
+                              </p>
+
+                              <p>
+                                \[
+                                    v_{t} = \beta_{2}v_{t - 1} + (1 - \beta_{2})\left(\frac{\partial\mathcal{L}}{\partial w_{t}}\right)^{2},
+                                \]
+                              </p>
+
+                              <p align="justify">
+                                where \(\beta_{2}\) is the decay rate (typically set to 0.999) [5].
+                              </p>
+
+                              <p align="justify">
+                                Overall, Adam maintains exponentially decaying averages of past 
+                                gradients (first moment) and squared gradients (second moment), 
+                                allowing for stable and fast convergence. Its update rules are 
+                                [5]:
+                              </p>
+
+                              <p>
+                                \[
+                                    \begin{split}
+                                        \hat{m}_{t} &= \frac{m_{t}}{1 - \beta_{1}^{t}}, \quad \hat{v}_{t} = \frac{v_{t}}{1 - \beta_{2}^{t}} \\
+                                        \theta_{t} &= \theta_{t-1} - \alpha \frac{\hat{m}_{t}}{\sqrt{\hat{v}_{t}} + \epsilon},
+                                    \end{split}
+                                \]
+                              </p>
+                            </li>
+                          </ul>
+                        </p>
+
+                        <p align="justify">
+                          Adam generally outperforms vanilla SGD in practice due to its 
+                          adaptive learning rate and momentum terms, especially in 
+                          high-dimensional and sparse datasets [5].
+                          </p>
+                        
+                         <h2>Implementation</h2>
+                          <p align="justify">
+                            We developed two MLP networks for a binary classification 
+                            task to demonstrate the difference between the 
+                            <b>Binary Cross-Entropy Loss (BCELoss)</b> and the 
+                            <b>Cross-Entropy Loss (CELoss)</b> functions. The models 
+                            were implemented using the <b>PyTorch</b> [6] framework. 
+                            Both MLPs consist of one input layer, one hidden layer, 
+                            and one output layer. The input and hidden layers contain 
+                            20 (corresponding to the number of features) and 16 neurons, 
+                            respectively. However, the output layers differ in the number 
+                            of neurons depending on the selected loss function.
+                          </p>
+
+                          <p align="justify">
+                            The first MLP uses BCELoss as its loss function. Therefore, 
+                            the output layer consists of a single neuron with a 
+                            <b>Sigmoid</b> activation function. The following screenshot 
+                            illustrates the architecture of the corresponding MLP class.
+
+                            <center>
+                                <img src="https://foroughshirinabkenar.github.io/mysite/images/traditional_ml/deep_learning/mlp_arch_bce.png">
+                            </center>
+                          </p>
+                      
+                          <p align="justify">
+                            The training was conducted for 100 epochs, and 
+                            <b>k-fold cross-validation</b> was applied to mitigate 
+                            overfitting and improve model generalization. The following 
+                            screenshot shows the training and validation procedures 
+                            under k-fold cross-validation. The complete implementation 
+                            script is available on 
+                            <a href="https://github.com/foroughshirinabkenar/traditional_ml_tutorial/blob/main/mlp_binary_bce.ipynb" target="_blank">
+                              BCELoss-based MLP</a>.
+
+                            <center>
+                                <img src="https://foroughshirinabkenar.github.io/mysite/images/traditional_ml/deep_learning/mlp_train_bce.png">
+                            </center>
+                          </p>
+
+                          <p align="justify">
+                            The second model leverages CELoss as the loss function. 
+                            In this case, the output layer contains two neurons 
+                            corresponding to the two classes. The following screenshot 
+                            shows the corresponding MLP class defined for this model.
+
+                            <center>
+                                <img src="https://foroughshirinabkenar.github.io/mysite/images/traditional_ml/deep_learning/mlp_arch_ce.png">
+                            </center>
+                          </p>
+                      
+                          <p align="justify">
+                            Similar to the BCELoss-based MLP, this model was trained 
+                            for 100 epochs using k-fold cross-validation. The following 
+                            screenshot presents the training and validation process. 
+                            As shown, to obtain the corresponding label, \(\argmax\) 
+                            function is applied to the logits. The complete 
+                            implementation script is available on
+                            <a href="https://github.com/foroughshirinabkenar/traditional_ml_tutorial/blob/main/mlp_binary_ce.ipynb" target="_blank">
+                              CELoss-based MLP</a>.
+
+                            <center>
+                                <img src="https://foroughshirinabkenar.github.io/mysite/images/traditional_ml/deep_learning/mlp_train_ce.png">
+                            </center>
+                          </p>
+
+                      
+                      <h2>References</h2>
+                      <p align="justify">
+                        [1] F. Pedregosa, G. Varoquaux, A. Gramfort, V. Michel, B. Thirion, O. Grisel, M. Blondel, 
+                        P. Prettenhofer, R. Weiss, V. Dubourg, J. Vanderplas, A. Passos, D. Cournapeau, 
+                        M. Brucher, M. Perrot, and E. Duchesnay, “Scikit-learn: Machine learning in Python,” 
+                        Journal of Machine Learning Research, vol. 12, pp. 2825–2830, 2011.
+                      </p>
+                      <p align="justify">
+                        [2] GeeksforGeeks,
+                        “Multi-layer perceptron learning in tensorflow,”
+                        GeeksforGeeks, accessed: September 30, 2022,
+                        <a href="https://www.geeksforgeeks.org/deep-learning/multi-layer-perceptron-learning-in-tensorflow/" target="_blank">
+                          https://www.geeksforgeeks.org/deep-learning/multi-layer-perceptron-learning-in-tensorflow/</a>.
+                      </p>
+                      <p align="justify">
+                        [3] Adrian Tam,
+                        “Building Multilayer Perceptron Models in PyTorch,”
+                        Machine Learning Mastery, accessed: April 8, 2023,
+                        <a href="https://machinelearningmastery.com/building-multilayer-perceptron-models-in-pytorch/" target="_blank">
+                          https://machinelearningmastery.com/building-multilayer-perceptron-models-in-pytorch/</a>.
+                      </p>
+                      <p align="justify">
+                        [4] GeeksforGeeks,
+                        “ML - Stochastic Gradient Descent (SGD),”
+                        GeeksforGeeks, accessed: September 30, 2025,
+                        <a href="https://www.geeksforgeeks.org/machine-learning/ml-stochastic-gradient-descent-sgd/" target="_blank">
+                          https://www.geeksforgeeks.org/machine-learning/ml-stochastic-gradient-descent-sgd/</a>.
+                      </p>
+                      <p align="justify">
+                        [5] GeeksforGeeks,
+                        “What is Adam Optimizer?,”
+                        GeeksforGeeks, accessed: October 4, 2025,
+                        <a href="https://www.geeksforgeeks.org/deep-learning/adam-optimizer/" target="_blank">
+                          https://www.geeksforgeeks.org/deep-learning/adam-optimizer/</a>.
+                      </p>
+                      <p align="justify">
+                        [6] Adam Paszke et al., “PyTorch: An Imperative Style, High-Performance 
+                        Deep Learning Library,”, 2019.
+                        <a href="https://arxiv.org/abs/1912.01703" target="_blank">
+                          https://arxiv.org/abs/1912.01703</a>.
+                      </p>
+                    </header>
+                    <section class="page__content" itemprop="text">
+                        <footer class="page__meta"></footer>
+                    </section>
+                </div>
+            </article>
+        </div>
+        <div class="page__footer">
+            <footer> 
+                <!-- start custom footer snippets --> 
+                <!-- <a href="/sitemap/">Sitemap</a> end custom footer snippets -->
+                <!-- <div class="page__footer-follow">
+                    <ul class="social-icons">
+                        <li><strong>Follow:</strong></li> -->
+                        <!-- <li><a href="http://github.com/arghosh"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a></li> -->
+                        <!-- <li><a href="https://arghosh.github.io/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li> -->
+                    <!-- </ul> -->
+                <!-- </div> -->
+                <!-- <div class="page__footer-copyright">© 2020 Forough Shirin Abkenar. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/academicpages/academicpages.github.io">AcademicPages</a>, a fork of <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>. -->
+                <!-- </div> -->
+            </footer>
+        </div>
+        <script src="https://foroughshirinabkenar.github.io/mysite/assets/js/main.min.js"></script> 
+        <script> (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','//www.google-analytics.com/analytics.js','ga'); ga('create', 'UA-113060154-1', 'auto'); ga('send', 'pageview'); </script>
+    </body>
+
+</html>
